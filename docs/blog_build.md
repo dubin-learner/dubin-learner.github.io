@@ -18,7 +18,7 @@
 
 到`git`的[官网](https://git-scm.com/download/win)下载对应的版本并安装。
 
-连接git到Github，网上教程很多，不在此详述。[这一个教程](https://www.cnblogs.com/flora5/p/7152556.html)，核心操作：生成ssh的key，在Github的settings中读入。
+连接git到Github，网上教程很多，不在此详述。[这是一个教程](https://www.cnblogs.com/flora5/p/7152556.html)，核心操作：生成ssh的key，在Github的settings中读入。
 
 选择一个工作目录，直接通过`clone`的方式，将之前新建的仓库同步到本地：
 
@@ -87,9 +87,33 @@ git push -u origin master
 
 PS：总体来说图片码了个寂寞😂
 
+## 遇到的一些坑
+
+### 1. C++代码高亮
+
+根据`docsify`的[官方文档](https://docsify.js.org/)，在markdown中进行代码高亮时需要添加对应的[Prism仓库](https://github.com/PrismJS/prism/tree/gh-pages/components)中的js文件。然而，C++语法高亮需要添加以下三个：
+
+```html
+<script src="//unpkg.com/prismjs/components/prism-c.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-clike.js"></script>
+<script src="//unpkg.com/prismjs/components/prism-cpp.js"></script> 
+```
+
+仅仅添加prism-cpp.js是不够的。参考自[该文章](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)的代码高亮一节。这篇文章中提到的一些`docsify`的配置还是很有用的。
+
+### 2. 其他主题
+
+其实主题修改方面个人觉得意义不大，但以后可能修改，因此也要做一些功课。
+
+目前已知的修改主题方式可参考[该文章](https://jhildenbiddle.github.io/docsify-themeable/#/introduction)，使用`docsify-themeable`，自由定制化程度较高。
+
+简单试过修改为暗黑模式，效果还可以，但还是换回了原来的主题，因此不再赘述。
+
 
 ## 参考文章
 1. [Git基础-获取Git仓库](https://www.git-scm.com/book/zh/v2/Git-基础-获取-Git-仓库#ch02-git-basics-chapter)
 2. [Git与Github的连接和使用](https://www.cnblogs.com/flora5/p/7152556.html)
 3. [PowerShell因为在此系统上禁止运行脚本解决方法](https://www.jianshu.com/p/4eaad2163567)
 4. [基于Github Pages + docsify半天搭建个人博客](https://www.cnblogs.com/happyone/p/12152566.html)
+5. [温锦瑜的博客 docsify：做一个自己的笔记本应用](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)
+6. [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/introduction) 

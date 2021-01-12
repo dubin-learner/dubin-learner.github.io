@@ -4,7 +4,7 @@
 
 ## 随机数生成 `rand`
 
-```
+```c
 int rand(void)
 ```
 定义所在的头文件<cstdlib>
