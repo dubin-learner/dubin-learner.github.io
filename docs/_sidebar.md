@@ -7,3 +7,4 @@
 * [C++ STL API学习](/STL_learning)
 * [C++ STL priority_queue](/STL_priority_queue)
 * [C++ STL heap](/STL_heap)
+* [EDA LEC](/EDA_LEC)
