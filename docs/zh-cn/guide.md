@@ -1,3 +1,0 @@
-# this is guide
-
-content

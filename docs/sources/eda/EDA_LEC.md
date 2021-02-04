@@ -15,7 +15,7 @@
 
 > LEC包括三个步骤，如下图所示：设置模式，映射模式和比较模式。
 
-![逻辑等效检查流程图](resources/EDA_LEC/20190211_1.jpg)
+![逻辑等效检查流程图](EDA_LEC/20190211_1.jpg)
 
 > 有各种用于执行LEC的EDA工具，例如Synopsys Formality和Cadence Conformal。这里，我们将Conformal工具作为参考，以解释LEC的重要性。
 
@@ -78,6 +78,16 @@ Formal的报告：
 
 > 图形化界面可以打开电路进行对比，更有利于debug。
 
+Formal在进行形式验证时依赖svf文件，这个文件描述了Revised相对于Golden的一些关键点修改（主要是寄存器）。
+
+chenliang在离职前的最后一个任务就是在综合后生成用于Formal的svf文件，当时说得好像很着急，现在也不知道我司的硬件组Formal的流程推进到哪里了。
+
+> 工具把整个等价性检查工具拆分为一系列两个参考点之间的组合逻辑的等价性验证，可以让整个工作高效完成。当然，这只是简单的易于理解的说法，实际上里面会有很多的加速手段。
+
+![CEC match](EDA_LEC/CEC_match.jpg)
+
+> CEC（Combinational Equivalence Check）在IC flow中是标配，即是工程师口中狭义的形式验证，没有听说过不用的。
+
 ## 顺序等价性检查（SEC）
 
 > 顺序等价性检查是验证两个设计在功能上是否相同的过程，并且在提供相同输入时验证是否有相同的输出。它用于比较两种设计的顺序逻辑，而这两种设计可能有不同的实现。SEC是一个复杂的过程，因此非常受设计规模的限制。
@@ -88,7 +98,7 @@ Formal的报告：
 
 的确对于只修改一小部分的设计来说，整体验证功能的确会耗费较多时间。关于SEC以后遇到再补充。
 
-![SEC](resources/EDA_LEC/SEC.gif)
+![SEC](EDA_LEC/SEC.gif)
 
 ## 参考文章
 
@@ -96,3 +106,5 @@ Formal的报告：
 2. [一文看懂LEC在IC设计中的重要性](http://www.semiinsights.com/s/electronic_components/23/36248.shtml)
 3. [形式验证 学习笔记](https://blog.csdn.net/zgezi/article/details/108309564)
 4. [形式验证简介及其三种技术形式](https://www.eet-china.com/news/201907191430.html)
+5. [功能ECO理论基础：逻辑等价性检查（LEC）](https://zhuanlan.zhihu.com/p/148593174)
+6. [谈一谈IC flow中的形式验证](https://zhuanlan.zhihu.com/p/144680573)
