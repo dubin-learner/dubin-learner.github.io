@@ -10,3 +10,5 @@
 * [C++ STL permutation](/sources/stl/STL_permutation)
 * [EDA LEC](/sources/eda/EDA_LEC)
 * [EDA fullcase](/sources/eda/EDA_fullcase)
+* [EDA Xilinx DCI](/sources/eda/EDA_XilinxDCI)
+* [EDA IOPlanning](/sources/eda/EDA_IOPlanning)
