@@ -87,10 +87,10 @@ int main() {
 
 > CPU都是多级流水线架构运行，如果分支预测成功，很多指令都提前进入流水线流程中，则流水线中指令运行的非常顺畅，而如果分支预测失败，则需要清空流水线中的那些预测出来的指令，重新加载正确的指令到流水线中执行，然而现代CPU的流水线级数非常长，分支预测失败会损失10-20个左右的时钟周期，因此对于复杂的流水线，好的分支预测方法非常重要。
 
-原文中是使用工具`perf`来展示两种情况下的分支预测结果，使用valgrind工具：
+原文中是使用工具`perf`来展示两种情况下的分支预测结果，使用valgrind工具，需要通过`--branch-sim=yes`把分支预测打开：
 
 ```bash
-valgrind --tool=cachegrind ./test_predict
+valgrind --tool=cachegrind --branch-sim=yes ./test_predict
 ```
 
 进行了排序的结果：
@@ -101,11 +101,11 @@ valgrind --tool=cachegrind ./test_predict
 
 ![没进行排序](note/test_predict_no.jpg)
 
-好像并没有看到明显的差别，可能是将排序的代价也算进去了？😅
+可以明显看到，如果不进行排序的话，分支预测的失败率直接上升到了25%，由此导致的时钟周期损失很明显了。
 
 ### Valgrind工具相关
 
-Valgrind工具在运行时可能会报错`error calling PR_SET_PTRACER, vgdb might block`，这个问题是因为程序如果在系统调用（syscall）中阻塞，需要vgdb来唤醒，使用的途径就是`PR_SET_PTRACER`；换言之如果程序不会在syscall中阻塞，则不会出问题(StackOverflow上的回答，参考文章4)。似乎新版本的WSL2已经修复了该问题。
+Valgrind工具在运行时可能会报错`error calling PR_SET_PTRACER, vgdb might block`，这个问题是因为程序如果在系统调用（syscall）中阻塞，需要vgdb来唤醒，使用的途径就是`PR_SET_PTRACER`；换言之如果程序不会在syscall中阻塞，则不会出问题；似乎新版本的WSL2已经修复了该问题。(StackOverflow上的回答，参考文章4)
 
 对于Valgrind工具的使用，可以参考一篇专栏：[郭老二-GDB](https://blog.csdn.net/u010168781/category_6998350.html)
 
