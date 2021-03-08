@@ -5,7 +5,7 @@
 * [CSAPP读书笔记1](/sources/csapp/CSAPP_note1)
 * [CSAPP读书笔记2](/sources/csapp/CSAPP_note2)
 * [C++ STL API学习](/sources/stl/STL_learning)
-* [C++ STL priority_queue](/sources/stl/STL_priority_queue)
+* [C++ STL `priority_queue`](/sources/stl/STL_priority_queue)
 * [C++ STL heap](/sources/stl/STL_heap)
 * [C++ STL permutation](/sources/stl/STL_permutation)
 * [EDA LEC](/sources/eda/EDA_LEC)
