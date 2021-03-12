@@ -81,7 +81,7 @@ int main() {
 
 通过保留/注释`std::sort()`这一行来分别检查程序中的分支预测情况，运行结果的差异：
 
-![运行结果](note/result.jpg)
+![运行结果](note_0/result.jpg)
 
 代码中问题很明显，如果数据经过排序，双重循环中的if在预测时正确率会变高（数据有序，则前一部分都是false而后面全是true）；若未排序则很难预测下一个数据的情况。
 
@@ -95,11 +95,11 @@ valgrind --tool=cachegrind --branch-sim=yes ./test_predict
 
 进行了排序的结果：
 
-![进行了排序](note/test_predict.jpg)
+![进行了排序](note_0/test_predict.jpg)
 
 没有进行排序的结果：
 
-![没进行排序](note/test_predict_no.jpg)
+![没进行排序](note_0/test_predict_no.jpg)
 
 可以明显看到，如果不进行排序的话，分支预测的失败率直接上升到了25%，由此导致的时钟周期损失很明显了。
 

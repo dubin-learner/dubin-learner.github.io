@@ -20,6 +20,8 @@
 
 连接git到Github，网上教程很多，不在此详述。[这是一个教程](https://www.cnblogs.com/flora5/p/7152556.html)，核心操作：生成ssh的key，在Github的settings中读入。
 
+**更新**：新版的git连接github可以不用生成ssh的key，在git的bash中配置了邮箱和用户名之后，进行`git commit`等操作时，会提示读取浏览器的cookies状态，来进行连接。
+
 选择一个工作目录，直接通过`clone`的方式，将之前新建的仓库同步到本地：
 
 ```bash

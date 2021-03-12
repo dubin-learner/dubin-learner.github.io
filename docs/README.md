@@ -1,5 +1,11 @@
-# Headline
+# 关于我
 
-> An awesome project.
+在硬件公司工作的软件工程师，擅长日常摸鱼。
 
-difference
+最近要完成的博客清单：
+1. 单调栈和单调队列相关
+2. 公众号文章笔记系列
+3. 读书笔记，先是effective C++，然后是CSAPP
+4. 参加Leetcode周赛的总结
+5. 希望每次在Leetcode上遇到的hard都记录一篇
+6. 最近在读的espresso逻辑优化源码
