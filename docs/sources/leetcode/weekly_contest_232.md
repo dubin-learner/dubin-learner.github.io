@@ -1,1 +1,157 @@
 # 第232场周赛
+
+[周赛链接](https://leetcode-cn.com/contest/weekly-contest-232/)
+
+总体来说本周的题目偏简单（相对于周赛的平均水平），但我这次参与仍然只做了前两道题，排名是1596/4801，成绩有点惨不忍睹。下面将逐一分析每一道题，以及产生失败的原因。
+
+### 1.仅执行一次字符串交换能否使两个字符串相等
+
+[题目链接](https://leetcode-cn.com/problems/check-if-one-string-swap-can-make-strings-equal/)
+
+难度等级：`easy` 3分
+
+我的思路是：
+1. 先判断两个字符串中所有小写字母出现的频次（字符串仅有小写字母组成），如果相等则两个字符串可以交换得到；
+2. 再判断两个字符串相同位置字符不同的次数，因为有第一点保证，所以当次数不大于2时，即可**至多一次交换得到**。
+
+代码如下：
+``` cpp
+class Solution {
+    bool areAlmostEqual(string s1, string s2) {
+        vector<int> times(26, 0);                     // 统计所有小写字母频次
+        for (char c : s1) times[c - 'a']++;
+        for (char c : s2) times[c - 'a']--;
+        for (int i : times) if (i != 0) return false; // 频次不同则一定不能变换得到
+        const int n = s1.size();
+        int count = 0;
+        for (int i = 0; i < n; ++i) {
+            if (s1[i] != s2[i]) count++;              // 统计相同位置不同字符的数目
+        }
+        return count <= 2;                            // 次数不大于2则至多一次交换可得到
+    }
+}
+```
+
+### 2.找出星型图的中心节点
+
+[题目链接](https://leetcode-cn.com/problems/find-center-of-star-graph/)
+
+难度等级：`media` 3分 其实应该是`easy`
+
+我的思路是：
+1. 很明显星型图的中心和所有节点都会存在一条边，且不存在其他形式的边，因此，所有边都包含的节点就是中心。
+
+代码如下：
+``` cpp
+class Solution {
+public:
+    int findCenter(vector<vector<int>>& edges) {
+        int node0 = edges[0][0], node1 = edges[0][1];
+        for (int i = 1; i < edges.size(); ++i) {
+            auto& v = edges[i];
+            if (v[0] == node0 || v[1] == node0) return node0;
+            if (v[0] == node1 || v[1] == node1) return node1;
+        }
+        return node0;
+    }
+};
+```
+
+> 以上就是本次做出的两题，可以说相当简单了。
+
+### 3.最大平均通过率
+
+[题目链接](https://leetcode-cn.com/problems/maximum-average-pass-ratio/)
+
+难度等级：`media` 5分
+
+这道题虽然没能成功提交，但思路基本上正确。思路如下：
+1. 对于每个班级，增加一个必然能通过的优秀考生，都可以提升通过率，但提升的幅度不同。因此，只要每次增加学生时选择提升幅度最大的班级，必然整体的增幅最大；（贪心思想）
+2. 本次增加学生的班级，下一次增加学生时通过率提升的幅度也将改变。因此每次增加学生后，班级之间通过率提升幅度的顺序也将改变；（按照通过率增幅排序，且每次增加后排序修改）
+3. 考虑数据的复杂度，班级：10^5，优秀学生：10^5。如果在每次增加优秀学生之后再重新排序，则时间复杂度至少为10^10，肯定不行；最外层增加优秀学生（贪心）的复杂度已经是10^5，因此调整排序时应该更低；
+4. 很容易想到**堆**，添加或删除一个数据的时间复杂度都是logn。因此以每个班级增加一个优秀学生时的通过率增幅作为权重，构建一个最大堆；
+5. 每增加一个优秀学生，堆顶出堆并修改通过率增幅，重新入堆，动态调整直到剩余的优秀学生为零。在最初数据的通过率总和的基础上，叠加通过率的增幅，调整完毕就得到最大的通过率。
+
+思路是没有问题的，但提交后总是**超时**。想了很久，一度以为思路有问题。比赛结束后，发现是因为构建堆的每个元素是`vector`，改成`pair`即可通过（`vector`中只有两个元素）。
+
+> 翻了一下相关的评论，大概的原因是说`vector`中维护的信息更多，相比于`pair`在出入堆的操作上会更耗时。
+
+**注意**：以后同类问题，尽量选择更简单的数据结构。两个元素的`vector`，明显替换成`pair`更合适。
+
+``` cpp
+class Solution {
+public:
+    double maxAverageRatio(vector<vector<int>>& classes, int extraStudents) {
+        struct cmp {                         // 比较函数，功能是less()，即a < b时返回true
+            bool operator() (pair<int, int>& a, pair<int, int>& b) {
+                double diff_a = (double)(a.first + 1) / (a.second + 1) - (double)a.first / a.second;
+                double diff_b = (double)(b.first + 1) / (b.second + 1) - (double)b.first / b.second;
+                return diff_a < diff_b;      // 比较的是每个班级通过率的增加幅度
+            }
+        };
+        double sum = 0;
+        priority_queue<pair<int,int>, vector<pair<int, int> >, cmp> q; // 优先队列默认是最大堆，默认函数为less
+        for (vector<int>& v : classes) {     // sum用来记录初始的通过率总和
+            q.push(std::make_pair(v[0], v[1]));
+            sum += (double)v[0] / v[1];
+        }
+        int i = 0;
+        while (i < extraStudents) {
+            pair<int, int> v = q.top();      // 每增加一个优秀学生，选择增幅最大的班级，即堆顶出堆
+            q.pop();
+            sum -= (double)v.first/v.second;
+            v.first++;
+            v.second++;
+            sum += (double)v.first/v.second; // 更新sum中的通过率之和
+            q.push(v);                       // 更新通过率的增幅
+            ++i;
+        }
+        return sum / classes.size();         // 返回最大平均通过率
+    }
+};
+```
+
+### 4. 好子数组的最大分数
+
+[题目链接](https://leetcode-cn.com/problems/maximum-score-of-a-good-subarray/)
+
+难度等级：`hard` 6分 感觉其实应该是`media`
+
+因为看到是**hard**，所以在上一题卡住之后，粗略看了一下题目，似乎暂时没有思路就放弃了。比赛结束后看了一下排行榜，居然有个人从后往前做题，且本题花费时间较少，于是重新读题思考，有了思路之后写代码提交，居然一遍过。😂
+
+> 评论区里，本题是公认的比较简单。且题库中存在类似的题目[84.柱状图中最大的矩形](https://leetcode-cn.com/problems/largest-rectangle-in-histogram/)
+
+思路如下：
+1. 好子数组其实是围绕下标k向左右两边伸展的，且该分数和左右边界之间的距离还有关，因此重点是确定边界；
+2. 初始肯定只有下标k一个，子数组内最小数据是nums[k]，当左右两边的数据都大于nums[k]时，可以扩展边界；
+3. 边界上出现新的最小值后，更新子数组内最小数据，再次扩展边界，直到扩展到整个数组的边界；
+4. 每一个最小值和其所在的最大边界都可以计算出一个分数，这些分数中最大的就是结果。
+
+代码如下：
+``` cpp
+class Solution {
+public:
+    int maximumScore(vector<int>& nums, int k) {
+        const int n = nums.size();
+        int l = k, r = k; // left and right; 即左边界和右边界，最初都是在k这个位置
+        int min_val = nums[k], ans = nums[k];
+        while (l >= 0 || r < n) {                                 // 扩展的终点：整个数组的边界
+            while (l >= 0 && nums[l] >= min_val) --l;
+            while (r < n  && nums[r] >= min_val) ++r;
+            ans = std::max(ans, (r - 1 - (l + 1) + 1) * min_val); // 更新最大的分数
+            if (l >= 0 && r < n) min_val = std::max(nums[l], nums[r]);
+            else if (l >= 0) min_val = nums[l];
+            else if (r < n) min_val = nums[r];                    // 用边界上更小的值来更新最小值
+        }
+        return ans;
+    }
+};
+```
+
+### 总结
+
+总体来说，这次周赛的题目是偏简单的，但成绩惨不忍睹。究其原因，我觉得应该有以下两点：
+1. **经验不足**：将`vector`换成`pair`现在想来的确理所当然，但平时没有这种经验所以导致比赛时想不到；
+2. 对于**hard**有点畏惧：的确很多困难的题目很难做出来，这是因为leetcode对于高于`media`难度的题目全部划分为`hard`，导致同为困难问题也有不小的差异。但是自己首先应该抛开对于困难问题的畏惧心理，也许就能碰到比较简单的结果顺利AC；并且以后总是要不断挑战困难问题的。
+
+继续努力，争取早日换到心仪的工作单位；leetcode也想至少拿一个knight勋章啊。
