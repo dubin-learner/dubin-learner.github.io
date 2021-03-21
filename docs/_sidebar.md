@@ -24,6 +24,9 @@
 
 * LeetCode
   * [第232场周赛](/sources/leetcode/weekly_contest_232)
+  * [一点无用的想法](/sources/leetcode/useless_thought)
+  * [第48场双周赛](/sources/leetcode/double_weekly_contest_48)
+  * [第233场周赛](/sources/leetcode/weekly_contest_233)
 
 * Other Notes
   * [note 0](/sources/notes/note_0)
