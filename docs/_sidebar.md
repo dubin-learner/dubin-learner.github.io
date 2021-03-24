@@ -3,10 +3,6 @@
 * [首页](/)
 * [博客搭建](/blog_build)
 
-* CSAPP
-  * [CSAPP读书笔记1](/sources/csapp/CSAPP_note1)
-  * [CSAPP读书笔记2](/sources/csapp/CSAPP_note2)
-
 * C++ STL
   * [C++ STL API学习](/sources/stl/STL_learning)
   * [C++ STL `priority_queue`](/sources/stl/STL_priority_queue)
@@ -28,9 +24,17 @@
   * [第48场双周赛](/sources/leetcode/double_weekly_contest_48)
   * [第233场周赛](/sources/leetcode/weekly_contest_233)
 
-* Other Notes
-  * [note 0](/sources/notes/note_0)
-  * [note 1](/sources/notes/note_1)
-  * [effective C++](/sources/notes/effective_cpp)
+* Books Reading Notes
   * CSAPP
-    * [CSAPP 0](/sources/csapp/CSAPP_note1)
+    * [CSAPP读书笔记1](/sources/books/csapp/CSAPP_note1)
+    * [CSAPP读书笔记2](/sources/books/csapp/CSAPP_note2)
+  * Effective C++
+    * [effective C++](/sources/books/effective_cpp/effective_cpp)
+
+* Blogs Reading Notes
+  * 优化系列（From程序喵）
+    * [note 0](/sources/blogs/00/note_0)
+    * [note 1](/sources/blogs/00/note_1)
+  * [基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
+    * [note 0](/sources/blogs/01/note_0)
+
