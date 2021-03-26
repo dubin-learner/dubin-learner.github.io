@@ -19,10 +19,13 @@
   * [从C++到Qt](/sources/qt/00_from_cpp_to_qt)
 
 * LeetCode
-  * [第232场周赛](/sources/leetcode/weekly_contest_232)
+  * 周赛
+    * [第232场周赛](/sources/leetcode/weekly_contest_232)
+    * [第48场双周赛](/sources/leetcode/double_weekly_contest_48)
+    * [第233场周赛](/sources/leetcode/weekly_contest_233)
+  * 算法笔记
+    * [单调栈和单调队列](sources/leetcode/monotonic_stack_and_queue)
   * [一点无用的想法](/sources/leetcode/useless_thought)
-  * [第48场双周赛](/sources/leetcode/double_weekly_contest_48)
-  * [第233场周赛](/sources/leetcode/weekly_contest_233)
 
 * Books Reading Notes
   * CSAPP
@@ -36,5 +39,5 @@
     * [note 0](/sources/blogs/00/note_0)
     * [note 1](/sources/blogs/00/note_1)
   * [基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
-    * [note 0](/sources/blogs/01/note_0)
+    * [C执行文件内存布局](/sources/blogs/01/note_0)
 

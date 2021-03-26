@@ -106,6 +106,24 @@ struct control_block {
 > 这样的一个结构，如果malloc函数内部得到的内存区域的首地址为`void *p`,那么它返回给你的就是`p + sizeof(control_block)`，而调用free(p)的时候，该函数把p减去`sizeof(control_block)`，然后就可以根据`((control_blcok*)p)->size`得到要释放的内存区域的大小。<br>
 这也就是为什么free只能用来释放malloc分配的内存，如果用于释放其他的内存，会发生未知的错误。
 
+写了一个简单的程序，在gdb下查看了malloc分配的指针前几个字节的内存：
+```cpp
+int main(int argc, char* argv[]) {
+  int n = 1;
+  if (argc == 2) n = atoi(argv[1]);
+  int * p = (int *)malloc(sizeof(int) * n);
+  for (int i = 0; i < n; ++i) *(p + i) = 0x12345678 - i;
+  printf("p = 0x%x\n", p);
+  free(p);
+  return 0;
+}
+```
+通过输入参数直接控制分配内存的大小。在gdb中可以看到：
+
+![gdb结果](note_0/02.jpg)
+
+的确在malloc返回的地址前的一块内存发生了变化，如果改变分配的内存的大小其数值也会随之变化。
+
 ## 计算机中浮点数运算的问题
 
 例子就不用了，情况是浮点数多次运算（累加）结果出现偏差。原因就是浮点数的精度有限，对于有些不能精确表示的数字（如0.1）多次运算会导致偏差累计。
@@ -126,11 +144,10 @@ b.a = 300;
 b.c = 500;
 printf("%d", b.a + b.c);
 ```
-正确答案是1700。
+正确答案是1700。只要理解了指针的偏移所代表的意义，就能正确解答。首先要注意到`c`是一个`int *`的指针，`a`是`int`类型的整数，最后的结果是**指针+整数**的形式。`b.c = 500`即指针的值为500，`int`类型为4个字节，`int *`指针每次+1时要跳过当前的`int`并寻找下一个，会向后移动4个字节。因此最终的结果是`500 + 300*4 = 1700`，是很基础的问题。
 
 ## 参考文章
 1. [bss段是什么，用到bss段的整个流程是怎么的？](https://www.zhihu.com/question/23059602)
 2. [关于Linux下gcc编译C源文件时，生成的是Shared object file而不是Executable file](https://blog.csdn.net/cclethe/article/details/83387685)
 3. [面试官问我：bss段的大小记录在哪里？](https://bbs.csdn.net/topics/390613528)
 4. [为什么malloc时需要指定size，对应的free时不需要指定size？](https://www.zhihu.com/question/20362709)
-5. [How do malloc() and free() work?](https://stackoverflow.com/questions/1119134/how-do-malloc-and-free-work)
