@@ -40,4 +40,6 @@
     * [note 1](/sources/blogs/00/note_1)
   * [基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
     * [C执行文件内存布局](/sources/blogs/01/note_0)
+    * [基础数据结构的C实现](/sources/blogs/01/note_1)
+    * [GDB常见使用技巧](/sources/blogs/01/note_2)
 
