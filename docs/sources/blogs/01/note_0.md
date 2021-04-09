@@ -94,6 +94,10 @@ int main(int argc, char** argv) {   // 函数参数，栈
 
 ## malloc和free
 
+在堆上分配内存时，经常会用到malloc和free（C语言）。相较于由系统自动分配内存、速度较快的栈，不仅速度比较慢，同时也容易产生内存碎片。
+
+在Windows平台上，在堆上分配内存最好是使用`VirtualAlloc`。这是Windows的一个API，在进程的地址空间内保留一块内存（既不是在堆上也不是在栈上），速度快且比较灵活。
+
 **思考**：为什么malloc需要指定分配的大小，而free只需要一个地址参数？
 
 > 当调用`malloc(size)`时，实际分配的内存大小大于`size`字节，这是因为在分配的内存区域头部有类似于：
@@ -151,3 +155,4 @@ printf("%d", b.a + b.c);
 2. [关于Linux下gcc编译C源文件时，生成的是Shared object file而不是Executable file](https://blog.csdn.net/cclethe/article/details/83387685)
 3. [面试官问我：bss段的大小记录在哪里？](https://bbs.csdn.net/topics/390613528)
 4. [为什么malloc时需要指定size，对应的free时不需要指定size？](https://www.zhihu.com/question/20362709)
+5. [关于堆栈的讲解](https://blog.csdn.net/yingms/article/details/53188974)

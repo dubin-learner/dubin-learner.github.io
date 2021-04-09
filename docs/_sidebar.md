@@ -31,6 +31,7 @@
   * CSAPP
     * [CSAPP读书笔记1](/sources/books/csapp/CSAPP_note1)
     * [CSAPP读书笔记2](/sources/books/csapp/CSAPP_note2)
+    * [关于作业](/sources/books/csapp/assignment_0)
   * Effective C++
     * [effective C++](/sources/books/effective_cpp/effective_cpp)
 
