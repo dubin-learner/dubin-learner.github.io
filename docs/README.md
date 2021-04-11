@@ -12,4 +12,5 @@
 未来要完成的：
 1. 从零开始完成一个文本编辑器，参考[Neatpad](http://www.catch22.net/tuts/neatpad/neatpad-overview#)；[仅有一篇的翻译](https://blog.csdn.net/keminlau/article/details/4101971)
 2. 或者再开始Neatpad之前[用Qt先完成一个文本编辑器](https://blog.51cto.com/1691647/1710939)，算是简单复习一下Qt
-3. 操作系统的相关公开课**MIT 6.S081**[知乎专栏](https://www.zhihu.com/column/c_1294282919087964160)、[Github]
+3. 国内[南京大学计算机基础实验](https://nju-projectn.github.io/ics-pa-gitbook/ics2019/)，应该是类似CSAPP的课程
+3. 操作系统的相关公开课**MIT 6.S081** [知乎专栏](https://www.zhihu.com/column/c_1294282919087964160)、[Github](https://github.com/huihongxiao/MIT6.S081/tree/master/lec01-introduction-and-examples)，之后也可以进行**MIT 6.828**[知乎文章](https://zhuanlan.zhihu.com/p/74028717)
