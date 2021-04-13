@@ -37,10 +37,10 @@
 
 * Blogs Reading Notes
   * 优化系列（From程序喵）
-    * [note 0](/sources/blogs/00/note_0)
-    * [note 1](/sources/blogs/00/note_1)
+    * [1. 工具专题](/sources/blogs/00/note_0)
+    * [2. 代码效率分析（1）](/sources/blogs/00/note_1)
   * [基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
-    * [C执行文件内存布局](/sources/blogs/01/note_0)
-    * [基础数据结构的C实现](/sources/blogs/01/note_1)
-    * [GDB常见使用技巧](/sources/blogs/01/note_2)
+    * [1. C执行文件内存布局](/sources/blogs/01/note_0)
+    * [2. 基础数据结构的C实现](/sources/blogs/01/note_1)
+    * [3.GDB常见使用技巧](/sources/blogs/01/note_2)
 
