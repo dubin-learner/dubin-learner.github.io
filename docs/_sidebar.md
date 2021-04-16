@@ -44,3 +44,6 @@
     * [2. 基础数据结构的C实现](/sources/blogs/01/note_1)
     * [3.GDB常见使用技巧](/sources/blogs/01/note_2)
 
+* [正则表达式](/regex.md)
+* [Vim常见使用技巧](/vim-use.md)
+
