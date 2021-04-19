@@ -13,7 +13,7 @@ C语言的内存分配、进程在内存中的布局等相关知识，在CSAPP�
 
 相较于CSAPP中的内存分配图，该图额外标注了：
 - 环境变量、main函数参数的位置：其实无需特殊说明，因为main函数肯定是位于栈区并且是栈顶的位置。
-- BSS段：通常是至用来存放程序中未初始化的全局变量和静态变量的内存区域。
+- BSS段：通常是至用来存放程序中未初始化的全局变量和静态变量的内存区域。<font color = blue>(zero-initialization)</font>
 
 ## 关于BSS段
 
@@ -32,6 +32,8 @@ int main(int argc, char* argv[]) {
 是否初始化`bss`这个变量，将会影响可执行文件的大小。
 
 > 负责将BSS段清零的工作一般是由加载器完成的，当一个可执行文件被加载的时候，加载器（可以简单地理解为操作系统）负责把BSS段的内存清零。
+
+全局变量的初始化分为静态初始化和动态初始化。动态初始化即全局变量的值和代码中某一部分的运行结果有关（如函数返回值），需要在运行期才能确定。静态初始化在编译期就可以确定全局变量的值，又分为zero-initialization和const-initialization，其中zero-initialization的全局变量就位于BSS段。
 
 ## 简单C程序测试内存布局
 
@@ -156,3 +158,4 @@ printf("%d", b.a + b.c);
 3. [面试官问我：bss段的大小记录在哪里？](https://bbs.csdn.net/topics/390613528)
 4. [为什么malloc时需要指定size，对应的free时不需要指定size？](https://www.zhihu.com/question/20362709)
 5. [关于堆栈的讲解](https://blog.csdn.net/yingms/article/details/53188974)
+6. [C++全局变量初始化的一点总结](https://www.cnblogs.com/catch/p/4314256.html)

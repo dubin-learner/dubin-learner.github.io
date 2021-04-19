@@ -1,8 +1,27 @@
 # Vim常见使用技巧
 
-本文将记录一些常见的Vim使用技巧，基本上都是在工作中使用到的。
+本文将记录一些常见的Vim使用技巧，基本上都是在工作中使用到的。（[Vim Cheat Sheet](https://vim.rtorr.com/lang/zh_cn/)）
 
-## 删除相关
+## 查找
+### 查找高亮
+查找字符串比较简单，在命令行模式下输入斜杠`/`，后面接需要查找的模式即可。为了不匹配到其他字符串中的字串，例如查找`bc`但不希望匹配到`abcd`，可以通过转义后的尖括号加以限制`/\<bc\>`
+
+快捷键：通过`Shift` + `*`对光标当前位置的字符串快速选中并查找下一个位置。
+### 取消查找高亮
+通过命令实现取消，完整命令为`:nohlsearch`，或者使用缩写`:noh`。
+
+## 删除、替换
+### 删除行尾的^M
+Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`，导致Windows下产生、编辑过的文本，在Linux下打开时换行的位置会多一个`\r`字符，被显示^M。通过命令删除（替换为空）：
+```shell
+:%s/\r//g
+```
+
+### 显示匹配模式的数目
+命令很简单，可以加入正则表达式进行灵活匹配：
+```shell
+:%s/pattern//gn
+```
 
 ### 删除包含特定模式的行
 ```shell
@@ -36,10 +55,59 @@
 
 **答：** `$T/d0`。其中，`$`：移动至行尾，`T/`：从后向前搜索到第一个`/`字符的位置，`d0`：删除到行首。或者`d/ex`，删除到第一个`ex`出现的位置。
 
+## 添加信息
+### 添加和删除多行注释
+可以通过Vim的可视模式进行实现。在命令模式下，按键`v`、`Ctrl` + `v`和`Shift` + `v`会进入不同的可视模式：
+- `v`：常规的可视模式，单个字符选择模式
+- `Ctrl` + `v`：块选择模式，可选择块状区域进行操作
+- `Shift` + `v`：行选择模式，以行为单位进行选择
+
+对于C/C++的多行注释，即`//`来说，就可以通过块选择模式来进行添加或删除。
+
+### 添加作者相关信息
+添加对按键`F4`的映射，并预置一段代码（简单举例）：
+```shell
+map <F4> ms:call AddSimpleTitle()<CR>
+function AddSimpleTitle()
+  let n = line('.')
+  call append(n + 0, "# *****")
+  call append(n + 1, "")
+  call append(n + 2, "# * Create time  : ".strftime("%Y-%m-%d %H:%M"))
+  call append(n + 3, "# * File name    : ".expand("%:t"))
+  call append(n + 4, "")
+  call append(n + 5, "# *****")
+endfunction 
+```
+
 ## 光标移动相关
+> [Vim光标快速移动技巧总结](https://blog.csdn.net/llzhang_fly/article/details/80474966)
 > waiting for writing ...
+
+## 复制与粘贴（使用系统剪切板）
+> [Vim在系统剪切板的复制与粘贴](https://blog.csdn.net/zhangxiao93/article/details/53677764)
+> waiting for writing ...
+
+## 其他
+### 插件ctags的使用
+在已经安装ctags的前提下，在源文件目录下，直接执行（对于C++）生成tags文件：
+```shell
+ctags -R --c++-kinds=+px --field=+iaS --extra=+q
+```
+其中，`c++-kinds`用于指定C++语言的tags记录类型，通用格式：`--{language}-kinds`；`field`用于指定每条标记的扩展字段域；`extra`用于增加额外的条目，参数`q`为每个类增加一个条目，参数`f`为每个文件增加一个条目。
+
+在Vim中指定目标路径下使用tags文件：
+```shell
+:set tags=./tags
+```
+在代码更改后只需执行`ctags -R`即可将tags进行同步更新。在Vim中使用tags的信息：
+- 查找函数或变量的定义位置快捷键`Ctrl` + `]`，或使用命令`:ta name`
+- 从函数或变量定义的位置跳转回查找的位置`Ctrl` + `t`
+- 向前跳转/向后跳转：`Ctrl` + `i` / `Ctrl` + `o` <font color = blue>这个命令和ctags无关</font>
 
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
-3. [Vim光标快速移动技巧总结](https://blog.csdn.net/llzhang_fly/article/details/80474966)
+3. [Vim删除行尾的^M](https://www.cnblogs.com/wangkongming/p/4624524.html)
+4. [Vim的高亮搜索](http://www.voidcn.com/article/p-hrozitlh-zm.html)
+5. [Vim中自动添加注释 添加文本信息](https://blog.csdn.net/yusiguyuan/article/details/41090709)
+6. [Vim插件ctags的安装与使用](https://www.cnblogs.com/zl-graduate/p/5777711.html)
