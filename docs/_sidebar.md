@@ -14,6 +14,7 @@
   * [EDA fullcase](/sources/eda/EDA_fullcase)
   * [EDA Xilinx DCI](/sources/eda/EDA_XilinxDCI)
   * [EDA IOPlanning](/sources/eda/EDA_IOPlanning)
+  * [EDA 寄存器上电初值](/sources/eda/EDA_RegsInitVar)
 
 * Qt
   * [从C++到Qt](/sources/qt/00_from_cpp_to_qt)
@@ -43,6 +44,8 @@
     * [1. C执行文件内存布局](/sources/blogs/01/note_0)
     * [2. 基础数据结构的C实现](/sources/blogs/01/note_1)
     * [3.GDB常见使用技巧](/sources/blogs/01/note_2)
+  * 每日博客笔记
+    * [C++全局变量初始化的一点总结](/sources/blogs/02/note)
 
 * [正则表达式](/regex.md)
 * [Vim常见使用技巧](/vim-use.md)
