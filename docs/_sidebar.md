@@ -48,6 +48,7 @@
     * [C++全局变量初始化的一点总结](/sources/blogs/02/note_0)
     * [C++函数调用过程深入分析](/sources/blogs/02/note_1)
 
-* [正则表达式](/regex.md)
-* [Vim常见使用技巧](/vim-use.md)
+* [正则表达式](/regex)
+* [Vim常见使用技巧](/vim-use)
+* [我的书单](/book-list)
 
