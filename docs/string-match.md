@@ -1,0 +1,33 @@
+# 字符串匹配算法
+
+设定说明：输入字符串str1，查找其子串中是否存在字符串pattern，如果存在则返回第一次出现的位置。
+
+## 朴素算法
+
+最直观的字符串匹配算法就是直接模拟。依次遍历str1中的每个字符，与pattern中的第一个字符比较，如果相同，则继续比较下一位；如果不同，则继续比较str1的下一个字符和pattern中的第一个字符，以此类推。
+```cpp
+int match(const string& str1, const string& str2) {
+  const int n1 = str1.size(), n2 = str2.size(); // str2 is pattern
+  for (int i = 0; i <= n1 - n2; ++i) {
+    int k = i, j = 0;
+    while(j < n2 && str1[k] == str2[j]) {
+      k++;
+      j++;
+    }
+    if (j == n2) return i;
+  }
+  return -1;
+}
+```
+时间复杂度为`O(m*(n - m))`。很明显的问题是str1中的字符一旦比较失败，下一个字符就需要和pattern中的第一个字符重新比较，对于pattern的访问在不停地前进和回退。
+
+## KMP算法
+
+为了理解KMP算法，首先要理解`next`数组的意义。在朴素算法中，对于pattern访问的不断前进和回退，是导致算法复杂度增加的根本原因。
+
+## Boyer-Moore算法
+
+## 参考文章
+1. [一文详解KMP算法](https://mp.weixin.qq.com/s/ixOkg97X85LnniRbFi_bow)
+2. [图解算法：KMP算法](https://blog.csdn.net/qq_38490457/article/details/115216596)
+3. [字符串匹配的Boyer-Moore算法](http://www.ruanyifeng.com/blog/2013/05/boyer-moore_string_search_algorithm.html)

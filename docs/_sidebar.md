@@ -51,4 +51,5 @@
 * [正则表达式](/regex)
 * [Vim常见使用技巧](/vim-use)
 * [我的书单](/book-list)
-
+* [字符串匹配算法](/string-match)
+* [Linux Shell基础](/linux-shell)
