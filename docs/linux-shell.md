@@ -4,6 +4,10 @@
 
 社区翻译的《The Linux Command》中文版[网址](http://billie66.github.io/TLCL/)，可以在线阅读或下载pdf，是一本不错的参考书。
 
+## shell脚本第一行：#!/bin/bash的含义
+直接说结论：第一行的内容指定了该脚本使用的解释器的路径，比如通过`#!/bin/python`来指定python解释器执行该脚本。
+
+这个指定路径只能放在文件的第一行。如果第一行写错或者不写，系统会有一个默认的解释器进行解释。对于Ubuntu系统，通常就是`/bin/bash`。
 ## Linux Shell不同方法执行脚本的区别
 一般Linux上执行一个脚本，有如下几种方法：
 ```bash
@@ -144,6 +148,22 @@ cat filename | tail -n +100
 cat filename | head -n 300 | tail -n +100
 ```
 ## 将程序控制台输出复制到文件
+如果仅需要重定向控制台中输出的字符，可以使用`>`或`>>`来实现：
+```bash
+# 输出到文件output.txt中，如不存在该文件则创建，如存在则覆盖其内容
+some_command > output.txt
+# 输出到文件output.txt中，如不存在该文件则创建，如存在则追加到文件尾部
+some_command >> output.txt
+```
+如果需要保留控制台的内容，同时输出到文件中，需要用到`tee`命令：
+```bash
+some_command | tee output.txt
+```
+有时会使用`tee`命令后控制台有输出，但文件内容为空，此时可能是由于some_command输出的字符从std error文件描述符输出，需要先将std error的输出导向到std output：
+```bash
+some_command 2>&1 | tee output.txt
+```
+其中，2代表std error，1代表std ouput，`>&`是linux中fd到fd的重定向操作符。
 
 ## 参考文章
 1. [shell脚本第一行：#!/bin/bash的含义](https://blog.csdn.net/iot_flower/article/details/69055590)
