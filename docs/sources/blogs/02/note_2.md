@@ -23,7 +23,7 @@
 
 > 虚函数表就像一个数组，表中有许多的槽（slot），每个槽中存放的是一个虚函数的地址（可以理解为数组里存放着指向每个虚函数的指针）
 
-**每个类使用一个虚函数表，每个类对象使用一个虚表指针**
+> **每个类使用一个虚函数表，每个类对象使用一个虚表指针**
 
 如图所示（图片来自原始博客）：
 ![虚函数指针与虚函数表](note_2/vtable0.png)
@@ -134,17 +134,121 @@ class Base1 {
   public:
     virtual void f() { cout << "Base1::f" << endl; }
     virtual void g() { cout << "Base1::g" << endl; }
+    virtual void h() { cout << "Base1::h" << endl; }
 };
 class Base2 {
   public:
     virtual void f() { cout << "Base2::f" << endl; }
     virtual void g() { cout << "Base2::g" << endl; }
+    virtual void h() { cout << "Base2::h" << endl; }
 };
-class Derive : public Base1, Base2 {
+class Base3 {
+  public:
+    virtual void f() { cout << "Base3::f" << endl; }
+    virtual void g() { cout << "Base3::g" << endl; }
+    virtual void h() { cout << "Base3::h" << endl; }
+};
+class Derive : public Base1, Base2, Base3 {
   public:
     virtual void f1() { cout << "Derive::f1" << endl; }
     virtual void g1() { cout << "Derive::g1" << endl; }
 };
 ```
+此时如果还按照之前的方式进行访问，控制台输出如下：
+```bash
+$ ./test
+Base1::f
+Base1::g
+Base1::h
+Derive::f1
+Derive::g1
+Segmentation fault (core dumped)
+```
+可见，派生类的虚函数按照顺序放在了第一个基类的后面。其他基类的虚函数表放在哪里？这是由于多继承的虚函数表存储结构发生了变化。简单来说，就是存储结构从一维数组变成了二维数组，原来的访问方式只能访问第一行的数据。将虚函数指针视为一个二维数组的指针，那么访问其内部元素时，方法如下：
+```cpp
+Derived d;
+long ** pVtab = (long**)&d;
+Fun pf = NULL;
+for (int i = 0; i < 3; ++i) {
+  for (int j = 0; j < 3; ++j) {
+    pf = (Fun)pVtab[i][j];
+    pf();
+  }
+}
+```
+通过这种方式，控制台输出结果如下：
+```bash
+$ ./test
+Base1::f
+Base1::g
+Base1::h
+Base2::f
+Base2::g
+Base2::h
+Base3::f
+Base3::g
+Base3::h
+```
+可见，派生类的虚函数表是以二维数组的方式存储，且派生类自己的虚函数放在第一个基类的虚函数表之后，如下图所示：
 
-## 参考文章
+![多继承（无重写）虚函数表](note_2/vtable2.png)
+
+#### 多继承（有重写）
+当发生多继承且有重写时，需要在多继承、无重写的虚函数表存储结构基础上，基类的虚函数替换为派生类的虚函数。例如之前多继承的情况对派生类的代码进行修改：
+```cpp
+class Derived : public Base1, Base2, Base3 {
+  public:
+    virtual void f() { cout << "Derive::f" << endl; }
+    virtual void g1() { cout << "Derive::g1" << endl; }
+};
+```
+观察控制台输出结果进行验证，其虚函数表存储结构为：
+
+![多继承（有重写）虚函数表](note_2/vtable3.png)
+
+### 指针的不安全访问
+通过以上的例子，可以实现函数指针访问派生类中的虚函数。不仅如此，通过指针直接访问的方式还会产生以下两种（甚至更多？）违反常规的函数访问：
+- 基类指针定义派生类对象，通过该指针访问派生类中基类未定义的虚函数
+- 派生类指针访问基类中非public的虚函数，因为非public的虚函数也会出现在虚函数表中
+
+```cpp
+clase Base {
+  public:
+    virtual void f() { cout << "Base::f" << endl; }
+}
+class Derived {
+  public:
+    virtual void f() { cout << "Derive::f" << endl; }
+    virtual void g() { cout << "Derive::g" << endl; }
+}
+int main() {
+  Base * pb = new Derived();
+  pb->f(); // 正常运行，输出"Derive::f"，运行时多态的表现
+  pb->g(); // 编译时报错，基类指针不能访问基类中没有定义的函数g()
+  return 0;
+}
+```
+但可以通过前文使用的方式访问到虚函数表中的g()进行运行。
+
+总而言之，指针由于特别容易绕过限制实现不安全的访问。
+### 最后
+> 虚函数表不一定是存在最开头，但是目前各个编译器大多是这样设置的
+
+## 补充
+文中的示例还是有些极端的，基类、派生类的定义中仅有虚函数而无其他成员，因此可以通过二维数组的方式来访问虚函数表。如果存在非public的成员变量，那么内存布局就会发生变化，示例中的访问方式也会失效。
+
+原文的博客也算是二次创作，其主要的参考文章[地址](https://blog.csdn.net/haoel/article/details/1948051)。文章有些年头，因为内容而产生了很多评论（40页左右），其中不乏值得思考的内容。
+
+在知乎上看到的两篇（姊妹篇）关于虚函数表的回答，内容丰富也比较有趣：
+- [C++为什么要弄出虚函数表这个东西](https://www.zhihu.com/question/389546003/answer/1194780618)
+- [多重继承中，每个虚表第一个槽中的type_info...](https://www.zhihu.com/question/29251261/answer/1297439131)
+
+更加详细地剖析虚函数、派生类的内存布局，可以参考文章：
+- [C++中的虚函数(表)实现机制以及用C语言对其进行的模拟实现](https://blog.twofei.com/496/)
+- [不同编译器虚函数的实现方式的区别](https://www.zhihu.com/question/27459122/answer/36736246)
+
+最好还是要读一下这本经典的著作[《深度探索C++对象模型》](https://book.douban.com/subject/1091086/)
+
+这里有篇文章可作为相关知识的指南：[C++内存管理全景指南](https://mp.weixin.qq.com/s?__biz=MzkyMTIzMTkzNA==&mid=2247505252&idx=1&sn=921045fb6ced5788dca8489fb72256ec&source=41#wechat_redirect)
+
+C++这条路“道阻且跻”，还是要不断探索才行。
