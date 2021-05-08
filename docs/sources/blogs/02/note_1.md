@@ -89,7 +89,11 @@ pop指令之后，rsp的内容也发生了变化，其内容刚好是执行`call
 - 遗留了两个问题，一个是间隔空间分配，另一个是指向内存标识为`<_dl_fini>`的指针。
 - 示例代码过于简单，参数个数不多、传递进来后没有使用、并且没有返回值。
 
+## 补充
+gcc/g++反编译出的汇编代码，其格式为AT&T，与使用微软自己的编译器反编译出的代码格式不同（其格式为Intel）。最典型的就是`mov`指令，AT&T中`mov a, b`是将寄存器b赋值为a，而Intel格式刚好相反。这个差异在通过`mov`指令将立即数赋值给寄存器时特别明显。
+
 ## 参考文章
 1. [GDB单步调试汇编](https://www.cnblogs.com/zhangyachen/p/9227037.html)
 2. [汇编语言CALL和RET指令：调用一个过程](http://c.biancheng.net/view/3537.html)
-3. [de1ctf_2019_unprintable(_dl_fini的l_addr劫持妙用)](https://blog.csdn.net/seaaseesa/article/details/106695358)
+3. [de1ctf_2019_unprintable（_dl_fini的l_addr劫持妙用)](https://blog.csdn.net/seaaseesa/article/details/106695358)
+4. [GCC汇编指令格式](https://blog.csdn.net/shun01/article/details/12372347)
