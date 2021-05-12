@@ -15,6 +15,7 @@
   * [EDA Xilinx DCI](/sources/eda/EDA_XilinxDCI)
   * [EDA IOPlanning](/sources/eda/EDA_IOPlanning)
   * [EDA 寄存器上电初值](/sources/eda/EDA_RegsInitVar)
+  * [EDA 拓扑排序算法](/sources/eda/EDA_TopologicalSorting)
 
 * Qt
   * [从C++到Qt](/sources/qt/00_from_cpp_to_qt)

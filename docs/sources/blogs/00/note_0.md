@@ -103,6 +103,16 @@ valgrind --tool=cachegrind --branch-sim=yes ./test_predict
 
 可以明显看到，如果不进行排序的话，分支预测的失败率直接上升到了25%，由此导致的时钟周期损失很明显了。
 
+下图来自知乎的一篇文章，讲到了分支预测失败时出现的流水线冒泡（bubbling）问题：
+
+![流水线冒泡](note_0/pipeline.png)
+
+图中每个颜色的方块代表一条指令，流水线处理取指、解码、执行、写回四项操作。如果出现分支预测失败，则需要重新取指令，前一条指令（绿色）已经进入了执行阶段，后一条指令（紫色）需要重新取指令，在时钟周期为3时，产生了一个没有失效的气泡，指令运行被延迟。
+
+> 现代CPU流水线级数非常长，分支预测失败可能会损失20个左右的时钟周期，因此对于复杂的流水线，好的分支预测器非常重要。
+
+值得一提的是，[该文章](https://zhuanlan.zhihu.com/p/22469702)提到了使用[bithacks](http://graphics.stanford.edu/~seander/bithacks.html)（需要熟悉位运算相关的操作，提供了一些写法的模板）替代if语句，从而避免了分支预测，消除了是否排序对最终程序的效率的影响。
+
 ### Valgrind工具相关
 
 Valgrind工具在运行时可能会报错`error calling PR_SET_PTRACER, vgdb might block`，这个问题是因为程序如果在系统调用（syscall）中阻塞，需要vgdb来唤醒，使用的途径就是`PR_SET_PTRACER`；换言之如果程序不会在syscall中阻塞，则不会出问题；似乎新版本的WSL2已经修复了该问题。(StackOverflow上的回答，参考文章4)
@@ -114,3 +124,4 @@ Valgrind工具在运行时可能会报错`error calling PR_SET_PTRACER, vgdb mig
 2. [深入研究Clang(十三) clang-tidy简介](https://zhuanlan.zhihu.com/p/102248131)
 3. [Valgrind命令](https://blog.csdn.net/hbhhww/article/details/7168507)
 4. [Valgrind showing error calling `pr_set_ptracer`, vgdb might block](https://stackoverflow.com/questions/57206233/valgrind-showing-error-calling-pr-set-ptracer-vgdb-might-block)
+5. [深入理解CPU的分支预测(Branch Prediction)模型](https://zhuanlan.zhihu.com/p/22469702)
