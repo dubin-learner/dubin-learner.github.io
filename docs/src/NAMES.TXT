@@ -1,0 +1,7 @@
+bg: blog
+bk: book
+ee: eda related
+lc: leetcode
+qt: Qt
+st: STL
+al: Algorithm

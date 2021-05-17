@@ -12,7 +12,7 @@
 
 新建仓库，直接在Github网页端完成。如果想直接通过`https://username.github.io`访问的话，新仓库要命名为`username.github.io`。当然，创建后名称也可以改，问题不大。
 
-![新仓库名称](resources/blog_build/new_repo.png)
+![新仓库名称](resources/blog-build/new_repo.png)
 
 ## 连接git和Github
 
@@ -65,7 +65,7 @@ set-executionpolicy remotesigned
 docsify serve docs
 ```
 
-![docsify启动serve](resources/blog_build/docsify_serve.png)
+![docsify启动serve](resources/blog-build/docsify_serve.png)
 
 访问对应的链接`http://localhost:3000`，即可看到预览效果。
 
@@ -81,7 +81,7 @@ git push -u origin master
 
 成功提交到Github仓库之后，进行Github Pages的配置：
 
-![配置Github Pages](resources/blog_build/github_pages_config.png)
+![配置Github Pages](resources/blog-build/github_pages_config.png)
 
 直接访问`https://username.github.io`即可，和预览的效果一致。
 

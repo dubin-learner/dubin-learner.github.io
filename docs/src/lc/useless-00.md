@@ -22,5 +22,5 @@
 
 纵有疾风起，人生不言弃。
 
-![起风了](wind_rise_0.png)
-![唯有努力生存](wind_rise_1.png)
+![起风了](pics/wind_rise_0.png)
+![唯有努力生存](pics/wind_rise_1.png)
