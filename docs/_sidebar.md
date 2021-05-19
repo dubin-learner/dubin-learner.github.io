@@ -21,8 +21,10 @@
   * [一点无用的想法](/src/lc/useless-00)
 
 * 算法笔记
-  * [单调栈和单调队列](src/al/monotonic-stack)
-  * [字符串匹配算法](src/al/string-match)
+  * [单调栈和单调队列](src/al/00)
+  * [字符串匹配算法](src/al/01)
+  * [牛顿迭代求开平方](src/al/02)
+  * [各种排序算法](src/al/03)
 
 * Blogs Reading Notes
   * 优化系列（From程序喵）
