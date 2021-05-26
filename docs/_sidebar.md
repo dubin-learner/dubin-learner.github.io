@@ -25,6 +25,7 @@
   * [字符串匹配算法](src/al/01)
   * [牛顿迭代求开平方](src/al/02)
   * [各种排序算法](src/al/03)
+  * [红黑树](src/al/04)
 
 * Blogs Reading Notes
   * 优化系列（From程序喵）
