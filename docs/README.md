@@ -20,3 +20,8 @@
 2. 数据库：同样，没学过也没用过。后续可以考虑制定一下学习计划，待定。[这篇文章](https://mp.weixin.qq.com/s/6qhK1oHXP_VzfgR9BjYVJg)最后提到了Redis源码的学习方法，推荐书籍[《Redis设计与实现》](https://book.douban.com/subject/25900156/)《Redis实战》。
 3. 设计模式：优化代码设计，需要一定的经验积累。[参考文章](https://mp.weixin.qq.com/s/DgnYYWSKMItSbe_e34ukQQ)里面提到的[参考网站](https://refactoring.guru/)有不同设计模式的各种语言实现，值得一看。
 4. 操作系统：推荐书籍《30天自制操作系统》[Github相关代码](https://github.com/yourtion/30dayMakeOS)，推荐入坑文章[我的操作系统梦破灭了](https://mp.weixin.qq.com/s/KT6ADNGRLrDA8yQ-pvNBVg)
+5. 编译原理：
+[Let's Build A Simple Interpreter 系列](https://ruslanspivak.com/lsbasi-part1/#)、
+[手把手教你构建C语言编译器 系列](https://lotabout.me/2015/write-a-C-interpreter-0/)、
+[编译原理实验：Flex(scanner)与Bison(parser)实现计算器](https://my.oschina.net/liuyuanyuangogo/blog/3090065)、
+[A small C11 compiler in C++11](https://hub.fastgit.org/wgtdkp/wgtcc)
