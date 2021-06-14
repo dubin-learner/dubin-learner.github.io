@@ -2,12 +2,17 @@
 
 在硬件公司工作的软件工程师，擅长日常摸鱼。
 
-最近要完成的博客清单：
-1. 单调栈和单调队列相关[here](sources/leetcode/monotonic_stack_and_queue)
-2. 公众号文章笔记系列[here](sources/notes/note_1)
-3. 读书笔记，先是effective C++，然后是CSAPP
-4. 希望每次在Leetcode上遇到的hard都记录一篇
-5. 最近在读的espresso逻辑优化源码
+2021.6.15正在修改的页面：
+- [单调栈和单调队列](src/al/00.md)
+- [字符串匹配算法](src/al/01.md)
+- [各种排序算法](src/al/03.md)
+- [红黑树](src/al/04.md)
+- ......
+
+最近要完成的：
+1. 读书笔记，先是effective C++，然后是CSAPP
+2. 希望每次在Leetcode上遇到的hard都记录一篇
+3. 最近在读的espresso逻辑优化源码
 
 未来要完成的：
 1. 从零开始完成一个文本编辑器，参考[Neatpad](http://www.catch22.net/tuts/neatpad/neatpad-overview#)；[仅有一篇的翻译](https://blog.csdn.net/keminlau/article/details/4101971)
@@ -25,3 +30,5 @@
 [手把手教你构建C语言编译器 系列](https://lotabout.me/2015/write-a-C-interpreter-0/)、
 [编译原理实验：Flex(scanner)与Bison(parser)实现计算器](https://my.oschina.net/liuyuanyuangogo/blog/3090065)、
 [A small C11 compiler in C++11](https://hub.fastgit.org/wgtdkp/wgtcc)
+
+2021.6.12更新：今天在公众号上看到了一篇[推文](https://zhuanlan.zhihu.com/p/377154343)，其内容是个人的社招经历，因为查看了一下履历感觉的确是大神级别的人物，所以经历上可能没啥参考价值，但其中提到了一些他学习的课程，基本涵盖了以上提到的比较欠缺的几个部分，内容为：MIT 6.NULL，MHRD游戏，Stanford CS144和MIT 6.S081。在他自己的知乎账号中还有相关的文章，后续可以作为自己提升的一个参考。
