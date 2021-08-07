@@ -88,6 +88,9 @@ endfunction
 > waiting for writing ...
 
 ## 其他
+### 跳转命令
+在源文件中如果指定了头文件，比如`#include "utility/utility.h"`这种形式，可以通过快捷键组合`g` + `f`实现快速跳转到utility/utility.h文件中。
+
 ### 插件ctags的使用
 在已经安装ctags的前提下，在源文件目录下，直接执行（对于C++）生成tags文件：
 ```shell
@@ -104,6 +107,21 @@ ctags -R --c++-kinds=+px --field=+iaS --extra=+q
 - 从函数或变量定义的位置跳转回查找的位置`Ctrl` + `t`
 - 向前跳转/向后跳转：`Ctrl` + `i` / `Ctrl` + `o` <font color = blue>这个命令和ctags无关</font>
 
+初步配置完成之后，通常`Ctrl` + `]`会默认跳转到找到的第一处定义的文件中，如果需要先列出所有同名定义的位置，需要组合键`g` + `Ctrl` + `]`。可以通过按键映射的方式修改：
+```shell
+map <c-]> g<c-]>
+```
+### Git Gutter插件相关
+配置Git Gutter插件之后，可以直接高亮本地的改动：
+```shell
+set g:gitgutter_enable=1
+let g:gitgutter_highlight_lines=1
+let g:gitgutter_sign_added='A'
+...
+nnoremap <silent> <leader>d :GitGutterToggle<cr>
+```
+通过直接在命令模式下输入`:GitGutterToggle`，可以直接控制Git Gutter插件启用或关闭。`highlight_lines`会背景高亮有改动的代码，`sign_added`表示新添加的代码前会有`A`表示，此外可以修改`sign_modified`、`sign_removed`等不同类型改动代码前的表示。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -111,3 +129,4 @@ ctags -R --c++-kinds=+px --field=+iaS --extra=+q
 4. [Vim的高亮搜索](http://www.voidcn.com/article/p-hrozitlh-zm.html)
 5. [Vim中自动添加注释 添加文本信息](https://blog.csdn.net/yusiguyuan/article/details/41090709)
 6. [Vim插件ctags的安装与使用](https://www.cnblogs.com/zl-graduate/p/5777711.html)
+7. [ctags跳转错误](https://segmentfault.com/q/1010000003734392)

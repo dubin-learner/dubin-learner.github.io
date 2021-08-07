@@ -53,6 +53,7 @@
 
 * [正则表达式](/regex)
 * [Vim常见使用技巧](/vim-use)
+* [Git常见使用技巧](/git-use)
 * [Linux Shell基础](/linux-shell)
 * [C++基础知识记忆小技巧](/cpp-basic-tricks)
 

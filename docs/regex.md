@@ -44,6 +44,7 @@ Github上的一篇教程，个人感觉中文版有些晦涩。提供了[在线�
 3. [Regex Golf](https://alf.nu/RegexGolf) 在线练习网站，相比于RegexOne，这个就难多了。
 类似闯关的过程，做出一道题才会出现几个新的题目，而且里面会用到不常用的技巧。
 这个目前我只做了几道题，后续应该还会补完。参考文章中有其他人总结的题解。
+4. [Regular-Expressions.info](https://www.regular-expressions.info/reference.html) 比较详细的正则表达式介绍，递归匹配就是在这里学习的。配合[在线练习](https://regex101.com/r/1paXsy/1)网站更佳。
 
 ## 查缺补漏
 
