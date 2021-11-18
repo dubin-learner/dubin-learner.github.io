@@ -32,3 +32,7 @@
 [A small C11 compiler in C++11](https://hub.fastgit.org/wgtdkp/wgtcc)
 
 2021.6.12更新：今天在公众号上看到了一篇[推文](https://zhuanlan.zhihu.com/p/377154343)，其内容是个人的社招经历，因为查看了一下履历感觉的确是大神级别的人物，所以经历上可能没啥参考价值，但其中提到了一些他学习的课程，基本涵盖了以上提到的比较欠缺的几个部分，内容为：MIT 6.NULL，MHRD游戏，Stanford CS144和MIT 6.S081。在他自己的知乎账号中还有相关的文章，后续可以作为自己提升的一个参考。
+
+## 测试内嵌视频
+
+<iframe src="//player.bilibili.com/player.html?aid=589173764&bvid=BV1DB4y1N7QU&cid=371065698&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" height=600 width=800> </iframe>
