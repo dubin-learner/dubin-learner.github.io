@@ -122,6 +122,18 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 ```
 通过直接在命令模式下输入`:GitGutterToggle`，可以直接控制Git Gutter插件启用或关闭。`highlight_lines`会背景高亮有改动的代码，`sign_added`表示新添加的代码前会有`A`表示，此外可以修改`sign_modified`、`sign_removed`等不同类型改动代码前的表示。
 
+### 设置快捷键进行编译
+通过按键映射，可以指定某个按键来启动编译。如下：
+```shell
+noremap <F5> : call CompileProject()<CR>
+function! CompileProject()
+  if filereadable('configure')
+    execute "!./configure 30"
+  endif
+endfunction
+```
+其中，execute运行可执行文件，`filereadable()`用于判断文件是否存在。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -130,3 +142,4 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 5. [Vim中自动添加注释 添加文本信息](https://blog.csdn.net/yusiguyuan/article/details/41090709)
 6. [Vim插件ctags的安装与使用](https://www.cnblogs.com/zl-graduate/p/5777711.html)
 7. [ctags跳转错误](https://segmentfault.com/q/1010000003734392)
+8. [Vimscript判断文件是否存在](https://wxnacy.com/2019/02/21/vimscript-file-exists/)
