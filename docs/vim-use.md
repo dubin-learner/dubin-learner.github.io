@@ -134,6 +134,18 @@ endfunction
 ```
 其中，execute运行可执行文件，`filereadable()`用于判断文件是否存在。
 
+### 自带的文件浏览器netrw
+如果可以装插件的话，可以使用nerdtree；没有联网条件使用vim自带的netrw也勉强可以。配置也很简单：
+```shell
+"设置目录列表的样式：树型
+let g:netrw_liststyle=3
+"水平分割时，文件浏览器始终显示在左边
+let g:netrw_altv=1
+"设置文件浏览器窗口宽度为25%
+let g:netrw_winsize=20
+```
+最后一项设置，以当前文档打开的窗口为基准。如果已经水平分割，那么是在50%的基础上进行25%。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -143,3 +155,4 @@ endfunction
 6. [Vim插件ctags的安装与使用](https://www.cnblogs.com/zl-graduate/p/5777711.html)
 7. [ctags跳转错误](https://segmentfault.com/q/1010000003734392)
 8. [Vimscript判断文件是否存在](https://wxnacy.com/2019/02/21/vimscript-file-exists/)
+9. [玩转Vim自带的文件浏览器netrw](https://cloud.tencent.com/developer/article/1891433)
