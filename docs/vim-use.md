@@ -146,6 +146,35 @@ let g:netrw_winsize=20
 ```
 最后一项设置，以当前文档打开的窗口为基准。如果已经水平分割，那么是在50%的基础上进行25%。
 
+### vim打开文件并定位到某一行
+只需要在文件名的末尾，加上` +line_num`即可。即：
+```bash
+vim 文件名 +行号
+vim test.cpp +12
+```
+
+### 修改vim中的光标样式
+在gvim里，不同的模式下（如插入模式、替换模式、选择模式）光标的样式是不同的，但linux原生的vim默认都是一样的。
+
+为了方便区分，还是要进行一些设置，这里以公司的环境KDE桌面、konsole终端为例：（其他环境的配置见参考文章）
+```bash
+let &t_SI = "\<Esc>]50;CursorShape=1\x7"
+let &t_SR = "\<Esc>]50;CursorShape=2\x7"
+let &t_EI = "\<Esc>]50;CursorShape=0\x7"
+```
+以上的参数含义：
+- EI: INSERT mode
+- SR: REPLACE mode
+- EI: NORMAL mode (ELSE)
+
+光标类型有以下几种：
+- 1 -> blinking block
+- 2 -> solid block
+- 3 -> blinking underscore
+- 4 -> solid underscore
+- 5 -> blinking vertical bar
+- 6 -> solid vertical bar
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -156,3 +185,5 @@ let g:netrw_winsize=20
 7. [ctags跳转错误](https://segmentfault.com/q/1010000003734392)
 8. [Vimscript判断文件是否存在](https://wxnacy.com/2019/02/21/vimscript-file-exists/)
 9. [玩转Vim自带的文件浏览器netrw](https://cloud.tencent.com/developer/article/1891433)
+10. [vim 打开文件并定位到某一行](https://blog.csdn.net/xiaobinqt/article/details/95107898)
+11. [Change cursor shape in different modes](https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes)

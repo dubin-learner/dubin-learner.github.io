@@ -147,6 +147,21 @@ cat filename | tail -n +100
 # 查看100行到300行的内容
 cat filename | head -n 300 | tail -n +100
 ```
+## 通过sed查看文件中的某一行或多行内容
+相比于以上的几个命令，`sed`要更加灵活，如显示文件的第31行：
+```bash
+sed -n '31p' requirements.txt
+```
+显示文件的31行到45行：
+```bash
+sed -n '31,45p' requirements
+```
+这里，单引号之间的格式待查，但比较类似于一条命令。当然也可以多条命令组合。
+例如，`sed`在打印完45行之后，并不会直接退出，而是会遍历到整个文件的末尾再退出。如果想要提前退出的话，例如在扫描到46行时退出：
+```bash
+sed -n '31,45p;46q' requirements
+```
+可以看到，这里通过分号分隔了两条命令。
 ## 将程序控制台输出复制到文件
 如果仅需要重定向控制台中输出的字符，可以使用`>`或`>>`来实现：
 ```bash
@@ -159,11 +174,30 @@ some_command >> output.txt
 ```bash
 some_command | tee output.txt
 ```
-有时会使用`tee`命令后控制台有输出，但文件内容为空，此时可能是由于some_command输出的字符从std error文件描述符输出，需要先将std error的输出导向到std output：
+有时会使用`tee`命令后控制台有输出，但文件内容为空，此时可能是由于`some_command`输出的字符从std error文件描述符输出，需要先将std error的输出导向到std output：
 ```bash
 some_command 2>&1 | tee output.txt
 ```
 其中，2代表std error，1代表std ouput，`>&`是linux中fd到fd的重定向操作符。
+
+## grep返回第一次匹配的行
+可以通过`man grep`来查手册，不过不是很好找到。
+```bash
+grep -m
+-m num, --max-count=NUM
+  Stop reading the file after NUM matches
+```
+
+## 对文件内容进行行排序
+使用`sort`命令，注意这个命令会将结果直接输出到控制台。
+```bash
+sort src_file.txt > des_file.txt
+```
+其他选项暂时没有用到，后续补充。
+
+## 输出文本文件中的指定行
+上面有记录过`head`和`tail`之类的方法，这次是通过`sed`命令：
+
 
 ## 参考文章
 1. [shell脚本第一行：#!/bin/bash的含义](https://blog.csdn.net/iot_flower/article/details/69055590)
