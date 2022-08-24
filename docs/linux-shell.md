@@ -195,10 +195,6 @@ sort src_file.txt > des_file.txt
 ```
 其他选项暂时没有用到，后续补充。
 
-## 输出文本文件中的指定行
-上面有记录过`head`和`tail`之类的方法，这次是通过`sed`命令：
-
-
 ## 参考文章
 1. [shell脚本第一行：#!/bin/bash的含义](https://blog.csdn.net/iot_flower/article/details/69055590)
 2. [Linux shell执行source和.的区别](https://blog.csdn.net/rikeyone/article/details/84573385)

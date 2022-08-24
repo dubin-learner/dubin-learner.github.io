@@ -175,6 +175,36 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 - 5 -> blinking vertical bar
 - 6 -> solid vertical bar
 
+### 使用vim8原生方式安装插件
+我个人不怎么推荐安装插件，因为这样跨平台要处理的东西会很多；而且会拖慢vim的速度。当然不否认很多插件确实比较优秀，比如airline。
+
+如果有vim8的话，推荐用原生的方式安装。使用Vundle或Plug来管理插件虽然也比较方便，但原生的方式只需要创建几个文件夹即可。
+
+以Windows平台为例：
+
+首先在用户目录下的`vimfiles`文件夹中，新建一个目录`pack`，然后根据需要在`pack`目录下新建文件夹，名称任意，例如`my_plugs`。在该目录下，再创建子目录`start`和`opt`，这样目录结构就创建好了，例如下图：
+
+![目录结构](resources/vim-use/Snipaste_2022-08-24_09-52-17.png)
+
+目录建好之后，就可以将插件克隆到`start`或`opt`中使用了，克隆到`start`目录中的插件会再vim启动时自动加载；而克隆到`opt`目录下的插件不会自动加载，需要再vim命令模式中使用命令`packadd plugin_name`进行加载。
+
+### 在vim中查看当前文件的完整路径
+先按数字`1`，然后按组合键`Ctrl`+`G`，即可显示当前文件的完整路径（实际上是相对于Vim当前工作路径的相对路径，但足够用了）。
+
+如果第一个按键是大于1的，那么对应的buffer名称也会被显示。（不太理解buffer在vim里的用法）
+
+也可以在状态栏显示完整路径，但不怎么需要：
+```bash
+set statusline+=%F
+```
+
+### Vim2021：超轻量级代码补全系统
+具体内容见参考文章14。体验下来效果还不错，文件也不大，甚至可以直接拷贝到vimrc中。但一定要在vim8之后的版本。
+
+vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这个选项，导致会默认选择弹出菜单的第一项，给回退造成很大的困扰，使用体验极差。
+
+配置完成后默认是不开启的，需要在命令行中显式开启`ApcEnable`即可使用；关闭时使用`ApcDisable`。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -187,3 +217,6 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 9. [玩转Vim自带的文件浏览器netrw](https://cloud.tencent.com/developer/article/1891433)
 10. [vim 打开文件并定位到某一行](https://blog.csdn.net/xiaobinqt/article/details/95107898)
 11. [Change cursor shape in different modes](https://vim.fandom.com/wiki/Change_cursor_shape_in_different_modes)
+12. [Windows gvim安装插件](https://blog.csdn.net/weixin_42250302/article/details/108019214)
+13. [How can I see the full path of current file](https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file)
+14. [Vim2021：超轻量级代码补全系统](https://zhuanlan.zhihu.com/p/349271041)
