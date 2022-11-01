@@ -205,6 +205,15 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 
 配置完成后默认是不开启的，需要在命令行中显式开启`ApcEnable`即可使用；关闭时使用`ApcDisable`。
 
+### 在vimdiff中展开/折叠其他部分
+展开：`zo`；折叠：`zc`。
+
+重新计算差异:
+```bash
+:diffupdate
+```
+在进行多次更改后vim不再显示最小更改时很有用。如果全部重新加载，使用`:e`即可。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -220,3 +229,4 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 12. [Windows gvim安装插件](https://blog.csdn.net/weixin_42250302/article/details/108019214)
 13. [How can I see the full path of current file](https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file)
 14. [Vim2021：超轻量级代码补全系统](https://zhuanlan.zhihu.com/p/349271041)
+15. [关于linux：如何在Vimdiff中展开/折叠其他部分](https://www.codenong.com/5288875/)

@@ -195,6 +195,28 @@ sort src_file.txt > des_file.txt
 ```
 其他选项暂时没有用到，后续补充。
 
+## 通过sed在特定行插入内容
+有些操作命令和vim很像，比如`i`代表插入（insert），`a`代表追加（append），估计unix下大家都是类似的逻辑。
+具体操作如下：
+```bash
+#匹配行前加一行
+sed -i '/22222/i33333' test.txt
+#匹配行后加一行
+sed -i '/22222/a33333' test.txt
+```
+在书写的时候为了方便区分，往往会在`i`和`a`的前面加一个反斜杠`\`。对应的代码变成了：
+```bash
+sed -i '/22222/i\33333' test.txt
+sed -i '/22222/a\33333' test.txt
+```
+如果需要在指定的行位置、行后增加一行，用法如下：
+```bash
+#在第4行增加一行新内容
+sed -i '4i\3333' test.txt
+#在第四行后增加一行新内容
+sed -i '4a\3333' test.txt
+```
+
 ## 参考文章
 1. [shell脚本第一行：#!/bin/bash的含义](https://blog.csdn.net/iot_flower/article/details/69055590)
 2. [Linux shell执行source和.的区别](https://blog.csdn.net/rikeyone/article/details/84573385)
@@ -203,3 +225,5 @@ sort src_file.txt > des_file.txt
 5. [Linux连续执行多条命令的方法](https://www.jb51.net/article/105993.htm)
 6. [Linux使用cat、tail、head查看文件任意几行的数据](https://www.cnblogs.com/OnlyLV520/p/8931765.html)
 7. [Shell中将程序控制台输出复制到文件](https://blog.csdn.net/shenck1992/article/details/49661461)
+8. [shell-在文本中的前一行或后一行添加一行内容，指定前后增加一行内容](https://blog.csdn.net/xuezhangjun0121/article/details/88926565)
+9. [shell指定行插入](https://www.cnblogs.com/kakaisgood/p/8330578.html)
