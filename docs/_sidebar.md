@@ -64,3 +64,4 @@
   * [EDA IOPlanning](/src/eda/EDA_IOPlanning)
   * [EDA 寄存器上电初值](/src/eda/EDA_RegsInitVar)
   * [EDA 拓扑排序算法](/src/eda/EDA_TopologicalSorting)
+  * [EDA Density概念和计算](src/eda/EDA_Density)
