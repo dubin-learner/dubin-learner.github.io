@@ -4,6 +4,10 @@
 
 ---
 
+2023.6.12更新：关于本专业相关的内容，参考[EDA Wiki](https://openbelt.org.cn/wiki/intro/course/)。值得注意的是，除了VLSI logic/layout这门课之外，其他的都不太容易找到project进行练习。这里考虑了一下，可以通过看[OpenPhySyn](https://github.com/scale-lab/OpenPhySyn)的内部实现（虽然感觉还是读公司的code更合适一些，但不开源就不能放在博客里），讨论其中Physical Optimization的一些原理，以及其内部引用的OpenSTA也可以学习一下。
+
+---
+
 2023.6.9更新：间隔时间有点久。这两年还在原来的领域，但感觉学习到的新东西没有达到我的预期。因此需要重新规划一下。
 其实我不是一个擅长听课的人，以前在学校的时候，上课学习的时候不太多，大多数都是期末考前突击。因此搜索大量的课程计划学习似乎不太现实。
 不过还是要有所计划，先选择1~2门比较经典的课程开始好了。初步设想是CS50 Harvard和Nand2teris。
