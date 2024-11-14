@@ -3,6 +3,7 @@
 * [首页](/)
 * [博客搭建](/blog-build)
 * [我的书单](/book-list)
+* [开发环境](/work_environment)
 
 * C++ STL
   * [C++ STL API学习](/src/stl/STL_learning)
@@ -14,6 +15,8 @@
   * [从C++到Qt](/src/qt/00_from_cpp_to_qt)
 
 * LeetCode
+  * 刷题
+    * [1535](/src/lc/1535p)
   * 周赛
     * [第232场周赛](/src/lc/232w)
     * [第48场双周赛](/src/lc/048d)
