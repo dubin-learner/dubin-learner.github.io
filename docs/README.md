@@ -30,7 +30,7 @@
 
 ---
 
-2023.6.12更新：关于本专业相关的内容，参考[EDA Wiki](https://openbelt.org.cn/wiki/intro/course/)。值得注意的是，除了VLSI logic/layout这门课之外，其他的都不太容易找到project进行练习。这里考虑了一下，可以通过看[OpenPhySyn](https://github.com/scale-lab/OpenPhySyn)的内部实现（虽然感觉还是读公司的code更合适一些，但不开源就不能放在博客里），讨论其中Physical Optimization的一些原理，以及其内部引用的OpenSTA也可以学习一下。
+2023.6.12更新：关于本专业相关的内容，参考[EDA Wiki](https://openbelt.org.cn/intro/course/)。值得注意的是，除了VLSI logic/layout这门课之外，其他的都不太容易找到project进行练习。这里考虑了一下，可以通过看[OpenPhySyn](https://github.com/scale-lab/OpenPhySyn)的内部实现（虽然感觉还是读公司的code更合适一些，但不开源就不能放在博客里），讨论其中Physical Optimization的一些原理，以及其内部引用的OpenSTA也可以学习一下。
 
 ---
 
