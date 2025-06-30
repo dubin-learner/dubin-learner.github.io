@@ -1,6 +1,6 @@
 <!-- docs/_sidebar.md -->
 
-* [首页](/)
+* [关于我](/)
 * [博客搭建](/blog-build)
 * [我的书单](/book-list)
 * [开发环境](/work_environment)
