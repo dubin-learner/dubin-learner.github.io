@@ -1,52 +1,25 @@
 <!-- docs/_sidebar.md -->
 
 * [关于我](/)
-* [博客搭建](/blog-build)
-* [我的书单](/book-list)
-* [开发环境](/work_environment)
 
-* C++ STL
-  * [C++ STL API学习](/src/stl/STL_learning)
-  * [C++ STL `priority_queue`](/src/stl/STL_priority_queue)
-  * [C++ STL heap](/src/stl/STL_heap)
-  * [C++ STL permutation](/src/stl/STL_permutation)
+* [环境搭建](/tools)
+  * [docsify博客搭建](/tool/blog-build)
+  * [Perf安装与火焰图](/tool/install_perf)
+  * [Concorde安装](/tool/install_concorde)
 
-* Qt
-  * [从C++到Qt](/src/qt/00_from_cpp_to_qt)
+* [博客阅读](/blogs)
+  * [C++](/blogs?id=c)
+  * [Qt](/blogs?id=qt)
+  * [EDA](/blogs?id=eda)
+  * [工作记录](/blogs?id=工作记录)
+  * [算法笔记](/blogs?id=算法笔记)
 
-* LeetCode
-  * 刷题
-    * [1535](/src/lc/1535p)
+* [刷题](/codes)
+<!--  * 最近题目 -->
   * 周赛
-    * [第232场周赛](/src/lc/232w)
-    * [第48场双周赛](/src/lc/048d)
-    * [第233场周赛](/src/lc/233w)
-  * [一点无用的想法](/src/lc/useless-00)
+    * [第232场周赛](/code/232w)
 
-* 算法笔记
-  * [单调栈和单调队列](src/al/00)
-  * [字符串匹配算法](src/al/01)
-  * [牛顿迭代求开平方](src/al/02)
-  * [各种排序算法](src/al/03)
-  * [红黑树](src/al/04)
-
-* Blogs Reading Notes
-  * 优化系列（From程序喵）
-    * [1. 工具专题](/src/bg/00/00)
-    * [2. 代码效率分析（1）](/src/bg/00/01)
-  * [基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
-    * [1. C执行文件内存布局](/src/bg/01/00)
-    * [2. 基础数据结构的C实现](/src/bg/01/01)
-    * [3.GDB常见使用技巧](/src/bg/01/02)
-  * 每日博客笔记
-    * [C++全局变量初始化的一点总结](/src/bg/02/00)
-    * [C++函数调用过程深入分析](/src/bg/02/01)
-    * [C++虚函数表原理浅析](/src/bg/02/02)
-    * [C++常见崩溃问题分析](/src/bg/02/03)
-  * Windows下自制文本编辑器
-    * [用GCC配置Windows编程环境](/src/bg/03/00)
-
-* Books Reading Notes
+* [公开课&书籍学习](/courses)
   * CSAPP
     * [CSAPP读书笔记1](/src/books/csapp/CSAPP_note1)
     * [CSAPP读书笔记2](/src/books/csapp/CSAPP_note2)
@@ -54,17 +27,8 @@
   * Effective C++
     * [effective C++](/src/books/effective_cpp/effective_cpp)
 
-* [正则表达式](/regex)
-* [Vim常见使用技巧](/vim-use)
-* [Git常见使用技巧](/git-use)
-* [Linux Shell基础](/linux-shell)
-* [C++基础知识记忆小技巧](/cpp-basic-tricks)
+* [论文阅读](/papers)
 
-* EDA
-  * [EDA LEC](/src/eda/EDA_LEC)
-  * [EDA fullcase](/src/eda/EDA_fullcase)
-  * [EDA Xilinx DCI](/src/eda/EDA_XilinxDCI)
-  * [EDA IOPlanning](/src/eda/EDA_IOPlanning)
-  * [EDA 寄存器上电初值](/src/eda/EDA_RegsInitVar)
-  * [EDA 拓扑排序算法](/src/eda/EDA_TopologicalSorting)
-  * [EDA Density概念和计算](src/eda/EDA_Density)
+* [生活记录](/lifes)
+  * [我的书单](/life/book-list)
+  * [一点无用的想法](/life/useless-00)

@@ -61,9 +61,9 @@
 [动物园](https://book.douban.com/subject/26723423/)（0%）
 :book:
 
-![只有你听到](resources/book-list/s33800389.jpg)&nbsp;
-![失踪假日](resources/book-list/s33681210.jpg)&nbsp;
-![动物园](resources/book-list/s33666435.jpg)
+![只有你听到](../resources/book-list/s33800389.jpg)&nbsp;
+![失踪假日](../resources/book-list/s33681210.jpg)&nbsp;
+![动物园](../resources/book-list/s33666435.jpg)
 
 目前看下来，前两本都是包含与书名同名的几个短篇小故事组合。的确如同推荐所言，是探讨孤独、情感相关的主题，算是温暖治愈系，也算是有悬疑的部分，但不沉重。读起来感觉不费力。似乎最后一本风格不一样，等有时间可以阅读一下。
 - 心-夏目漱石：很少读日本作家的文学类作品（推理类除外），感觉可以读读看
@@ -85,7 +85,7 @@
 - 我的内在无穷大-张沛超
 
 ## 人物传记类
-![走近周恩来](resources/book-list/s28347455.jpg)
+![走近周恩来](../resources/book-list/s28347455.jpg)
 - [走近周恩来-权延赤](https://book.douban.com/subject/26670864/)
 
 文学类、悬疑推理类、心灵鸡汤类（也许）基本上都是来自公众号亚马逊Kindle服务号、孔夫子旧书网的推荐。

@@ -1,6 +1,5 @@
 # 关于我
-## 自我介绍
-### 工作中
+![2024年10月4日于大连](resources/resized_me.jpeg)
 
 有着8年以上工作经验的**EDA软件工程师**，主力语言C++。
 
@@ -11,10 +10,11 @@
 
 希望尽可能实现工作与生活的平衡（Work-Life Balance），也希望能够有机会不断学习新的知识。
 
-目前在北京，如果您对[我的简历](https://dubin-learner.github.io/#/resume)感兴趣，
+目前在**北京**，如果您对[我的简历](resume)感兴趣，
 可以通过邮箱[dubinstudent@126.com](mailto:dubinstudent@126.com)联系我。
 
-### 生活中
+---
+
 来自东北小县城，但妹有很重的东北口音。
 
 国行Switch烈士，偏爱复古像素风游戏，玩不来多数大作因为晕3D。
