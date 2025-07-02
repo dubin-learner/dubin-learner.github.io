@@ -2,8 +2,8 @@
 记录阅读的博客与笔记，主要是技术内容相关，分以下几个大类；后续也有可能会有些原创的内容。
 ## C++
 C++ STL相关
-- [C++ STL API学习](/blog/tool/cpp/stl/STL_learning)
-- [C++ STL 优先队列`priority_queue`](/blog/tool/cpp/stl/STL_priority_queue)
+- [C++ STL API学习](/src/stl/STL_learning)
+- [C++ STL 优先队列`priority_queue`](/src/stl/STL_priority_queue)
 - [C++ STL heap](/src/stl/STL_heap)
 - [C++ STL permutation](/src/stl/STL_permutation)
 
@@ -17,7 +17,7 @@ C++ STL相关
 - [1. 工具专题](/src/bg/00/00)
 - [2. 代码效率分析（1）](/src/bg/00/01)
 
-[基础知识（From菏泽小朱）](https://blog.51cto.com/12138867?s=4)
+基础知识（From[菏泽小朱](https://blog.51cto.com/12138867?s=4)）
 - [1. C执行文件内存布局](/src/bg/01/00)
 - [2. 基础数据结构的C实现](/src/bg/01/01)
 - [3.GDB常见使用技巧](/src/bg/01/02)

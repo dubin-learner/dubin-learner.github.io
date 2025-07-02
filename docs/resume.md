@@ -23,8 +23,6 @@ I am a software engineer in Ledatch now.
 上海复旦微电子集团股份有限公司 软件工程师<br>
 北京理工大学 电子与通信工程硕士<br>
 大连理工大学 通信工程学士<br>
-
 </details>
 
-
-Downloads PDF version [here](https://dubin-learner.github.io/#/resume.pdf).
+Downloads PDF version [here](https://dubin-learner.github.io/resume.pdf).
