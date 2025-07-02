@@ -9,7 +9,10 @@ concorde是一个TSP问题求解器（solver），所谓TSP问题就是旅行商
 
 主站地址：[Travel Salesman Problem](https://www.math.uwaterloo.ca/tsp/index.html)
 
-[下载页面](https://www.math.uwaterloo.ca/tsp/concorde/downloads/downloads.htm) 对于windows系统，有一个具有图形化界面的安装包，很方便；除此之外还有基本支持全平台的源码安装方案。
+[下载页面](https://www.math.uwaterloo.ca/tsp/concorde/downloads/downloads.htm) 
+对于windows系统，有一个具有图形化界面的安装包，很方便；除此之外还有基本支持全平台的源码安装方案。
+
+![Concorde Windows GUI](https://www.math.uwaterloo.ca/tsp/concorde/gui/img/done.jpg)
 
 PS: 本来公司的笔记本电脑上装了图形化的concorde，然而前一阵子搞保密之类的操作，被判定为非白名单软件给强制卸载了。😮‍💨
 
