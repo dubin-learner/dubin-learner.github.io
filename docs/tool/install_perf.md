@@ -68,4 +68,4 @@ perf script > perf.script
 ```
 
 then you can use web browser open perf.svg
-![flame graph](./docs/perf.svg)
+![flame graph](../resources/perf.svg)
