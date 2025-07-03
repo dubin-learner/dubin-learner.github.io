@@ -109,8 +109,13 @@ PS：总体来说图片码了个寂寞😂
 
 目前已知的修改主题方式可参考[该文章](https://jhildenbiddle.github.io/docsify-themeable/#/introduction)，使用`docsify-themeable`，自由定制化程度较高。
 
-简单试过修改为暗黑模式，效果还可以，但还是换回了原来的主题，因此不再赘述。
+简单试过修改为暗黑模式，效果还可以，~~但还是换回了原来的主题，因此不再赘述~~。
+更新：最终选择了simple主题。
 
+### 3. latex公式支持
+
+最开始使用katex的方式，不知道什么时候开始完全没效果。最后经过搜索，使用MathJax的方式。
+参见[docsify-latex with mathjax](https://scruel.github.io/docsify-latex/#/?id=with-mathjax)
 
 ## 参考文章
 1. [Git基础-获取Git仓库](https://www.git-scm.com/book/zh/v2/Git-基础-获取-Git-仓库#ch02-git-basics-chapter)
@@ -119,3 +124,4 @@ PS：总体来说图片码了个寂寞😂
 4. [基于Github Pages + docsify半天搭建个人博客](https://www.cnblogs.com/happyone/p/12152566.html)
 5. [温锦瑜的博客 docsify：做一个自己的笔记本应用](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)
 6. [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/introduction) 
+7. [docsify-latex](https://scruel.github.io/docsify-latex)
