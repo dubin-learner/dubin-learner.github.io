@@ -2,7 +2,8 @@
 
 本文将记录一些常见的Vim使用技巧，基本上都是在工作中使用到的。（[Vim Cheat Sheet](https://vim.rtorr.com/lang/zh_cn/)）
 
-## 查找
+## 查找/删除/替换等
+
 ### 查找高亮
 查找字符串比较简单，在命令行模式下输入斜杠`/`，后面接需要查找的模式即可。为了不匹配到其他字符串中的字串，例如查找`bc`但不希望匹配到`abcd`，可以通过转义后的尖括号加以限制`/\<bc\>`
 
@@ -10,19 +11,16 @@
 ### 取消查找高亮
 通过命令实现取消，完整命令为`:nohlsearch`，或者使用缩写`:noh`。
 
-## 删除、替换
 ### 删除行尾的^M
 Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`，导致Windows下产生、编辑过的文本，在Linux下打开时换行的位置会多一个`\r`字符，被显示^M。通过命令删除（替换为空）：
 ```shell
 :%s/\r//g
 ```
-
 ### 显示匹配模式的数目
 命令很简单，可以加入正则表达式进行灵活匹配：
 ```shell
 :%s/pattern//gn
 ```
-
 ### 删除包含特定模式的行
 ```shell
 :g/pattern/d
@@ -184,9 +182,52 @@ let &t_EI = "\<Esc>]50;CursorShape=0\x7"
 
 首先在用户目录下的`vimfiles`文件夹中，新建一个目录`pack`，然后根据需要在`pack`目录下新建文件夹，名称任意，例如`my_plugs`。在该目录下，再创建子目录`start`和`opt`，这样目录结构就创建好了，例如下图：
 
-![目录结构](resources/vim-use/Snipaste_2022-08-24_09-52-17.png)
+![目录结构](../resources/vim-use/Snipaste_2022-08-24_09-52-17.png)
 
 目录建好之后，就可以将插件克隆到`start`或`opt`中使用了，克隆到`start`目录中的插件会再vim启动时自动加载；而克隆到`opt`目录下的插件不会自动加载，需要再vim命令模式中使用命令`packadd plugin_name`进行加载。
+
+### 使用vim-plug安装插件
+
+感觉更加懒得折腾了，插件还是用轻量级的，在有网络的前提下使用vim-plug安装插件还是比较方便的。
+vim-plug安装方法如下：
+
+1. 离线安装
+```bash
+mkdir -p  ~/.vim/autoload/
+cp plug.vim  ~/.vim/autoload/plug.vim
+```
+2. 在线安装
+```bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+```
+
+安装完成后只需要修改`~/.vimrc`文件，添加插件即可。我目前会添加的几个插件如下：
+```bash
+call plug#begin()
+Plug 'skywind3000/vim-auto-popmenu'
+Plug 'skywind3000/vim-dict'
+Plug 'jiangmiao/auto-pairs'
+Plug 'preservim/nerdtree'
+call plug#end()
+```
+其中，`vim-auto-popmenu`这个插件还会增加一些设置，用于自动补全。
+```bash
+" enable this plugin for filetypes, '*' for all files.
+let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+" source for dictionary, current or other loaded buffers, see ':help cpt'
+set cpt=.,k,w,b
+" don't select the first item.
+set completeopt=menu,menuone,noselect
+" suppress annoy messages.
+set shortmess+=c
+```
+修改完成后重新`source ~/.vimrc`，然后打开任意文本文件执行`PlugInstall`即可。
+其他Plug相关命令可以利用补全自己查看。
+- `PlugInstall`：安装插件
+- `PlugClean`：卸载插件
+- `PlugUpgrade`：升级vim-plug自身
+- `PlugUpdate`：升级插件
+- `PlugStatus`：查看插件状态
 
 ### 在vim中查看当前文件的完整路径
 先按数字`1`，然后按组合键`Ctrl`+`G`，即可显示当前文件的完整路径（实际上是相对于Vim当前工作路径的相对路径，但足够用了）。
@@ -230,3 +271,4 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 13. [How can I see the full path of current file](https://vi.stackexchange.com/questions/104/how-can-i-see-the-full-path-of-the-current-file)
 14. [Vim2021：超轻量级代码补全系统](https://zhuanlan.zhihu.com/p/349271041)
 15. [关于linux：如何在Vimdiff中展开/折叠其他部分](https://www.codenong.com/5288875/)
+16. [vim-plug插件安装及使用](https://www.cnblogs.com/zhaodehua/articles/15108744.html)
