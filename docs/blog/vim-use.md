@@ -4,32 +4,28 @@
 
 ## 查找/删除/替换等
 
-### 查找高亮
-查找字符串比较简单，在命令行模式下输入斜杠`/`，后面接需要查找的模式即可。为了不匹配到其他字符串中的字串，例如查找`bc`但不希望匹配到`abcd`，可以通过转义后的尖括号加以限制`/\<bc\>`
+### 查找高亮/取消高亮
+查找字符串比较简单，在命令行模式下输入斜杠`/`，后面接需要查找的模式即可；
+
+为了不匹配到其他字符串中的字串，例如查找`bc`但不希望匹配到`abcd`，可以通过转义后的尖括号加以限制`/\<bc\>`。
 
 快捷键：通过`Shift` + `*`对光标当前位置的字符串快速选中并查找下一个位置。
-### 取消查找高亮
-通过命令实现取消，完整命令为`:nohlsearch`，或者使用缩写`:noh`。
 
-### 删除行尾的^M
-Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`，导致Windows下产生、编辑过的文本，在Linux下打开时换行的位置会多一个`\r`字符，被显示^M。通过命令删除（替换为空）：
-```shell
-:%s/\r//g
-```
+如果要取消高亮，需要通过命令实现。完整命令为`:nohlsearch`，或者使用缩写`:noh`。
+
 ### 显示匹配模式的数目
 命令很简单，可以加入正则表达式进行灵活匹配：
 ```shell
 :%s/pattern//gn
 ```
-### 删除包含特定模式的行
-```shell
-:g/pattern/d
-```
-例如删除空行：`:g/^$/d`
+只用`g`可以实现替换，`gn`就仅显示数目。
 
-### 删除不包含特定模式的行
+### 删除行尾的^M
+Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`。
+
+导致Windows下产生、编辑过的文本，在Linux下打开时换行的位置会多一个`\r`字符，被显示^M。通过命令删除（替换为空）：
 ```shell
-:v/pattern/d
+:%s/\r//g
 ```
 
 ### 对每行只保留特定模式而删除其他内容
@@ -42,7 +38,19 @@ Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`，导�
 ```shell
 :%s/^.*pattern.*$//c
 ```
-本质上还是替换，用空字符替换一整行。
+本质上还是替换，用空字符替换一整行。删除行还有其他的方法。
+
+### 删除特定行
+删除包含特定模式的行：
+```shell
+:g/pattern/d
+```
+例如删除空行：`:g/^$/d`。
+
+删除不包含特定模式的行
+```shell
+:v/pattern/d
+```
 
 ### 删除命令实例
 - 处理字符串`/123/456/789/109/example.txt`，怎么删除到最后一个`/`，然后得到`example.txt`？
@@ -81,10 +89,6 @@ endfunction
 > [Vim光标快速移动技巧总结](https://blog.csdn.net/llzhang_fly/article/details/80474966)
 > waiting for writing ...
 
-## 复制与粘贴（使用系统剪切板）
-> [Vim在系统剪切板的复制与粘贴](https://blog.csdn.net/zhangxiao93/article/details/53677764)
-> waiting for writing ...
-
 ## 其他
 ### 跳转命令
 在源文件中如果指定了头文件，比如`#include "utility/utility.h"`这种形式，可以通过快捷键组合`g` + `f`实现快速跳转到utility/utility.h文件中。
@@ -118,7 +122,10 @@ let g:gitgutter_sign_added='A'
 ...
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 ```
-通过直接在命令模式下输入`:GitGutterToggle`，可以直接控制Git Gutter插件启用或关闭。`highlight_lines`会背景高亮有改动的代码，`sign_added`表示新添加的代码前会有`A`表示，此外可以修改`sign_modified`、`sign_removed`等不同类型改动代码前的表示。
+通过直接在命令模式下输入`:GitGutterToggle`，可以直接控制Git Gutter插件启用或关闭；
+- `gitgutter_enable`表示初始插件是否启用；
+- `highlight_lines`会背景高亮有改动的代码；
+- `sign_added`表示新添加的代码前会有`A`表示，此外可以修改`sign_modified`、`sign_removed`等不同类型改动代码前的表示。
 
 ### 设置快捷键进行编译
 通过按键映射，可以指定某个按键来启动编译。如下：
@@ -246,14 +253,35 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 
 配置完成后默认是不开启的，需要在命令行中显式开启`ApcEnable`即可使用；关闭时使用`ApcDisable`。
 
-### 在vimdiff中展开/折叠其他部分
-展开：`zo`；折叠：`zc`。
+### 在vimdiff中移动光标/展开/折叠其他部分
+两种启动vimdiff的方法：
+```
+vimdiff File1 File2
+vim -d File1 File2
+```
+跳转（只需要把中括号看作箭头就不会记错方向）：
+- 跳转到下一个差异点：`]c`；
+- 跳转到上一个差异点：`[c`。
+
+展开与折叠（之所以用`z`这个字母，因为它看起来很像是折叠起来的纸）
+- 展开（folding open）：`zo`；
+- 折叠（folding close）：`zc`。
 
 重新计算差异:
 ```bash
 :diffupdate
 ```
 在进行多次更改后vim不再显示最小更改时很有用。如果全部重新加载，使用`:e`即可。
+
+其他关于`vimdiff`的功能展开，可以参考文章18。
+
+### 选中部分文字后直接搜索
+详见参考文章17，英文社区的回答。
+- 按`v`进入选择模式，选择需要搜索的文字；
+- 按`y`将选择的文字复制到Vim的寄存器中（默认为`"`寄存器）；
+- 按`/`进入搜索模式（这里也可以换成`?`，选中的文字就不需要补充转义符）；
+- 按组合键：`Ctrl`+`r` `"`，将选中的文字从寄存器中复制出来；
+- 按回车开始搜索。
 
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
@@ -272,3 +300,5 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 14. [Vim2021：超轻量级代码补全系统](https://zhuanlan.zhihu.com/p/349271041)
 15. [关于linux：如何在Vimdiff中展开/折叠其他部分](https://www.codenong.com/5288875/)
 16. [vim-plug插件安装及使用](https://www.cnblogs.com/zhaodehua/articles/15108744.html)
+17. [How to search for selected text in Vim?](https://superuser.com/questions/41378/how-to-search-for-selected-text-in-vim)
+18. [技巧：Vimdiff 使用](https://www.cnblogs.com/motoyang/p/6091281.html)

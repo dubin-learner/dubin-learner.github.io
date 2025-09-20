@@ -7,11 +7,13 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
   <!-- docsify themes -->
-  <!-- link rel="stylesheet" href="//unpkg.com/docsify@4.12.2/themes/vue.css" -->
-  <!-- link rel="stylesheet" href="//unpkg.com/docsify@4.12.2/themes/buble.css" -->
-  <!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/A5yncX/docsify-theme-darcula@v1.0/darcula.css" -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
-  <!-- link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css" -->
+  <!-- link rel="stylesheet" title="light" href="//unpkg.com/docsify@4.12.2/themes/vue.css" -->
+  <!-- link rel="stylesheet" title="dark" href="//unpkg.com/docsify@4.12.2/themes/buble.css" -->
+  <!-- link rel="stylesheet" title="dark" href="https://cdn.jsdelivr.net/gh/A5yncX/docsify-theme-darcula@v1.0/darcula.css" -->
+  <link rel="stylesheet" title="light" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple.css">
+  <link rel="stylesheet" title="dark" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0/dist/css/theme-simple-dark.css">
+  <!-- switch themes between light and dark -->
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch/dist/docsify-dark-switch.css">
 </head>
 <body>
   <div id="app"></div>
@@ -23,7 +25,7 @@
       subMaxLevel: 1
     }
   </script>
-  <!-- Docsify v4 -->
+  <!-- Docsify v4, multiple languages support -->
   <script src="//unpkg.com/docsify@4"></script>
   <script src="//unpkg.com/prismjs@1/components/prism-bash.js"></script>
   <script src="//unpkg.com/prismjs@1/components/prism-c.js"></script>
@@ -33,6 +35,13 @@
   <!-- docsify with MathJax -->
   <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+  <!-- docsify mermaid support -->
+  <!-- from: https://codeberg.org/3rd/mermaid-docsify/src/branch/master/README.md -->
+  <script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+  <script>mermaid.initialize({ startOnLoad: true  });</script>
+  <!-- switch theme, from: https://jishuzhan.net/article/1755065390297255937 -->
+  <script src="//cdn.jsdelivr.net/npm/docsify-dark-switch/dist/docsify-dark-switch.min.js"></script>
 </body>
 <!-- Custom theme styles -->
 <style>

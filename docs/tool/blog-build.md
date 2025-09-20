@@ -89,19 +89,22 @@ git push -u origin master
 
 PS：总体来说图片码了个寂寞😂
 
-## 遇到的一些坑
+## ~~遇到的一些坑~~ 新增的一些功能
 
 ### 1. C++代码高亮
 
-根据`docsify`的[官方文档](https://docsify.js.org/)，在markdown中进行代码高亮时需要添加对应的[Prism仓库](https://github.com/PrismJS/prism/tree/gh-pages/components)中的js文件。然而，C++语法高亮需要添加以下三个：
+根据`docsify`的[官方文档](https://docsify.js.org/)，在markdown中进行代码高亮时需要添加对应的
+[Prism仓库](https://github.com/PrismJS/prism/tree/gh-pages/components)中的js文件。
 
+然而，C++语法高亮需要添加以下三个：
 ```html
 <script src="//unpkg.com/prismjs/components/prism-c.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-clike.js"></script>
 <script src="//unpkg.com/prismjs/components/prism-cpp.js"></script> 
 ```
 
-仅仅添加prism-cpp.js是不够的。参考自[该文章](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)的代码高亮一节。这篇文章中提到的一些`docsify`的配置还是很有用的。
+仅仅添加prism-cpp.js是不够的。参考自[该文章](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)的代码高亮一节。
+这篇文章中提到的一些`docsify`的配置还是很有用的。
 
 ### 2. 其他主题
 
@@ -115,7 +118,64 @@ PS：总体来说图片码了个寂寞😂
 ### 3. latex公式支持
 
 最开始使用katex的方式，不知道什么时候开始完全没效果。最后经过搜索，使用MathJax的方式。
-参见[docsify-latex with mathjax](https://scruel.github.io/docsify-latex/#/?id=with-mathjax)
+
+参见[docsify-latex with mathjax](https://scruel.github.io/docsify-latex/#/?id=with-mathjax)；
+在`index.html`中额外添加：
+```html
+<script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>
+```
+
+### 4. mermaid流程图支持
+最近想在博客中增加一些流程图，想起了一些markdown编辑器是支持mermaid来进行画图的。
+
+于是找了一下让docsify支持mermaid的方法，参考[mermaid-docsify](https://codeberg.org/3rd/mermaid-docsify/src/branch/master/README.md)，
+在`index.html`中额外添加：
+```html
+<script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+<script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"></script>
+<script>mermaid.initialize({ startOnLoad: true  });</script>
+```
+用于测试的markdown代码，以及现实效果如下：
+````markdown
+```mermaid
+graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+```
+````
+```mermaid
+graph LR
+    A --- B
+    B-->C[fa:fa-ban forbidden]
+    B-->D(fa:fa-spinner);
+```
+插入以上代码的时候遇到一个问题，即怎么在代码块中输入<code>`</code>（反引号）。
+
+经过搜索发现，原来<code>`</code>控制代码块的开始和结束并不需要都是三个，只需要前后匹配即可，几个都可以，学到了。
+参见参考文章[9]。
+
+### 5. 增加切换主题的按钮
+想要让博客自动切换主题，最好是随着时间变化，到晚上就切换夜间模式；想换主题也不用再改代码。
+
+搜了一下自动切换好像比较麻烦，但可以给博客加一个切换夜间模式的按钮，感觉也不错。
+添加方法如下，具体见参考文章[10]：
+```html
+<!-- head -->
+<!-- 给 theme stylesheet 设置对应的 title，可以设置多个  -->
+<link rel="stylesheet" title="light" href="//cdn.jsdelivr.net/npm/docsify/themes/vue.css">
+<link rel="stylesheet" title="dark" href="//cdn.jsdelivr.net/npm/docsify/themes/dark.css">
+
+<!-- 引用 docsify-dark-switch.css  -->
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify-dark-switch/dist/docsify-dark-switch.css">
+
+<!-- Also insert you custom css -->
+
+<!-- body -->
+<!-- 引用 docsify-dark-switch.js 或 docsify-dark-switch.min.js  -->
+<script src="//cdn.jsdelivr.net/npm/docsify-dark-switch/dist/docsify-dark-switch.min.js"></script>
+```
 
 ## 参考文章
 1. [Git基础-获取Git仓库](https://www.git-scm.com/book/zh/v2/Git-基础-获取-Git-仓库#ch02-git-basics-chapter)
@@ -124,4 +184,8 @@ PS：总体来说图片码了个寂寞😂
 4. [基于Github Pages + docsify半天搭建个人博客](https://www.cnblogs.com/happyone/p/12152566.html)
 5. [温锦瑜的博客 docsify：做一个自己的笔记本应用](https://www.wenjinyu.me/zh/docsify-make-a-notebook-application-of-your-own/)
 6. [docsify-themeable](https://jhildenbiddle.github.io/docsify-themeable/#/introduction) 
-7. [docsify-latex](https://scruel.github.io/docsify-latex)
+7. ~~[docsify-latex](https://scruel.github.io/docsify-latex)~~
+[docsify-latex with mathjax](https://scruel.github.io/docsify-latex/#/?id=with-mathjax)
+8. [mermaid-docsify](https://codeberg.org/3rd/mermaid-docsify/src/branch/master/README.md)
+9. [Markdown 如何在内联代码或者代码块中使用代码开始符号反引号（\`）](https://cloud.tencent.com/developer/article/2348842)
+10. [手写一个 docsify 切换主题 plugin](https://jishuzhan.net/article/1755065390297255937)

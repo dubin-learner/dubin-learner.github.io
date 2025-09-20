@@ -13,6 +13,7 @@
   * [EDA](/blogs?id=eda)
   * [工作记录](/blogs?id=工作记录)
   * [算法笔记](/blogs?id=算法笔记)
+  * [杂谈](/blogs?id=杂谈)
 
 * [刷题](/codes)
   * [面试经典150题笔记](/code/i150p)

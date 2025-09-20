@@ -5,4 +5,6 @@
 - [Perf安装与火焰图](/tool/install_perf)
 - [Concorde安装](/tool/install_concorde)
 - [OpenCV安装](/tool/install_opencv)
-- [EDA软件/开源工具安装](/tool/install_eda)
+- [EDA软件安装记录：开源软件](/tool/install_eda0)
+- [EDA软件安装记录：Cadence Innovus 2020](/tool/install_eda1)
+- [EDA软件安装记录：Synopsys PrimeTime 2016](/tool/install_eda2)
