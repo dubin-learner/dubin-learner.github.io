@@ -96,9 +96,12 @@ endfunction
 ### 插件ctags的使用
 在已经安装ctags的前提下，在源文件目录下，直接执行（对于C++）生成tags文件：
 ```shell
-ctags -R --c++-kinds=+px --field=+iaS --extra=+q
+ctags -R --c++-kinds=+px --fields=+iaS --extra=+q
 ```
-其中，`c++-kinds`用于指定C++语言的tags记录类型，通用格式：`--{language}-kinds`；`field`用于指定每条标记的扩展字段域；`extra`用于增加额外的条目，参数`q`为每个类增加一个条目，参数`f`为每个文件增加一个条目。
+这几个选项的大致含义如下：
+- `c++-kinds`用于指定C++语言的tags记录类型，通用格式：`--{language}-kinds`；
+- `--fields`用于指定每条标记的扩展字段域；
+- `--extra`用于增加额外的条目，参数`q`为每个类增加一个条目，参数`f`为每个文件增加一个条目。
 
 在Vim中指定目标路径下使用tags文件：
 ```shell
@@ -245,6 +248,7 @@ set shortmess+=c
 ```bash
 set statusline+=%F
 ```
+PS：如果是在VimScript中，或者在Command Line中，符号`%`的含义就是当前文件，例如用`:grep "pattern" %`就能抓取当前文件中的指定规则的行。
 
 ### Vim2021：超轻量级代码补全系统
 具体内容见参考文章14。体验下来效果还不错，文件也不大，甚至可以直接拷贝到vimrc中。但一定要在vim8之后的版本。
@@ -331,4 +335,5 @@ tmap <c-v> <c-\><c-n>
 19. [Vim内置终端调教记](https://zhuanlan.zhihu.com/p/102287909)
 20. [vim的几种模式mode和按键映射map](https://www.cnblogs.com/sunsky303/p/13522437.html)
 21. [How to open a vertical split to the main view not just next to the current one in case of horizontal splitted viewport?](https://vi.stackexchange.com/questions/14141/how-to-open-a-vertical-split-to-the-main-view-not-just-next-to-the-current-one-i)
+
 
