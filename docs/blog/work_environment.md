@@ -127,6 +127,8 @@ git clone https://github.com/tmux/tmux
 ./configure
 make
 ```
+
+### 安装依赖修复
 但tmux有一些依赖库有可能在服务器上没有，例如libevent，就会在执行`./configure`时报错：`configure: error: "libevent not found"`。
 需要到[libevent官网](https://libevent.org/)下载后，解压（其实源码也托管在github上）然后编译安装：
 ```csh
@@ -138,6 +140,7 @@ make
 make install
 ```
 这里在执行`./configure`的时候，需要通过`--prefix=`指定一个当前用户可以正常读写的目录，最后`make install`就不需要管理员权限，可以生成需要的库文件给tmux使用。
+
 安装完成后在`~/.cshrc`中增加环境变量，用于安装和运行tmux：
 ```csh
 setenv LD_LIBRARY_PATH "${LD_LIBRARY_PATH}:/installs/path/your/can/access/lib"
@@ -145,8 +148,20 @@ setenv PKG_CONFIG_PATH "${PKG_CONFIG_PATH}:/installs/path/your/can/access/lib/pk
 ```
 这一步完成后，在tmux编译过程中也需要指定该目录。最后是否`make install`差别不大，因为`make`这一步已经生成了可执行文件。
 
-如果有其他的库文件缺失，例如ncurses，可参考[这篇文章](https://www.cnblogs.com/mitnick/p/18433990)。
+?> 如果有其他的库文件缺失，例如ncurses，可参考[这篇文章](https://www.cnblogs.com/mitnick/p/18433990)。
 
+### 设置鼠标行为
+通常可以在tmux中设置`set mouse on`来开启鼠标功能。
+
+此时鼠标滚轮可以向上翻，右键会显示一个菜单，但左键选中无法复制，中键无法粘贴。
+如果需要复制的话，需要同时按住`Shift`，鼠标左键选中和中键粘贴就可以用了。
+
+这个功能可以在tmux中执行了某个命令，但忘记重定向到文件中时，开启后上翻已经输出的信息。有点像默认的terminal在鼠标滚轮下的行为。
+通过`set mouse off`即可关闭。
+
+有可能遇到`set mouse on`之后该功能仍然不生效的情况，这有可能是复制模式没有打开，需要`Ctrl+b`+`[`开启复制模式；退出复制模式也很简单，按`q`即可。
+
+### Vim在tmux内外配色不一致问题
 tmux离线安装已经完成。和Vim联合使用时发现一个问题，Vim的配色在终端中正常，但在tmux里使用就会变得异常简陋。
 原因见：
 - [Why do Vim colors look different inside and outside of tmux?](https://unix.stackexchange.com/questions/348771/why-do-vim-colors-look-different-inside-and-outside-of-tmux)
