@@ -7,58 +7,6 @@ Vim和tmux都是可以通过快捷键进行操作，可以更加集中的使用�
 
 对于我个人来说是比较习惯的。
 
-## Vim配置
-
-原则是尽可能简单可控。
-- 简单意味着如果换新的服务器环境，可以快速配置上手；
-- 可控意味着基本懂得所有的配置含义，当环境修改时能进行适当的新增或删除。
-
-完整内容见：[我的Vim配置文件]()。
-
-### 基础配置
-这部分配置是Vim本身自带的，配置完就能用。
-
-对公司环境和本地电脑环境进行合并；同步更新github的Vimrc文件。
-这里增加Vimrc中的原生可配置内容。
-
-### 一些简单的插件
-这部分插件可以提升一些Vim的使用体验，当然最大的特点也是即插即用，不需要环境依赖、其他组件依赖。
-
-如果内部服务器无法链接外网，那么复制插件压缩包，解压放到指定目录就能用。
-- colors
-- pack
-
-目前使用的插件列表：
-1. auto-pairs
-2. ctrlp（使用频率低）
-3. nerdtree
-4. vim-airline
-5. vim-gitgutter
-6. apc
-
-当然还是能访问外网会比较好，通过plug安装简单的多，不过插件建议尽量不要折腾，**够用就行**。
-
-### 更改配色
-以下是我用过的一些还不错的配色方案：
-1. duoduo
-2. gruvbox
-3. janah
-4. monokai
-
-推荐一个[Vim主题网站](https://vimcolorschemes.com/)，可以从上面下载自己喜欢的Vim主题。
-
-### 自定义函数
-为工作环境增加的一些函数，尽量自己写并增加注释，为了提高一些工作效率。
-
-1. 快速编译：F5，C-F5
-2. 更新tags：快速跳转函数
-3. 快速格式化：C++ style
-4. 快捷键切换：自动补全模式，git gutter
-5. 插入注释
-6. cpplint检查
-
-这里贴上函数实现的细节，补充部分注释内容。
-
 ## tmux终端管理
 
 补充一些没啥营养的话，例如如何接触tmux，使用的感受。
@@ -82,21 +30,14 @@ Vim和tmux都是可以通过快捷键进行操作，可以更加集中的使用�
 Vim tmux shell其实都可以是终端，并且可以嵌套。而且我经常用Vim嵌套好几层。
 补充用pstree快速查看当前终端的嵌套情况方法：`pstree -s $$`
 
+---
 
 # 环境配置
-内网服务器为CentOS，命令行工具主要是csh。需要安装的工具如下：
+内网服务器为CentOS，命令行工具主要是csh。需要通过复制安装包、或者源码编译的方式进行安装。目前常用的工具列表如下：
 - Vim8.2
 - tmux
 - tree
 - Python3.6.8（按需安装）
-对于Vim还要安装几个插件。先安装plug.vim文件，插件列表如下：
-- [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
-- [vim-auto-popmenu](https://github.com/skywind3000/vim-auto-popmenu)    
-- [vim-airline](https://github.com/vim-airline/vim-airline)    
-- [nerdtree](https://github.com/preservim/nerdtree)  
-- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
-- [auto-pairs](https://github.com/jiangmiao/auto-pairs)
-- [vim-preview](https://github.com/skywind3000/vim-preview)
 
 ## Vim8.2离线安装
 Vim官方的源码托管在github上，直接克隆下来编译即可：
@@ -120,7 +61,34 @@ alias vim "${TOOLS_PATH}/vim8.2/src/vim
 alias vimdiff "vim -d"
 alias v "vim"
 ```
-Vim离线安装就完成了。然后就是进行一些常规配置、增加插件。详见[我的Vim配置文件]()
+Vim离线安装就完成了。然后就是进行一些常规配置、增加插件。
+最终结果详见[我的Vim配置文件](https://github.com/dubin-learner/myVimConfiguration)，下面是其中部分内容的介绍。
+
+?> 原则是尽可能简单可控。
+?> - 简单意味着如果换新的服务器环境，可以快速配置上手；
+?> - 可控意味着基本懂得所有的配置含义，当环境修改时能进行适当的新增或删除。
+
+### 基础配置
+这部分配置是Vim本身自带的，配置完就能用。
+
+对公司环境和本地电脑环境进行合并；同步更新github的Vimrc文件。
+这里增加Vimrc中的原生可配置内容。
+
+### 自定义函数
+为工作环境增加的一些函数，尽量自己写并增加注释，为了提高一些工作效率。
+
+1. 快速编译：F5，C-F5
+2. 更新tags：快速跳转函数
+3. 快速格式化：C++ style
+4. 快捷键切换：自动补全模式，git gutter
+5. 插入注释
+6. cpplint检查
+
+这里贴上函数实现的细节，补充部分注释内容。
+
+### 插件补充
+当然还是能访问外网会比较好，不过插件建议尽量不要折腾，**够用就行**。
+任何对于第三方工具有依赖的插件，能不用尽可能不要用，配置环境就够费劲了。
 
 通过vim-plug来管理插件，创建如下的目录结构：
 ```csh
@@ -130,9 +98,20 @@ Vim离线安装就完成了。然后就是进行一些常规配置、增加插�
 └── plugged
 ```
 下载plug.vim文件：`https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim`，将这个文件放在autoload路径下。
-其他两个目录，colors用来存放第三方的主题，plugged用来存放插件。
+其他两个目录，colors用来存放第三方的主题，plugged用来存放插件。目前使用的插件列表如下：
+- [asyncrun.vim](https://github.com/skywind3000/asyncrun.vim)
+- [vim-auto-popmenu](https://github.com/skywind3000/vim-auto-popmenu)    
+- [vim-airline](https://github.com/vim-airline/vim-airline)    
+- [nerdtree](https://github.com/preservim/nerdtree)  
+- [vim-gitgutter](https://github.com/airblade/vim-gitgutter)
+- [auto-pairs](https://github.com/jiangmiao/auto-pairs)
+- [vim-preview](https://github.com/skywind3000/vim-preview)
 
+### 主题配色
 推荐一个第三方主题：[duoduo.vim](https://github.com/kba/duoduo/blob/master/colors/duoduo.vim)
+推荐一个[Vim主题网站](https://vimcolorschemes.com/)，可以从上面下载自己喜欢的Vim主题。
+我用过duoduo、gruvbox、janah、monokai等。
+
 PS：在第一台服务器上配置时，自动补全的popmenu配色出现了点问题，选项的字体和背景全都是纯黑无法看清。
 于是额外修改popmenu选项的配色，cursorline也进行了修改：
 ```vimscript
@@ -202,3 +181,9 @@ CFLAGS+=-Wall -Wextra -Wstrict-prototypes -Wshadow -Wconversion
 在`~/.cshrc`增加`alias tree ~/tools/unix-tree-2.2.1/tree`即可。
 
 PS：同样可以修改安装目录通过`make install`安装tree，但工程中没有configure文件，直接改Makefile文件即可。
+
+## Python3.6.8离线安装
+这部分就不详细记录了，方法和上面基本一样，下载源码安装包，然后`./configure --prefix=/installs/path; make; make install`即可。
+
+值得注意的就是对于比较老旧的服务器版本，不要安装比较新的python3版本，因为要求安装环境的依赖编译工具版本更新才行。
+如果要升级很多基础的依赖版本，那就没有必要折腾；不然容易破环现有的编译环境，得不偿失。
