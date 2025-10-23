@@ -118,7 +118,7 @@ map <c-]> g<c-]>
 ```shell
 set g:gitgutter_enable=1
 let g:gitgutter_highlight_lines=1
-let g:gitgutter_sign_added='A'
+"let g:gitgutter_sign_added='A' 没必要改，默认的'+'感觉也行
 ...
 nnoremap <silent> <leader>d :GitGutterToggle<cr>
 ```
@@ -283,6 +283,31 @@ vim -d File1 File2
 - 按组合键：`Ctrl`+`r` `"`，将选中的文字从寄存器中复制出来；
 - 按回车开始搜索。
 
+### 让内置终端进入只读模式
+在Vim8之后增加了内置终端，通过`:terminal`或者简写`:term`或`:ter`即可打开一个内置终端的窗口，可以和正常的分割窗口一样切换。
+
+内置终端支持切换模式（默认为insert模式），可进入只读状态（normal模式），让终端里的内容像打开的文本文件一样查看。
+这样在Vim内置终端运行的结果，可以不用特意重定向到文件，就能直接查看。
+- 在默认insert模式下，先按`Ctrl+\`再按`Ctrl+n`进入normal模式
+- 在normal模式下，按`i`或`a`等这种插入快捷键回到insert模式
+
+组合键还是太复杂，可以进行按键映射。`tmap`代表只在内置终端中进行映射，其他的编辑窗口中不受到影响。
+```vimscript
+tmap <c-v> <c-\><c-n>
+```
+如果有其他的Vim内置终端设置需要，可参考文章19。其他一些不同的键盘映射命令见参考文章20。
+
+### 将某个窗口直接放到最底下
+通常分屏会在当前窗口中进行分割，这就导致了窗口越分越小。
+有时候希望某个窗口放到整个屏幕的最下，且长度和屏幕一样宽。类似于visual studio那种终端窗口、显示warnings/errors的窗口等。
+
+放到整个屏幕最下的快捷键为`Ctrl+w`然后按`J`，注意是大写字母，一般需要加`Shift`。见参考文章21，完整的上下左右调整快捷键：
+- 最左侧：`Ctrl+w`再按`H`
+- 最上侧：`Ctrl+w`再按`K`
+- 最右侧：`Ctrl+w`再按`L`
+- 最下侧：`Ctrl+w`再按`J`
+即：`HJKL`对应左下上右。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -302,3 +327,6 @@ vim -d File1 File2
 16. [vim-plug插件安装及使用](https://www.cnblogs.com/zhaodehua/articles/15108744.html)
 17. [How to search for selected text in Vim?](https://superuser.com/questions/41378/how-to-search-for-selected-text-in-vim)
 18. [技巧：Vimdiff 使用](https://www.cnblogs.com/motoyang/p/6091281.html)
+19. [Vim内置终端调教记](https://zhuanlan.zhihu.com/p/102287909)
+20. [vim的几种模式mode和按键映射map](https://www.cnblogs.com/sunsky303/p/13522437.html)
+21. [How to open a vertical split to the main view not just next to the current one in case of horizontal splitted viewport?](https://vi.stackexchange.com/questions/14141/how-to-open-a-vertical-split-to-the-main-view-not-just-next-to-the-current-one-i)
