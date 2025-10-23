@@ -306,6 +306,7 @@ tmap <c-v> <c-\><c-n>
 - 最上侧：`Ctrl+w`再按`K`
 - 最右侧：`Ctrl+w`再按`L`
 - 最下侧：`Ctrl+w`再按`J`
+
 即：`HJKL`对应左下上右。
 
 ## 参考文章
@@ -330,3 +331,4 @@ tmap <c-v> <c-\><c-n>
 19. [Vim内置终端调教记](https://zhuanlan.zhihu.com/p/102287909)
 20. [vim的几种模式mode和按键映射map](https://www.cnblogs.com/sunsky303/p/13522437.html)
 21. [How to open a vertical split to the main view not just next to the current one in case of horizontal splitted viewport?](https://vi.stackexchange.com/questions/14141/how-to-open-a-vertical-split-to-the-main-view-not-just-next-to-the-current-one-i)
+
