@@ -86,7 +86,8 @@ endfunction
 ```
 
 ## 光标移动相关
-> [Vim光标快速移动技巧总结](https://blog.csdn.net/llzhang_fly/article/details/80474966)
+> [Vim光标快速移动技巧总结](https://www.cnblogs.com/hypj/p/13953750.html)
+> [在vim中快速移动光标和跳转](https://zhuanlan.zhihu.com/p/365490170)
 > waiting for writing ...
 
 ## 其他
@@ -335,5 +336,6 @@ tmap <c-v> <c-\><c-n>
 19. [Vim内置终端调教记](https://zhuanlan.zhihu.com/p/102287909)
 20. [vim的几种模式mode和按键映射map](https://www.cnblogs.com/sunsky303/p/13522437.html)
 21. [How to open a vertical split to the main view not just next to the current one in case of horizontal splitted viewport?](https://vi.stackexchange.com/questions/14141/how-to-open-a-vertical-split-to-the-main-view-not-just-next-to-the-current-one-i)
+
 
 
