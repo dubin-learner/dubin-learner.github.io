@@ -314,6 +314,38 @@ tmap <c-v> <c-\><c-n>
 
 即：`HJKL`对应左下上右。
 
+### 记住上次打开文件时的位置
+默认打开文件时，无论之前是否打开过，光标都会在第一行。希望光标能在上次打开文件时的位置，方便继续编辑。增加设置如下：
+```vimscript
+if has("autocmd")
+  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
+endif
+```
+补充的解释如下；
+- `au`或`autocmd`：自动命令
+- `BufReadPost`：在文件读取完成后触发的事件
+- `*`：对所有文件类型生效
+- `line("'\"")：获取上次退出时光标所在的行号（`'"`是上次位置的标记）
+- `line("$")：获取文件最后一行行号
+- `|`：命令分隔符（在if语句中分隔多个命令）
+- `exec "normal! g'\""`：执行普通模式命令`g'"`（跳转到上次位置）
+
+PS：deepseek还是好用的；参考文章22并没有对原理进行介绍，虽然也能猜到大概。最核心的是理解`'"`的含义。
+
+将光标所在行置于屏幕中间的命令组合：`zz`。
+
+### 模糊搜索插件fzf
+
+### 折叠模式
+Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有几个不同的选项，但还是推荐默认的`manual`，使用方法举例：
+- 通过行选择模式，选择多行需要折叠的内容；
+- 快捷键`zf`实现折叠；如果已知要折叠多少行，可以不用行选择模式，例如20行，`zf20`即可；
+- 该折叠可以通过`zc`和`zo`进行展开和再折叠。
+
+如果设置`indent`根据缩进折叠，折叠的内容会过多。
+
+如果想查询Vim的某个选项当前的值是什么，可以通过`:set option?`获取。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -336,6 +368,5 @@ tmap <c-v> <c-\><c-n>
 19. [Vim内置终端调教记](https://zhuanlan.zhihu.com/p/102287909)
 20. [vim的几种模式mode和按键映射map](https://www.cnblogs.com/sunsky303/p/13522437.html)
 21. [How to open a vertical split to the main view not just next to the current one in case of horizontal splitted viewport?](https://vi.stackexchange.com/questions/14141/how-to-open-a-vertical-split-to-the-main-view-not-just-next-to-the-current-one-i)
-
-
-
+22. [配置vim记住上一次打开文件时编辑的位置](https://www.simaek.com/archives/462/)
+23. [vim操作--代码折叠](https://zhuanlan.zhihu.com/p/695097694)
