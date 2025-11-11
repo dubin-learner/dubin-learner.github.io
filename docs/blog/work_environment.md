@@ -120,6 +120,23 @@ highlight CursorLine cterm=NONE ctermbg=240
 ```
 该方案参考了[这篇文章](https://www.cnblogs.com/chjbbs/p/6272859.html)
 
+### 将git的diff工具配置为vimdiff
+一般情况下，只需要执行命令：`git config --global diff.tool vimdiff`就可以。
+
+但如果是自己编译的Vim，因为服务器上权限的问题，只能通过`alias vimdiff "vim -d"`这种方式覆盖vimdiff命令，但git的config却无法正确使用。
+
+在.gitconfig文件中增加：
+```bash
+[diff]
+    tool = svimdiff
+[difftool "svimdiff"]
+    cmd = /path/to/your/vim -d $LOCAL $REMOTE
+[difftool]
+    prompt = false
+```
+其中，`svimdiff`是自定义的字符串，只要在下面的路径配置正确即可，代表自定义了某个路径下的工具作为diff工具。
+参考的这篇文章：[使用.gitconfig配置diff工具](https://dev59.com/yGw15IYBdhLWcg3wxuch)
+
 ## tmux离线安装
 tmux是一个终端复用器，适合ssh时启动多个终端进行管理。源码同样托管在github上，直接获取源码进行编译：
 ```csh
