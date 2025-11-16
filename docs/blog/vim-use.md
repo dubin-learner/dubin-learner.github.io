@@ -212,7 +212,7 @@ cp plug.vim  ~/.vim/autoload/plug.vim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 ```
 
-安装完成后只需要修改`~/.vimrc`文件，添加插件即可。我目前会添加的几个插件如下：
+安装完成后只需要修改`~/.vimrc`文件，添加插件即可。添加方法如下：
 ```bash
 call plug#begin()
 Plug 'skywind3000/vim-auto-popmenu'
@@ -221,17 +221,7 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'preservim/nerdtree'
 call plug#end()
 ```
-其中，`vim-auto-popmenu`这个插件还会增加一些设置，用于自动补全。
-```bash
-" enable this plugin for filetypes, '*' for all files.
-let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
-" source for dictionary, current or other loaded buffers, see ':help cpt'
-set cpt=.,k,w,b
-" don't select the first item.
-set completeopt=menu,menuone,noselect
-" suppress annoy messages.
-set shortmess+=c
-```
+
 修改完成后重新`source ~/.vimrc`，然后打开任意文本文件执行`PlugInstall`即可。
 其他Plug相关命令可以利用补全自己查看。
 - `PlugInstall`：安装插件
@@ -252,11 +242,38 @@ set statusline+=%F
 PS：如果是在VimScript中，或者在Command Line中，符号`%`的含义就是当前文件，例如用`:grep "pattern" %`就能抓取当前文件中的指定规则的行。
 
 ### Vim2021：超轻量级代码补全系统
+轻量级补全工具，根据当前打开文件中单词，或者通过vim-dict插件提供词典进行补全。
+
 具体内容见参考文章14。体验下来效果还不错，文件也不大，甚至可以直接拷贝到vimrc中。但一定要在vim8之后的版本。
 
 vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这个选项，导致会默认选择弹出菜单的第一项，给回退造成很大的困扰，使用体验极差。
 
 配置完成后默认是不开启的，需要在命令行中显式开启`ApcEnable`即可使用；关闭时使用`ApcDisable`。
+
+推荐使用vim-plug添加插件，方法同上；然后需要补充一些设置如下：
+```bash
+" enable this plugin for filetypes, '*' for all files.
+let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
+" source for dictionary, current or other loaded buffers, see ':help cpt'
+set cpt=.,k,w,b
+" don't select the first item.
+set completeopt=menu,menuone,noselect
+" suppress annoy messages.
+set shortmess+=c
+```
+实际使用下来，和auto-pairs插件在大括号中回车的结果会有一些行为冲突，导致回车后光标位置不太对。
+目前想的解决方案是暂时注释掉apc.vim里在`ApcEnable`之后处理回车键的部分逻辑，如下：
+```vimscript
+122	"if get(g:, 'apc_cr_confirm', 0) == 0
+123	"	inoremap <silent><buffer><expr> <cr> 
+124	"				\ pumvisible()? "\<c-y>\<cr>" : "\<cr>"
+125	"else
+126	"	inoremap <silent><buffer><expr> <cr> 
+127	"				\ pumvisible()? "\<c-y>" : "\<cr>"
+128	"endif
+```
+其他补全功能正常。
+
 
 ### 在vimdiff中移动光标/展开/折叠其他部分
 两种启动vimdiff的方法：

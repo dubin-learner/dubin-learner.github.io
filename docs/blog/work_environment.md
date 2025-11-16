@@ -1,4 +1,4 @@
-# 开发环境
+# 写在前面
 本篇主要记录我个人日常工作的开发环境配置。
 
 工作上主要是在linux服务器上进行开发。
@@ -6,29 +6,6 @@
 Vim和tmux都是可以通过快捷键进行操作，可以更加集中的使用键盘（当然鼠标也是会用的）
 
 对于我个人来说是比较习惯的。
-
-## tmux终端管理
-
-补充一些没啥营养的话，例如如何接触tmux，使用的感受。
-
-### tmux使用学习
-
-记录一些常用的使用方式（大部分是快捷键），或增加一些可能有用现在却没用上功能的分析。
-
-[Tmux使用教程-阮一峰](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
-
-### tmux补充设置
-直接照抄参考网页的核心内容。
-[保持tmux窗口名更改后不变](https://www.cnblogs.com/zhuzi8849/p/6279297.html)
-
-## 常用的shell命令
-
-理解shell中的进程关系，环境变量继承
-
-[父shell和子shell](https://blog.csdn.net/qq_43808700/article/details/115832946)
-
-Vim tmux shell其实都可以是终端，并且可以嵌套。而且我经常用Vim嵌套好几层。
-补充用pstree快速查看当前终端的嵌套情况方法：`pstree -s $$`
 
 ---
 
@@ -65,14 +42,36 @@ Vim离线安装就完成了。然后就是进行一些常规配置、增加插�
 最终结果详见[我的Vim配置文件](https://github.com/dubin-learner/myVimConfiguration)，下面是其中部分内容的介绍。
 
 ?> 原则是尽可能简单可控。
-?> - 简单意味着如果换新的服务器环境，可以快速配置上手；
-?> - 可控意味着基本懂得所有的配置含义，当环境修改时能进行适当的新增或删除。
+<br>1. 简单意味着如果换新的服务器环境，可以快速配置上手；
+<br>2. 可控意味着基本懂得所有的配置含义，当出现问题或环境修改时能进行适当的新增或删除。
 
 ### 基础配置
-这部分配置是Vim本身自带的，配置完就能用。
+这部分配置是Vim本身自带的，配置完直接生效，具体含义都比较直白，不在赘述。
+```vimscript
+" Set Vim color scheme
+set guifont=Monospace\ 13.6
+colorscheme duoduo
 
-对公司环境和本地电脑环境进行合并；同步更新github的Vimrc文件。
-这里增加Vimrc中的原生可配置内容。
+" Set cursor and text format related style
+set number
+set cursorline
+set ruler
+set hlsearch
+
+syntax on
+set cindent
+set expandtab
+set shiftwidth=2
+set backspace=2 "set backspace to previous line
+set wrap
+
+set guioptions=-m
+set guioptions=-T
+set nobackup
+set noundofile
+set noswapfile
+set autoread
+```
 
 ### 自定义函数
 为工作环境增加的一些函数，尽量自己写并增加注释，为了提高一些工作效率。
@@ -81,10 +80,21 @@ Vim离线安装就完成了。然后就是进行一些常规配置、增加插�
 2. 更新tags：快速跳转函数
 3. 快速格式化：C++ style
 4. 快捷键切换：自动补全模式，git gutter
-5. 插入注释
-6. cpplint检查
+5. ~~插入注释~~
+6. ~~cpplint检查~~
 
-这里贴上函数实现的细节，补充部分注释内容。
+掌握Vimscript的函数相关语法后，写一些小的自定义函数并不难。以更新tags为例，函数实现如下：
+```vimscript
+function! UpdateTags()
+  if filereadable('./tags')
+    execute "!ctags -R --verbose"
+  else
+    execute "!ctags -R --c++-kinds=+px --fields=+iaS --extra=+q --verbose"
+  endif
+endfunction
+command UpdateTags call UpdateTags()
+```
+有了`asyncrun.vim`插件之后，这个函数也可以升级为异步更新tags。
 
 ### 插件补充
 当然还是能访问外网会比较好，不过插件建议尽量不要折腾，**够用就行**。
@@ -137,8 +147,30 @@ highlight CursorLine cterm=NONE ctermbg=240
 其中，`svimdiff`是自定义的字符串，只要在下面的路径配置正确即可，代表自定义了某个路径下的工具作为diff工具。
 参考的这篇文章：[使用.gitconfig配置diff工具](https://dev59.com/yGw15IYBdhLWcg3wxuch)
 
+?> 更多的配置细节说明，见我的另一片文章：[Vim常见使用技巧#其他](blog/vim-use?id=其他)
+
 ## tmux离线安装
-tmux是一个终端复用器，适合ssh时启动多个终端进行管理。源码同样托管在github上，直接获取源码进行编译：
+tmux是一个终端复用器，适合ssh时启动多个终端进行管理。
+
+以`Ctrl + b`起手，加上快捷键可以方便的实现窗口管理、分屏等操作，我经常用的快捷键总结如下：
+- `w`：进入窗口管理页面，可以通过上下选择要打开的窗口，同时进行对应的预览；
+- `c`：创建新的窗口；
+- `:`：对当前的窗口进行左右分屏；
+- `%`：对当前的窗口进行上下分屏；
+- `z`：对当前窗口的分屏进行全屏显示，如果已经全屏则恢复分屏状态；
+- `x`：终止当前窗口的任务并关闭；
+- `p`：跳转到上一个窗口；
+- `n`：跳转到下一个窗口；
+- `swap-window -s ID1 -t ID2`：交换ID1和ID2两个窗口的位置；
+- `rename-window`：对当前的窗口进行重命名；
+- ...
+
+大概就记得这些功能。推荐在
+[Tmux使用教程-阮一峰](https://www.ruanyifeng.com/blog/2019/10/tmux.html)
+中学习更多的功能。
+
+下面开始正题，离线安装。
+tmux源码同样托管在github上，直接获取源码进行编译：
 ```csh
 git clone https://github.com/tmux/tmux
 ./configure
@@ -190,6 +222,14 @@ tmux离线安装已经完成。和Vim联合使用时发现一个问题，Vim的�
 alias tmux "setenv TERM "screen-256color-bce"; ${INSTALLS}/bin/tmux"
 ```
 这样Vim和tmux联合使用算是正常了。
+
+### tmux重命名窗口后仍会改变问题
+在`~/.tmux.conf`中添加：
+```bash
+set-option -g allow-rename off
+```
+如果想要修改正在运行中的tmux行为，在`Ctrl + b`之后输入上述命令即可。
+[相关来源](https://www.cnblogs.com/zhuzi8849/p/6279297.html)
 
 ## tree离线安装
 tree是一个用树状结构显示目录内容的小工具，C语言实现。官方介绍：[tree](https://www.linuxfromscratch.org/blfs/view/svn/general/tree.html)
