@@ -18,7 +18,7 @@ Vim和tmux都是可以通过快捷键进行操作，可以更加集中的使用�
 
 ## Vim8.2离线安装
 Vim官方的源码托管在github上，直接克隆下来编译即可：
-```csh
+```bash
 git clone https://github.com/vim/vim.git
 cd vim
 ./configure
@@ -30,7 +30,7 @@ make
 此时直接执行`./src/vim`应该会报错`E1187: Failed to source defaults.vim`，这是因为`VIMRUNTIME`环境变量没有设置。
 
 在`~/.cshrc`文件中补充环境变量，增加alias方便启动，并且增加vimdiff：
-```csh
+```bash
 # tools path
 setenv TOOLS_PATH "~/tools"
 setenv VIMRUNTIME "${TOOLS_PATH}/vim-8.2.5172/runtime"
@@ -47,7 +47,7 @@ Vim离线安装就完成了。然后就是进行一些常规配置、增加插�
 
 ### 基础配置
 这部分配置是Vim本身自带的，配置完直接生效，具体含义都比较直白，不在赘述。
-```vimscript
+```vim
 " Set Vim color scheme
 set guifont=Monospace\ 13.6
 colorscheme duoduo
@@ -84,7 +84,7 @@ set autoread
 6. ~~cpplint检查~~
 
 掌握Vimscript的函数相关语法后，写一些小的自定义函数并不难。以更新tags为例，函数实现如下：
-```vimscript
+```vim
 function! UpdateTags()
   if filereadable('./tags')
     execute "!ctags -R --verbose"
@@ -101,7 +101,7 @@ command UpdateTags call UpdateTags()
 任何对于第三方工具有依赖的插件，能不用尽可能不要用，配置环境就够费劲了。
 
 通过vim-plug来管理插件，创建如下的目录结构：
-```csh
+```bash
 .vim/
 ├── autoload
 ├── colors
@@ -124,7 +124,7 @@ command UpdateTags call UpdateTags()
 
 PS：在第一台服务器上配置时，自动补全的popmenu配色出现了点问题，选项的字体和背景全都是纯黑无法看清。
 于是额外修改popmenu选项的配色，cursorline也进行了修改：
-```vimscript
+```vim
 highlight PMenuSel ctermbg=lightblue
 highlight CursorLine cterm=NONE ctermbg=240
 ```
@@ -171,7 +171,7 @@ tmux是一个终端复用器，适合ssh时启动多个终端进行管理。
 
 下面开始正题，离线安装。
 tmux源码同样托管在github上，直接获取源码进行编译：
-```csh
+```bash
 git clone https://github.com/tmux/tmux
 ./configure
 make
@@ -180,7 +180,7 @@ make
 ### 安装依赖修复
 但tmux有一些依赖库有可能在服务器上没有，例如libevent，就会在执行`./configure`时报错：`configure: error: "libevent not found"`。
 需要到[libevent官网](https://libevent.org/)下载后，解压（其实源码也托管在github上）然后编译安装：
-```csh
+```bash
 wget https://github.com/libevent/libevent/releases/download/release-2.1.12-stable/libevent-2.1.12-stable.tar.gz
 tar xvf libevent-2.1.12-stable.tar.gz
 cd libevent-2.1.12-stable
@@ -191,7 +191,7 @@ make install
 这里在执行`./configure`的时候，需要通过`--prefix=`指定一个当前用户可以正常读写的目录，最后`make install`就不需要管理员权限，可以生成需要的库文件给tmux使用。
 
 安装完成后在`~/.cshrc`中增加环境变量，用于安装和运行tmux：
-```csh
+```bash
 setenv LD_LIBRARY_PATH "${LD_LIBRARY_PATH}:/installs/path/your/can/access/lib"
 setenv PKG_CONFIG_PATH "${PKG_CONFIG_PATH}:/installs/path/your/can/access/lib/pkgconfig"
 ```
@@ -218,7 +218,7 @@ tmux离线安装已经完成。和Vim联合使用时发现一个问题，Vim的�
 
 简单来说就是tmux内部的terminal设置问题，默认的不支持背景颜色擦除（back color erase，bce）。
 解决方案就是在启动tmux之前，指定为有bce功能的终端：
-```csh
+```bash
 alias tmux "setenv TERM "screen-256color-bce"; ${INSTALLS}/bin/tmux"
 ```
 这样Vim和tmux联合使用算是正常了。
@@ -234,14 +234,14 @@ set-option -g allow-rename off
 ## tree离线安装
 tree是一个用树状结构显示目录内容的小工具，C语言实现。官方介绍：[tree](https://www.linuxfromscratch.org/blfs/view/svn/general/tree.html)
 可以在github或gitlab下载源码进行编译：
-```csh
+```bash
 wget https://gitlab.com/OldManProgrammer/unix-tree/-/archive/2.2.1/unix-tree-2.2.1.tar.bz2
 tar xvf unix-tree-2.2.1.tar.bz2
 cd unix-tree-2.2.1
 make
 ```
 在内网服务器make时出现错误：
-```csh
+```bash
 cc1: error: unrecognized command line option "-Wpedantic"
 cc1: error: unrecognized command line option "-std=c11"
 ```
