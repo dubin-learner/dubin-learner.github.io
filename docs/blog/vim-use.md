@@ -15,7 +15,7 @@
 
 ### 显示匹配模式的数目
 命令很简单，可以加入正则表达式进行灵活匹配：
-```shell
+```vim
 :%s/pattern//gn
 ```
 只用`g`可以实现替换，`gn`就仅显示数目。
@@ -24,31 +24,31 @@
 Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`。
 
 导致Windows下产生、编辑过的文本，在Linux下打开时换行的位置会多一个`\r`字符，被显示^M。通过命令删除（替换为空）：
-```shell
+```vim
 :%s/\r//g
 ```
 
 ### 对每行只保留特定模式而删除其他内容
-```shell
+```vim
 :%s/^.*\(pattern\).*$/\1/g
 ```
 本质上是Vim中字符串的替换，这里用到了正则表达式中的反向引用"\1"，即引用匹配中第一个组（第一个小括号内）的内容。注意在Vim的命令行中小括号并不是特殊字符，需要加转义字符'\'才有分组功能。
 
 ### 删除包含特定字符串的行，并在删除前提示
-```shell
+```vim
 :%s/^.*pattern.*$//c
 ```
 本质上还是替换，用空字符替换一整行。删除行还有其他的方法。
 
 ### 删除特定行
 删除包含特定模式的行：
-```shell
+```vim
 :g/pattern/d
 ```
 例如删除空行：`:g/^$/d`。
 
 删除不包含特定模式的行
-```shell
+```vim
 :v/pattern/d
 ```
 
@@ -72,7 +72,7 @@ Windows/Dos下的换行符为`\r\n`，而Linux/Unix下的换行符为`\n`。
 
 ### 添加作者相关信息
 添加对按键`F4`的映射，并预置一段代码（简单举例）：
-```shell
+```vim
 map <F4> ms:call AddSimpleTitle()<CR>
 function AddSimpleTitle()
   let n = line('.')
@@ -96,7 +96,7 @@ endfunction
 
 ### 插件ctags的使用
 在已经安装ctags的前提下，在源文件目录下，直接执行（对于C++）生成tags文件：
-```shell
+```bash
 ctags -R --c++-kinds=+px --fields=+iaS --extra=+q
 ```
 这几个选项的大致含义如下：
@@ -105,7 +105,7 @@ ctags -R --c++-kinds=+px --fields=+iaS --extra=+q
 - `--extra`用于增加额外的条目，参数`q`为每个类增加一个条目，参数`f`为每个文件增加一个条目。
 
 在Vim中指定目标路径下使用tags文件：
-```shell
+```vim
 :set tags=./tags
 ```
 在代码更改后只需执行`ctags -R`即可将tags进行同步更新。在Vim中使用tags的信息：
@@ -114,12 +114,12 @@ ctags -R --c++-kinds=+px --fields=+iaS --extra=+q
 - 向前跳转/向后跳转：`Ctrl` + `i` / `Ctrl` + `o` <font color = blue>这个命令和ctags无关</font>
 
 初步配置完成之后，通常`Ctrl` + `]`会默认跳转到找到的第一处定义的文件中，如果需要先列出所有同名定义的位置，需要组合键`g` + `Ctrl` + `]`。可以通过按键映射的方式修改：
-```shell
+```vim
 map <c-]> g<c-]>
 ```
 ### Git Gutter插件相关
 配置Git Gutter插件之后，可以直接高亮本地的改动：
-```shell
+```vim
 set g:gitgutter_enable=1
 let g:gitgutter_highlight_lines=1
 "let g:gitgutter_sign_added='A' 没必要改，默认的'+'感觉也行
@@ -133,7 +133,7 @@ nnoremap <silent> <leader>d :GitGutterToggle<cr>
 
 ### 设置快捷键进行编译
 通过按键映射，可以指定某个按键来启动编译。如下：
-```shell
+```vim
 noremap <F5> : call CompileProject()<CR>
 function! CompileProject()
   if filereadable('configure')
@@ -145,7 +145,7 @@ endfunction
 
 ### 自带的文件浏览器netrw
 如果可以装插件的话，可以使用nerdtree；没有联网条件使用vim自带的netrw也勉强可以。配置也很简单：
-```shell
+```vim
 "设置目录列表的样式：树型
 let g:netrw_liststyle=3
 "水平分割时，文件浏览器始终显示在左边
@@ -166,7 +166,7 @@ vim test.cpp +12
 在gvim里，不同的模式下（如插入模式、替换模式、选择模式）光标的样式是不同的，但linux原生的vim默认都是一样的。
 
 为了方便区分，还是要进行一些设置，这里以公司的环境KDE桌面、konsole终端为例：（其他环境的配置见参考文章）
-```bash
+```vim
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
 let &t_SR = "\<Esc>]50;CursorShape=2\x7"
 let &t_EI = "\<Esc>]50;CursorShape=0\x7"
@@ -213,7 +213,7 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 ```
 
 安装完成后只需要修改`~/.vimrc`文件，添加插件即可。添加方法如下：
-```bash
+```vim
 call plug#begin()
 Plug 'skywind3000/vim-auto-popmenu'
 Plug 'skywind3000/vim-dict'
@@ -236,7 +236,7 @@ call plug#end()
 如果第一个按键是大于1的，那么对应的buffer名称也会被显示。（不太理解buffer在vim里的用法）
 
 也可以在状态栏显示完整路径，但不怎么需要：
-```bash
+```vim
 set statusline+=%F
 ```
 PS：如果是在VimScript中，或者在Command Line中，符号`%`的含义就是当前文件，例如用`:grep "pattern" %`就能抓取当前文件中的指定规则的行。
@@ -251,7 +251,7 @@ vim8之前的版本，在弹出补全菜单的设置项里，没有`noselect`这
 配置完成后默认是不开启的，需要在命令行中显式开启`ApcEnable`即可使用；关闭时使用`ApcDisable`。
 
 推荐使用vim-plug添加插件，方法同上；然后需要补充一些设置如下：
-```bash
+```vim
 " enable this plugin for filetypes, '*' for all files.
 let g:apc_enable_ft = {'text':1, 'markdown':1, 'php':1}
 " source for dictionary, current or other loaded buffers, see ':help cpt'
@@ -263,7 +263,7 @@ set shortmess+=c
 ```
 实际使用下来，和auto-pairs插件在大括号中回车的结果会有一些行为冲突，导致回车后光标位置不太对。
 目前想的解决方案是暂时注释掉apc.vim里在`ApcEnable`之后处理回车键的部分逻辑，如下：
-```vimscript
+```vim
 122	"if get(g:, 'apc_cr_confirm', 0) == 0
 123	"	inoremap <silent><buffer><expr> <cr> 
 124	"				\ pumvisible()? "\<c-y>\<cr>" : "\<cr>"
@@ -277,7 +277,7 @@ set shortmess+=c
 
 ### 在vimdiff中移动光标/展开/折叠其他部分
 两种启动vimdiff的方法：
-```
+```bash
 vimdiff File1 File2
 vim -d File1 File2
 ```
@@ -314,7 +314,7 @@ vim -d File1 File2
 - 在normal模式下，按`i`或`a`等这种插入快捷键回到insert模式
 
 组合键还是太复杂，可以进行按键映射。`tmap`代表只在内置终端中进行映射，其他的编辑窗口中不受到影响。
-```vimscript
+```vim
 tmap <c-v> <c-\><c-n>
 ```
 如果有其他的Vim内置终端设置需要，可参考文章19。其他一些不同的键盘映射命令见参考文章20。
@@ -333,7 +333,7 @@ tmap <c-v> <c-\><c-n>
 
 ### 记住上次打开文件时的位置
 默认打开文件时，无论之前是否打开过，光标都会在第一行。希望光标能在上次打开文件时的位置，方便继续编辑。增加设置如下：
-```vimscript
+```vim
 if has("autocmd")
   au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g`\"" | endif
 endif
@@ -357,7 +357,7 @@ fzf是模糊搜索工具，在[官方Github主页](https://github.com/junegunn/f
 fzf.vim是基于fzf工具的Vim插件，可以在Vim里实现模糊搜索功能，支持`Files/Tags/Buffers/BLines`等等快捷命令，并且预览当前搜索到的文件内容。
 
 如果是在线安装的话，只需要借助vim-plug在`.vimrc`中添加如下内容即可方便安装：
-```vimscript
+```vim
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 ```
@@ -376,7 +376,7 @@ mv ./fzf-* ~/.fzf/bin/
 执行完install脚本后，执行`~/.fzf/bin/fzf`验证是否能正常启动。
 
 安装完fzf工具之后，在Github下载fzf.vim插件，解压在`~/.vim/plugged`路径下，然后在`.vimrc`中添加：
-```vimscript
+```vim
 Plug '~/.fzf/'
 Plug '~/.vim/plugged/fzf.vim-master'
 ```
@@ -433,4 +433,3 @@ Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有
 22. [配置vim记住上一次打开文件时编辑的位置](https://www.simaek.com/archives/462/)
 23. [vim操作--代码折叠](https://zhuanlan.zhihu.com/p/695097694)
 24. [离线环境下为Ubuntu16.04安装fzf](https://blog.csdn.net/weixin_43958105/article/details/119531279)
-
