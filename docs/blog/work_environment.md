@@ -21,20 +21,23 @@ Vim官方的源码托管在github上，直接克隆下来编译即可：
 ```bash
 git clone https://github.com/vim/vim.git
 cd vim
-./configure
+./configure --prefix=/path/you/can/access
 make
+make install
 ```
-通常执行`./configure`的时候可以加一些额外的配置选项，例如：`--with-fatures=huge --enable-multibyte --enable-python3interp=yes`等等，只需要按需增加。
-由于服务器环境上执行安装需要管理员权限，所以只用编译出来的`./src/vim`执行即可。
+通常执行`./configure`的时候可以加一些额外的配置选项，例如：`--with-features=huge --enable-multibyte --enable-python3interp=yes`等等，只需要按需增加。
+~~由于服务器环境上执行安装需要管理员权限，所以只用编译出来的`./src/vim`执行即可。~~
+可以在有访问权限的路径创建一个用于安装软件的文件夹，例如`~/tools/installs/`，
+通过`--prefix=~/tools/installs/`这样指定安装路径，就能正常`make install`；这样安装完可执行文件的路径就是`~/tools/installs/bin/vim`。
 
-此时直接执行`./src/vim`应该会报错`E1187: Failed to source defaults.vim`，这是因为`VIMRUNTIME`环境变量没有设置。
+此时直接执行`~/tools/installs/bin/vim`应该会报错`E1187: Failed to source defaults.vim`，这是因为`VIMRUNTIME`环境变量没有设置。
 
 在`~/.cshrc`文件中补充环境变量，增加alias方便启动，并且增加vimdiff：
 ```bash
 # tools path
 setenv TOOLS_PATH "~/tools"
 setenv VIMRUNTIME "${TOOLS_PATH}/vim-8.2.5172/runtime"
-alias vim "${TOOLS_PATH}/vim8.2/src/vim
+alias vim "${TOOLS_PATH}/installs/bin/vim"
 alias vimdiff "vim -d"
 alias v "vim"
 ```
