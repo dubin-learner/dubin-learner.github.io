@@ -383,9 +383,22 @@ Plug '~/.vim/plugged/fzf.vim-master'
 fzf.vim插件的离线安装就完成了。可以在Vim中输入`Files/Tags/Buffers/BLines`等等命令进行验证。
 
 默认的preview是通过cat实现的，如果希望在preview里高亮，只需要将cat修改为其他可以支持直接高亮的工具即可。
-fzf.vim这个插件是推荐bat工具的，但bat是rust写的，且并没有提供centos编译好的可执行文件，没法直接用。
+fzf.vim这个插件是推荐bat工具的；最开始走了些弯路，这里记录bat和ccat两个工具的安装和配置。
 
-后来使用的是[ccat工具](https://github.com/owenthereal/ccat)，就是colorized cat，只不过上次更新已经很久之前，但毕竟有现成的可执行文件可以用。
+#### bat安装
+CentOS安装bat可以下载已经编译好的工具直接用，[release版本下载](https://github.com/sharkdp/bat/releases)
+
+只需要下载：`bat-vX.Y.Z-x86_64-unknown-linux-musl.tar.gz`即可，解压后可执行文件`bat`直接可用。
+
+根据fzf.vim中的逻辑，只需要增加环境变量`BATCAT`内容为`bat`可执行文件的路径。例如对于csh，可以在`~/.cshrc`中增加：
+```bash
+setenv BATCAT "~/tools/bat-v0.26.0-x86_64-unknown-linux-musl/bat"
+```
+这样fzf.vim会自动支持bat替代cat预览文件且自动高亮。
+
+#### ccat安装
+[ccat工具](https://github.com/owenthereal/ccat)，就是colorized cat。
+只不过上次更新已经是几年之前，且高亮内容似乎并不遵循语法，不太推荐；除非bat安装失败。
 
 fzf.vim提供了直接修改`Files`命令preview参数的例子，见README.md。
 但`Tags`这个有额外的参数，我尝试按照例子修改失败了，但从with_preview的实现可以看到，
@@ -396,7 +409,8 @@ fzf.vim提供了直接修改`Files`命令preview参数的例子，见README.md�
 #DEFAULT_COMMAND="highlight -O ansi -l {} || coderay {} || rougify {} || cat {}"
 DEFAULT_COMMAND="highlight -O ansi -l {} || coderay {} || rougify {} || ~/tools/linux-amd64-1.1.0/ccat --color=always {}"
 ```
-注意这个脚本无法读取`~/.bashrc`中`alias`定义的别名命令，所以这里调用ccat时我给的是绝对路径。这样preview里面也会高亮文件的内容，虽然高亮的规则也不太对。
+注意这个脚本无法读取`~/.bashrc`中`alias`定义的别名命令，所以这里调用ccat时我给的是绝对路径。
+这样preview里面也会高亮文件的内容，虽然高亮的规则也不太对。
 
 ### 折叠模式
 Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有几个不同的选项，但还是推荐默认的`manual`，使用方法举例：
@@ -433,3 +447,4 @@ Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有
 22. [配置vim记住上一次打开文件时编辑的位置](https://www.simaek.com/archives/462/)
 23. [vim操作--代码折叠](https://zhuanlan.zhihu.com/p/695097694)
 24. [离线环境下为Ubuntu16.04安装fzf](https://blog.csdn.net/weixin_43958105/article/details/119531279)
+25. [how to install on CentOS 7? #325](https://github.com/sharkdp/bat/issues/325)
