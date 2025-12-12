@@ -79,7 +79,7 @@ perf script > perf.script
 ```
 
 一般用浏览器就可以打开perf.svg，示例如下：
-![flame graph](./perf.svg)
+![flame graph](../resources/perf.svg)
 
 可以直接进行`Ctrl`+`f`来搜索函数名，可以支持一些正则进行模糊匹配。
 
