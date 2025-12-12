@@ -161,7 +161,7 @@ punordered_map var_map Pointer*const std::vector<int,int>
 这部分用于记录deepseek生成代码的问题原因。
 
 借用参考文章3中的一张图：
-![](v2-ea913511315fbefdb96999a7b2d16ca5_1440w.jpg)
+![](../resources/v2-ea913511315fbefdb96999a7b2d16ca5_1440w.jpg)
 
 原本的逻辑：遍历每个bucket，然后访问每个bucket的链表中的元素。
 
@@ -179,3 +179,4 @@ punordered_map var_map Pointer*const std::vector<int,int>
 1. [打印STL容器中的内容](https://wizardforcel.gitbooks.io/100-gdb-tips/content/print-STL-container.html)
 2. [GCC中unordered set/map的实现原理（Part2图解哈希表结构）](https://zhuanlan.zhihu.com/p/259857549)
 3. [C++那些事之彻底搞懂STL HashTable](https://zhuanlan.zhihu.com/p/644205339)
+
