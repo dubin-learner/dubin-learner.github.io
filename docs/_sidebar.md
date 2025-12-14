@@ -5,6 +5,7 @@
 * [环境搭建](/tools)
   * [docsify博客搭建](/tool/blog-build)
   * [Perf安装与火焰图](/tool/install_perf)
+  * [优化GDB调试打印STL数据结果](/tool/stl-view-gdb)
   * [Concorde安装](/tool/install_concorde)
 
 * [博客阅读](/blogs)
