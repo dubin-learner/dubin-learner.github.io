@@ -213,6 +213,8 @@ setenv PKG_CONFIG_PATH "${PKG_CONFIG_PATH}:/installs/path/your/can/access/lib/pk
 
 有可能遇到`set mouse on`之后该功能仍然不生效的情况，这有可能是复制模式没有打开，需要`Ctrl+b`+`[`开启复制模式；退出复制模式也很简单，按`q`即可。
 
+log显示会有上限，如果希望显示更多的log，可以修改`history-limit`，例如`tmux set-option history-limit 100000`。
+
 ### Vim在tmux内外配色不一致问题
 tmux离线安装已经完成。和Vim联合使用时发现一个问题，Vim的配色在终端中正常，但在tmux里使用就会变得异常简陋。
 原因见：
@@ -233,6 +235,43 @@ set-option -g allow-rename off
 ```
 如果想要修改正在运行中的tmux行为，在`Ctrl + b`之后输入上述命令即可。
 [相关来源](https://www.cnblogs.com/zhuzi8849/p/6279297.html)
+
+### 查看当前的配置情况
+```bash
+tmux show-options -g        # 查看全局选项
+tmux show-window-options -g # 查看窗口选项
+```
+如果需要查看默认值：
+```bash
+tmux show-options -g -d     # 查看全局选项（含默认）
+tmux show-window-options -g -d
+```
+如果需要查看某个选项的当前值：
+```bash
+tmux show-options -g status-right           # 查看状态栏右侧格式
+tmux show-options -g prefix                 # 查看当前前缀键
+tmux show-window-options -g mode-keys       # 查看复制模式按键布局
+```
+
+### 保存当前/历史输出
+捕获整个会话历史（保存从会话开始到现在的所有内容）
+```bash
+# 捕获当前窗格（会包含整个回滚缓冲区的历史）
+tmux capture-pane -S - -E - ; tmux save-buffer ~/tmux_output.txt
+```
+- -S -：从回滚缓冲区第一行开始
+- -E -：到回滚缓冲区最后一行结束
+
+捕获最近 N 行（例如最近 1000 行）
+```bash
+tmux capture-pane -S -1000 ; tmux save-buffer ~/tmux_recent.txt
+```
+捕获特定窗格（需要窗格ID）
+```bash
+# 先获取窗格ID（在tmux内按 Ctrl+b, q 短暂显示）
+tmux capture-pane -t %2 -S - -E - ; tmux save-buffer ~/pane_2.txt
+```
+- -t %2：指定 2 号窗格（替换为你的窗格ID）
 
 ## tree离线安装
 tree是一个用树状结构显示目录内容的小工具，C语言实现。官方介绍：[tree](https://www.linuxfromscratch.org/blfs/view/svn/general/tree.html)
