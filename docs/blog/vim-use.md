@@ -342,8 +342,8 @@ endif
 - `au`或`autocmd`：自动命令
 - `BufReadPost`：在文件读取完成后触发的事件
 - `*`：对所有文件类型生效
-- `line("'\"")：获取上次退出时光标所在的行号（`'"`是上次位置的标记）
-- `line("$")：获取文件最后一行行号
+- `line("'\"")`：获取上次退出时光标所在的行号（`'"`是上次位置的标记）
+- `line("$")`：获取文件最后一行行号
 - `|`：命令分隔符（在if语句中分隔多个命令）
 - `exec "normal! g'\""`：执行普通模式命令`g'"`（跳转到上次位置）
 
@@ -422,6 +422,35 @@ Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有
 
 如果想查询Vim的某个选项当前的值是什么，可以通过`:set option?`获取。
 
+### 多窗口时调整窗口尺寸
+对于多窗口状态下（使用`:sp`或`:vsp`分割之后）：
+```bash
+# 1. 纵向调整
+:res[ize] num   # 设置当前窗口为num行
+:res[ize] +num  # 当前窗口增加num行
+:res[ize] -num  # 当前窗口减少num行
+# 2. 横向调整
+:vert[ical] res[ize] num   # 设置当前窗口为num列
+:vert[ical] res[ize] +num  # 当前窗口增加num列
+:vert[ical] res[ize] -num  # 当前窗口减少num列
+# 3. 快捷键
+Ctrl + w + =：让所有窗口调整至相同的尺寸（平均划分）
+Ctrl + w + -：当前窗口高度减少一行
+Ctrl + w + +：当前窗口高度增加一行
+Ctrl + w + <：当前窗口宽度减少一列
+Ctrl + w + >：当前窗口宽度增加一列
+Ctrl + w + |：当前窗口的宽度调到最大
+Ctrl + w + _：当前窗口的高度调到最大
+```
+这里我的需求是：快速放大当前光标所在的子窗口（最好全屏显示），然后同时支持快速恢复到原本的多窗口分割状态。
+最后的方案是：
+- 增加一个`:Focus`命令，调用快捷键将窗口宽度和高度都调到最大；
+- 恢复的时候使用`Ctrl + w + =`均分窗口
+```vim
+command! Focus execute "normal! \<C-w>_\<C-w>|"
+```
+需要注意的是，vim有个命令`:only`可以最大化当前的窗口，但会同时关闭所有其他的窗口，不符合我的需求。
+
 ## 参考文章
 1. [Vim的匹配删除](https://blog.csdn.net/yrx0619/article/details/81032610)
 2. [Vim替换反向引用，模式匹配回溯引用...](https://www.qinziheng.com/vim/5651.htm)
@@ -448,3 +477,4 @@ Vim有折叠模式的设置，设置方法类似与`set foldmethod=manual`。有
 23. [vim操作--代码折叠](https://zhuanlan.zhihu.com/p/695097694)
 24. [离线环境下为Ubuntu16.04安装fzf](https://blog.csdn.net/weixin_43958105/article/details/119531279)
 25. [how to install on CentOS 7? #325](https://github.com/sharkdp/bat/issues/325)
+26. [VIM多窗口操作——调整窗口尺寸](https://www.codeleading.com/article/37574102226/)
