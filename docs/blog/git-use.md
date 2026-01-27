@@ -83,3 +83,13 @@ git add folder_name
 ```
 
 > [git add多个文件和文件夹的方法](https://blog.csdn.net/sphinx1122/article/details/89789929)
+
+## git在之前提交的基础上增加修改
+假设已经有了一个提交，但是发现了bug，需要进一步修改补充提交。一般来说多个commits就行，但如果希望仍然合并到一个提交中，需要用到`--amend`：
+```bash
+git add -u
+git commit --amend
+```
+这样git就会修改之前的commit，将新的修改整合到之前的commit中。
+
+单个commit之后rebase也能方便点。
