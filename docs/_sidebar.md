@@ -3,10 +3,23 @@
 * [关于我](/)
 
 * [环境搭建](/tools)
-  * [docsify博客搭建](/tool/blog-build)
+  * [使用docsify搭建博客](/tool/blog-build)
   * [Perf安装与火焰图](/tool/install_perf)
-  * [优化GDB调试打印STL数据结果](/tool/stl-view-gdb)
+  * [GDB调试打印STL数据](/tool/stl-view-gdb)
   * [Concorde安装](/tool/install_concorde)
+  * [开源EDA软件安装](/tool/install_eda0)
+  * [PrimeTime2016安装](/tool/install_eda2)
+  * [Macmini2012Late三系统](/tool/Macmini2012LateSystems)
+
+* [公开课&书籍学习](/courses)
+  * UIUC VLSI CAD II: Layout
+    * [Placement](/course/vlsi_cad/placement)
+  * CSAPP
+    * [CSAPP读书笔记1](/src/books/csapp/CSAPP_note1)
+    * [CSAPP读书笔记2](/src/books/csapp/CSAPP_note2)
+    * [关于作业](/src/books/csapp/assignment_0)
+  * Effective C++
+    * [effective C++](/src/books/effective_cpp/effective_cpp)
 
 * [博客阅读](/blogs)
   * [C++](/blogs?id=c)
@@ -18,14 +31,6 @@
 
 * [刷题](/codes)
   * [面试经典150题笔记](/code/i150p)
-
-* [公开课&书籍学习](/courses)
-  * CSAPP
-    * [CSAPP读书笔记1](/src/books/csapp/CSAPP_note1)
-    * [CSAPP读书笔记2](/src/books/csapp/CSAPP_note2)
-    * [关于作业](/src/books/csapp/assignment_0)
-  * Effective C++
-    * [effective C++](/src/books/effective_cpp/effective_cpp)
 
 * [论文阅读](/papers)
 

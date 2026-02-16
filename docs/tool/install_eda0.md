@@ -20,6 +20,7 @@
 同样是全流程工具，以我个人的视角来看，相比之下OpenRoad应该还是比iEDA要更加全面一些。
 
 ### 本地安装
+
 安装方法就不过多介绍了，每个工程的READMD都写的挺清楚的。
 
 下面仅记录我尝试在我的MacBook Air M1上安装的结果。
@@ -32,12 +33,18 @@
 
 据说Arm64的ubuntu虚拟机效率能达到原生macos的94%左右，但AMD64也就是转译成Intel指令效率只有40%。（[参考数据来源](https://www.bilibili.com/video/BV186CPY5EKV)）
 
-### 遗留问题
+### 已解决 ~~遗留问题~~
 
-关于启动GUI，本来搜索到OrbStack和NoMachine联动是可以实现的，甚至有用X11直接转发的教程，但我尝试设置后都失败了。
+可以通过OrbStack和xQuartz用X11转发实现GUI显示，并且已经借助该功能成功启动Synopsys EDA Tools的GUI安装界面。
 
-教程上也有一些语焉不详的地方，后来就干脆直接放弃。可能需要以后买一台intel芯片的电脑主机再用吧。
+借助deepseek的回答实现，这部分内容可参见[PrimeTime2016安装](/tool/install_eda2)。
 
-这里仅贴上参考过的文章：
-- [为OrbStack的虚拟机创建图形页面，使用X11转发或NoMachine](https://zhuanlan.zhihu.com/p/30004953074)
-- [GUI in OrbStack machines - Nick Gregorich](https://www.nickgregorich.com/posts/gui-in-orbstack-machines/)
+!> NoMachine还是不要碰了。
+
+~~关于启动GUI，本来搜索到OrbStack和NoMachine联动是可以实现的，甚至有用X11直接转发的教程，但我尝试设置后都失败了。~~
+
+~~教程上也有一些语焉不详的地方，后来就干脆直接放弃。可能需要以后买一台intel芯片的电脑主机再用吧。~~
+
+~~这里仅贴上参考过的文章：~~
+- ~~[为OrbStack的虚拟机创建图形页面，使用X11转发或NoMachine](https://zhuanlan.zhihu.com/p/30004953074)~~
+- ~~[GUI in OrbStack machines - Nick Gregorich](https://www.nickgregorich.com/posts/gui-in-orbstack-machines/)~~
