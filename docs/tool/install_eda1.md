@@ -166,6 +166,8 @@ sudo chmod 777 /usr/lib/libXp.so.6
 
 ### 未完待续
 
+硬盘坏掉之后，因为短期内暂时用不到innovus，暂时就不折腾了。以后考虑用X11转发在macOS + OrbStack的环境下安装。到时候再重新刷新一下这篇内容吧。
+
 ## 其他参考文章
 1. [最全面解决：lmgrd出现no such file and directory问题方法](https://blog.csdn.net/weixin_44833870/article/details/139279167)
 2. [linux查询主机名和主机ID](https://blog.csdn.net/baidu_39442520/article/details/120720001)
