@@ -44,26 +44,31 @@ mindmap
 ?> last update time: 2026/03/18
 
 ### C++：基础知识
-- [ ] 提升自己的C++水平：[最好的C++教程 - Youtube The Cherno](https://b23.tv/1Brsqit)，进度16/97；
-- [ ] 力扣刷题-[面试经典150题](https://leetcode.cn/studyplan/top-interview-150/)：进度2/150 ([面试经典150题笔记](code/i150p));
-- [ ] 牛客网[专项练习-编程语言](https://www.nowcoder.com/exam/intelligent?questionJobId=10&subTabName=intelligent_page&tagId=21003)-C++，进度630/1508，目前错题141，错误率22.38%
-- [ ] [C++程序设计-北京大学](https://www.coursera.org/learn/cpp-chengxu-sheji/home/module/3)
-- [ ] [【CoreDumped【中英⚡图解操作系统原理|Operating Systems Theory】-哔哩哔哩】](https://b23.tv/fe97hzi)
+- [ ] [【最好的C++教程-The Cherno】-Youtube](https://b23.tv/1Brsqit)，进度16/97（基础但用来查缺补漏）；
+- [ ] [【面试经典150题】-LeetCode](https://leetcode.cn/studyplan/top-interview-150/)：进度2/150 ([面试经典150题笔记](code/i150p));
+- [ ] [【专项练习-编程语言-C++】-牛客网](https://www.nowcoder.com/exam/intelligent?questionJobId=10&subTabName=intelligent_page&tagId=21003)，进度630/1508（目前错题141，错误率22.38%）；
+- [ ] [【C++程序设计-北京大学】-Coursera](https://www.coursera.org/learn/cpp-chengxu-sheji/home/module/3)，进度0/0；
+- [ ] [【CoreDumped【中英⚡图解操作系统原理|Operating Systems Theory】-哔哩哔哩】](https://b23.tv/fe97hzi)，进度0/0。
+
+### C++：并行优化
+- [ ] [做之前不敢想的 CGraph-Chunel](http://www.chunel.cn/archives/cgraph-unbelievable-2025)（看推荐阅读部分，有框架的简单实现介绍），进度0/18；
 
 ### EDA相关：ECO（OPT）
 - [ ] 公司内网：ECO及其流程简介，进度1/3；
 - [ ] 公司内网：Timing & Mask ECO，进度0/4。
 
 ### EDA相关：STA
-- [x] [数字集成电路静态时序分析基础-邸志雄（西南交通大学）](https://www.bilibili.com/video/BV1if4y1p7Dq)，进度16/16；
-- [ ] [新思小课堂-PrimeTime](https://b23.tv/VrYDx4x)，进度1/5；
-- [ ] [静态时序分析圣经翻译计划](https://zhuanlan.zhihu.com/p/345536827)，进度0/10
+- [x] [【数字集成电路静态时序分析基础-邸志雄（西南交通大学）】-哔哩哔哩](https://www.bilibili.com/video/BV1if4y1p7Dq)，进度16/16；
+- [ ] [【新思小课堂-PrimeTime】-哔哩哔哩](https://b23.tv/VrYDx4x)，进度1/5；
+- [ ] [【静态时序分析圣经翻译计划-骑猪兜风】-知乎专栏](https://zhuanlan.zhihu.com/p/345536827)，进度0/10。
 
 
 ### EDA相关：基本流程和概念
-- [ ] [VLSI CAD Layout-UIUC](https://www.coursera.org/learn/vlsi-cad-layout/home/module/1)，进度5/5，已拿证书，剩一个编程作业；
-- [ ] [VLSI CAD Logic-UIUC](https://www.coursera.org/learn/vlsi-cad-logic)，进度0/5.
+- [ ] [【VLSI CAD Layout-UIUC】-Coursera](https://www.coursera.org/learn/vlsi-cad-layout/home/module/1)，进度5/5，已拿证书，剩一个编程作业；
+- [ ] [【VLSI CAD Logic-UIUC】-Coursera](https://www.coursera.org/learn/vlsi-cad-logic)，进度0/5。
 
 ### 其他
-- [ ] Coursera：[MathWorks计算机视觉工程师](https://www.coursera.org/professional-certificates/mathworks-computer-vision-engineer)：课程进度0/9；课程1-[图像处理入门](https://www.coursera.org/learn/introduction-image-processing/home/welcome)：单元进度0/4；[MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted)（共2h，进度24%）
-- [ ] [【BrainStationAdvanced【中英⚡有趣的机器学习|Interesting Machine Learning】-哔哩哔哩】](https://b23.tv/UcYAH5I)，进度10/13；
+- [ ] [【计算机视觉工程师-MathWorks】-Coursera](https://www.coursera.org/professional-certificates/mathworks-computer-vision-engineer)：课程进度0/9；
+  - [ ] 课程1-[图像处理入门](https://www.coursera.org/learn/introduction-image-processing/home/welcome)：单元进度0/4；
+  - [ ] [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted)（共2h），进度24%；
+- [ ] [【BrainStationAdvanced【中英⚡有趣的机器学习|Interesting Machine Learning】-哔哩哔哩】](https://b23.tv/UcYAH5I)，进度10/13。
