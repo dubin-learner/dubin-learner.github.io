@@ -1,6 +1,7 @@
 <!-- docs/_sidebar.md -->
 
 * [关于我](/)
+  * [学习路线](/roadmap) 
 
 * [环境搭建](/tools)
   * [使用docsify搭建博客](/tool/blog-build)
