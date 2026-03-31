@@ -41,13 +41,13 @@ mindmap
 
 ## 最近更新
 
-?> last update time: 2026/03/18
+?> last update time: 2026/03/31
 
 ### C++：基础知识
 - [ ] [【最好的C++教程-The Cherno】-Youtube](https://b23.tv/1Brsqit)，进度16/97（基础但用来查缺补漏）；
 - [ ] [【面试经典150题】-LeetCode](https://leetcode.cn/studyplan/top-interview-150/)：进度2/150 ([面试经典150题笔记](code/i150p));
 - [ ] [【专项练习-编程语言-C++】-牛客网](https://www.nowcoder.com/exam/intelligent?questionJobId=10&subTabName=intelligent_page&tagId=21003)，进度630/1508（目前错题141，错误率22.38%）；
-- [ ] [【C++程序设计-北京大学】-Coursera](https://www.coursera.org/learn/cpp-chengxu-sheji/home/module/3)，进度0/0；
+- [ ] [【C++程序设计-北京大学】-Coursera](https://www.coursera.org/learn/cpp-chengxu-sheji/home/module/3)，进度3/12；
 - [ ] [【CoreDumped【中英⚡图解操作系统原理|Operating Systems Theory】-哔哩哔哩】](https://b23.tv/fe97hzi)，进度0/0。
 
 ### C++：并行优化
@@ -59,8 +59,8 @@ mindmap
 
 ### EDA相关：STA
 - [x] [【数字集成电路静态时序分析基础-邸志雄（西南交通大学）】-哔哩哔哩](https://www.bilibili.com/video/BV1if4y1p7Dq)，进度16/16；
-- [ ] [【新思小课堂-PrimeTime】-哔哩哔哩](https://b23.tv/VrYDx4x)，进度1/5；
-- [ ] [【静态时序分析圣经翻译计划-骑猪兜风】-知乎专栏](https://zhuanlan.zhihu.com/p/345536827)，进度0/10。
+- [x] [【新思小课堂-PrimeTime】-哔哩哔哩](https://b23.tv/VrYDx4x)，进度5/5；
+- [ ] [【静态时序分析圣经翻译计划-骑猪兜风】-知乎专栏](https://zhuanlan.zhihu.com/p/345536827)，进度1/27。
 
 
 ### EDA相关：基本流程和概念
