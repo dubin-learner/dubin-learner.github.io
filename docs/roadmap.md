@@ -71,4 +71,4 @@ mindmap
 - [ ] [【计算机视觉工程师-MathWorks】-Coursera](https://www.coursera.org/professional-certificates/mathworks-computer-vision-engineer)：课程进度0/9；
   - [ ] 课程1-[图像处理入门](https://www.coursera.org/learn/introduction-image-processing/home/welcome)：单元进度0/4；
   - [ ] [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted)（共2h），进度24%；
-- [ ] [【BrainStationAdvanced【中英⚡有趣的机器学习|Interesting Machine Learning】-哔哩哔哩】](https://b23.tv/UcYAH5I)，进度10/13。
+- [x] [【BrainStationAdvanced【中英⚡有趣的机器学习|Interesting Machine Learning】-哔哩哔哩】](https://b23.tv/UcYAH5I)，进度13/13：一些数学知识，图文并茂有点意思。
