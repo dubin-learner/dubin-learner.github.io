@@ -53,7 +53,7 @@ mindmap
 
 ### 性能优化：操作系统
 - [ ] [【CoreDumped【中英⚡图解操作系统原理|Operating Systems Theory】-哔哩哔哩】](https://b23.tv/fe97hzi)，进度0/0；
-- [ ] [操作系统导论（中文版）](https://itanken.github.io/ostep-chinese/)，进度2/50；
+- [ ] [操作系统导论（中文版）](https://itanken.github.io/ostep-chinese/)，进度3/50；
 - [ ] jyy-南京大学-操作系统2026公开课-更新中
 
 ### 性能优化：并行计算
@@ -80,3 +80,4 @@ mindmap
   - [ ] [MATLAB Onramp](https://matlabacademy.mathworks.com/details/matlab-onramp/gettingstarted)（共2h），进度24%；
 - [x] [【BrainStationAdvanced【中英⚡有趣的机器学习|Interesting Machine Learning】-哔哩哔哩】](https://b23.tv/UcYAH5I)，进度13/13：一些数学知识，图文并茂有点意思。
 - [ ] [自学CS课程推荐之第一课Berkeley CS61A（SICP）](https://zhuanlan.zhihu.com/p/539702333)；配套书籍翻译项目：[COMPOSING PROGRAMS](https://composingprograms.netlify.app/)
+- [ ] [C++&LLVM入门项目/教程](https://b23.tv/lCWd4Uk)，进度1/8（觉得有意思，但近期应该不会做这个）。
