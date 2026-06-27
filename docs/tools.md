@@ -10,3 +10,9 @@
 - [EDA软件安装记录：Cadence Innovus 2020](/tool/install_eda1)
 - [EDA软件安装记录：Synopsys PrimeTime 2016](/tool/install_eda2)
 - [Mac mini 2012 Late安装三系统](/tool/Macmini2012LateSystems)
+
+## 通用技能
+- [Vim常见使用技巧](/tool/vim-use)
+- [Git常见使用技巧](/tool/git-use)
+- [Linux Shell基础](/tool/linux-shell)
+- [正则表达式](/tool/regex)

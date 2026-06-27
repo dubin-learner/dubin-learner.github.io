@@ -3,38 +3,25 @@
 * [关于我](/)
   * [学习路线](/roadmap) 
 
-* [环境搭建](/tools)
-  * [使用docsify搭建博客](/tool/blog-build)
-  * [Perf安装与火焰图](/tool/install_perf)
-  * [GDB调试打印STL数据](/tool/stl-view-gdb)
-  * [Concorde安装](/tool/install_concorde)
-  * [开源EDA软件安装](/tool/install_eda0)
-  * [PrimeTime2016安装](/tool/install_eda2)
-  * [Macmini2012Late三系统](/tool/Macmini2012LateSystems)
+* [📖 学习笔记](/notes)
+  * [C++](/notes?id=c)
+  * [EDA](/notes?id=eda)
+  * [CSAPP](/notes?id=csapp)
+  * [Effective C++](/notes?id=effective-c)
+  * [Qt](/notes?id=qt)
+  * [算法](/notes?id=算法)
+  * [课程学习](/notes?id=课程学习)
 
-* [公开课&书籍学习](/courses)
-  * UIUC VLSI CAD II: Layout
-    * [Placement](/course/vlsi_cad/placement)
-  * CSAPP
-    * [CSAPP读书笔记1](/src/books/csapp/CSAPP_note1)
-    * [CSAPP读书笔记2](/src/books/csapp/CSAPP_note2)
-    * [关于作业](/src/books/csapp/assignment_0)
-  * Effective C++
-    * [effective C++](/src/books/effective_cpp/effective_cpp)
+* [🔧 工具与环境](/tools)
+  * [环境搭建](/tools?id=环境搭建)
+  * [通用技能](/tools?id=通用技能)
 
-* [博客阅读](/blogs)
-  * [C++](/blogs?id=c)
-  * [Qt](/blogs?id=qt)
-  * [EDA](/blogs?id=eda)
-  * [工作记录](/blogs?id=工作记录)
-  * [算法笔记](/blogs?id=算法笔记)
-  * [杂谈](/blogs?id=杂谈)
+* [📝 工作记录](/works)
 
-* [刷题](/codes)
+* [💻 刷题记录](/codes)
   * [面试经典150题笔记](/code/i150p)
 
-* [论文阅读](/papers)
-
-* [生活记录](/lifes)
+* [🦋 生活记录](/lifes)
   * [我的书单](/life/book-list)
   * [一点无用的想法](/life/useless-00)
+  * [苹果设备日常使用](/life/my-apple-devices)
