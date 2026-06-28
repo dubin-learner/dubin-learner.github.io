@@ -13,6 +13,7 @@
 
 ### Quiz系列
 - [C++ Quiz 311](/notes/cpp/quizs/311)
+- [C++ Quiz 342](/notes/cpp/quizs/342)
 
 ### 📖 STL系列
 - [C++ STL API学习](/notes/cpp/stl/STL_learning)
