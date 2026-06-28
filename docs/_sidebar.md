@@ -25,3 +25,4 @@
   * [我的书单](/life/book-list)
   * [一点无用的想法](/life/useless-00)
   * [苹果设备日常使用](/life/my-apple-devices)
+  * [时光机](/life/old-days)
