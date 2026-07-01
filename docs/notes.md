@@ -12,6 +12,8 @@
 ## C++
 
 ### Quiz系列
+- [C++ Quiz 174](/notes/cpp/quizs/174)
+- [C++ Quiz 252](/notes/cpp/quizs/252)
 - [C++ Quiz 311](/notes/cpp/quizs/311)
 - [C++ Quiz 342](/notes/cpp/quizs/342)
 
