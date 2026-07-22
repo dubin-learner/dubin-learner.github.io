@@ -85,3 +85,6 @@
 ### 📖 MathWorks Computer Vision Engineer
 - [MATLAB基础教程](/course/mathworks_cv/matlab_basic)
 - [Introduce to Image Process](/course/mathworks_cv/introduce_to_image_process)
+
+### 最优化理论
+- [最优化理论](/course/最优化理论.md)
