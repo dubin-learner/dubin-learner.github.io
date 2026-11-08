@@ -1,5 +1,7 @@
 # Vim常见使用技巧
 
+<div align="right"><small>初版写于：2021-04-16</small></div>
+
 本文将记录一些常见的Vim使用技巧，基本上都是在工作中使用到的。（[Vim Cheat Sheet](https://vim.rtorr.com/lang/zh_cn/)）
 
 ## 查找/删除/替换等

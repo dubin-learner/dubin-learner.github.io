@@ -1,5 +1,7 @@
 # EDA软件安装记录：Synopsys PrimeTime 2016
 
+<div align="right"><small>初版写于：2025-07-02</small></div>
+
 ## 写在前面
 本来已经在Mac mini 2012 late上额外装了Win10和Ubuntu20.04两个系统，希望在Ubuntu上安装Synopsys软件。然而Ubuntu所在的固态硬盘直接坏掉，之前折腾的东西相当于全都白费。重新买了一块固态硬盘、重装系统后，觉得太折腾一度搁置了。
 

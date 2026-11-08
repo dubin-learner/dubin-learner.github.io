@@ -1,5 +1,7 @@
 # STL源码剖析 - 堆 heap
 
+<div align="right"><small>初版写于：2021-01-25</small></div>
+
 ## 概述
 
 堆不属于STL容器组件，binary max heap是`priority_queue`的底层机制。这里提到的堆都是binary heap，是一种complete binary tree（完全二叉树），即除了最底层的叶子节点外都是填满的；而最低层叶子节点从左到右不能有空隙。

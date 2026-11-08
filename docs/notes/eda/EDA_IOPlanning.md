@@ -1,5 +1,7 @@
 # 关于I/O Planning部分源码阅读
 
+<div align="right"><small>初版写于：2021-02-04</small></div>
+
 ## I/O Planning 数据模型基类
 
 `IOPModel : QAbstractItemModel` 关于数据来源关系的分析（主要提取核心的成员变量）：

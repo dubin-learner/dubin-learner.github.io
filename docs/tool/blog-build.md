@@ -1,5 +1,7 @@
 # 使用docsify搭建博客
 
+<div align="right"><small>初版写于：2020-12-08</small></div>
+
 ## 前言
 
 这应该是第三次在Github Pages上搭建博客，前两次分别用的`jekyll`和`hexo+Next`。从复杂度上来说，`jekyll` < `hexo+Next`，但同步起来都不方便，一旦换电脑就很麻烦。这次偶然从知乎上看到的`docsify`的方案，试了一下的确很方便，显示效果也符合我的要求，一点也不花里胡哨。

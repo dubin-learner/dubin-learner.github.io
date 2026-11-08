@@ -1,5 +1,7 @@
 # Perf安装与火焰图
 
+<div align="right"><small>初版写于：2025-07-02</small></div>
+
 ## 在linux上安装perf工具
 
 以Ubuntu为例，可参考[How to Perform Perf Profiling in WSL2](https://www.scicoding.com/how-to-perform-perf-profiling-in-wsl2/)

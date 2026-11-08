@@ -1,5 +1,7 @@
 # 关于作业
 
+<div align="right"><small>初版写于：2021-04-09</small></div>
+
 CSAPP的[官方网站](http://csapp.cs.cmu.edu/3e/home.html)为学习这本书的人提供了[几个实验](http://csapp.cs.cmu.edu/3e/labs.html)来亲自动手验证学习的内容。计划在记录读书笔记的同时，将这几个实验完成。
 
 ## 环境准备

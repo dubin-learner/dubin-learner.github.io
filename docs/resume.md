@@ -1,4 +1,7 @@
 # Du Bin
+
+<div align="right"><small>初版写于：2025-07-02</small></div>
+
 I am a software engineer of EDA software developments in Beijing.
 
 You can see my [LinkedIn page](https://www.cnblogs.com/zhuzi8849/p/6279297.html).

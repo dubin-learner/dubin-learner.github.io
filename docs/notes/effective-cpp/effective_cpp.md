@@ -1,5 +1,7 @@
 # Effective C++ notes
 
+<div align="right"><small>初版写于：2021-03-12</small></div>
+
 ## 零 · 导读
 
 ### explicit关键字

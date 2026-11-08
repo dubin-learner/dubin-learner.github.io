@@ -1,5 +1,7 @@
 # Verilog中的*full_case*
 
+<div align="right"><small>初版写于：2021-02-04</small></div>
+
 一般情况下，在verilog中使用case语句都会把每种条件的结果都写全；即使没有列出所有情况也需要加default来添加默认情况。
 
 对于已经罗列出所有情况的case语句，综合器在综合时会将其视为一种多选一的多路选择器（MUX），并将其转换为组合逻辑。例如：

@@ -1,5 +1,7 @@
 # GDB调试打印STL数据
 
+<div align="right"><small>初版写于：2025-12-12</small></div>
+
 从各种回答中，可查到的有两种方式：
 - 较早的回答推荐使用stl-view-1.03.gdb文件；
 - 较新的回答推荐使用python脚本pretty print。

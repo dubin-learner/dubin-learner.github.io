@@ -1,5 +1,7 @@
 # Xilinx DCI technology
 
+<div align="right"><small>初版写于：2021-02-04</small></div>
+
 Xilinx公司的digitally controlled impedance (DCI) 技术相关笔记。
 
 数字控制阻抗（数控电阻）？

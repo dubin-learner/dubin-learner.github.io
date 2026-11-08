@@ -1,4 +1,7 @@
 # Density概念与计算
+
+<div align="right"><small>初版写于：2023-06-09</small></div>
+
 Density又称Utilization，计算公式如下：
 ```bash
 Density = leaf cell 面积 / 可用总面积 

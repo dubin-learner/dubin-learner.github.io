@@ -1,5 +1,7 @@
 # Linux Shell基础
 
+<div align="right"><small>初版写于：2021-04-28</small></div>
+
 本文将总结一些Linux Shell的相关知识，以及在工作中用过的使用技巧。
 
 社区翻译的《The Linux Command》中文版[网址](http://billie66.github.io/TLCL/)，可以在线阅读或下载pdf，是一本不错的参考书。

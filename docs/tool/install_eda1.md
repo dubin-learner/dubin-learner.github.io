@@ -1,4 +1,7 @@
 # EDA软件安装记录：Cadence Innovus 2020
+
+<div align="right"><small>初版写于：2025-09-21</small></div>
+
 ## 写在前面
 Innovus是数字后端设计比较常用的软件，是国外EDA软件三巨头Cadence的软件。Synopsys与之对应的软件是ICC2，效果上差别不大，功能上可以说各有所长。关于Innovus和ICC2之间，其实还有一段往事，感兴趣的可以去了解下；我也写了相关的读后感。
 

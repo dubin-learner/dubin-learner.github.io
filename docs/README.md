@@ -1,4 +1,7 @@
 # 关于我
+
+<div align="right"><small>初版写于：2020-12-07</small></div>
+
 ![2024年10月4日于大连](resources/resized_me.jpeg)
 
 有着8年以上工作经验的**EDA软件工程师**，主力语言C++。

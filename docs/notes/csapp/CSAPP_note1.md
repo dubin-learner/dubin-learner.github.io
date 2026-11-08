@@ -1,5 +1,7 @@
 # CSAPP
 
+<div align="right"><small>初版写于：2021-01-07</small></div>
+
 ## 第一章 计算机系统漫游
 
 ### 编译系统

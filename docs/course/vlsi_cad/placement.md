@@ -1,4 +1,7 @@
 # Placement
+
+<div align="right"><small>初版写于：2026-02-16</small></div>
+
 分为两个部分：
 - ASIC Placement思维导图
 - 重点部分细节补充

@@ -1,5 +1,7 @@
 # 逻辑等价性检查（Logical Equivalence Checking）
 
+<div align="right"><small>初版写于：2021-01-27</small></div>
+
 主要参考：**A Guide on Logical Equivalence Checking - Flow, Challenges, and Benefits** [英文原文地址](https://www.design-reuse.com/articles/45547/a-guide-on-logical-equivalence-checking-flow-challenges-and-benefits.html)
 
 > VLSI的设计周期分为两个阶段：前端和后端。前端涵盖架构规范、编码和验证，而后端涉及*目标制程技术节点上*设计的物理实现。

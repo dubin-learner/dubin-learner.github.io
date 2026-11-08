@@ -1,4 +1,7 @@
 # MacOS M1 sonoma安装opencv
+
+<div align="right"><small>初版写于：2025-06-07</small></div>
+
 其实也没什么原因，图像处理这块的知识我一直都不想荒废；
 毕竟本科毕业加上整个研究生期间，都在做相关的内容。
 

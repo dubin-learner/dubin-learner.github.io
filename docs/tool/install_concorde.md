@@ -1,5 +1,7 @@
 # 安装concorde
 
+<div align="right"><small>初版写于：2025-06-15</small></div>
+
 ## 简介
 concorde是一个TSP问题求解器（solver），所谓TSP问题就是旅行商问题（Travel Salesman Problem），有一定数目的城市，要求不重复访问完其中每一个城市的最短路径是哪一条。
 

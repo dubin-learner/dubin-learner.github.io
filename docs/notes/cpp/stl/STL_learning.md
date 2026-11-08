@@ -1,5 +1,7 @@
 # C++ STL API
 
+<div align="right"><small>初版写于：2021-01-08</small></div>
+
 本文将列举一些C++ STL中的API，基本都是到目前为止在LeetCode上刷题时遇到的，自己却不太熟悉的。
 
 ## 随机数生成 `rand`

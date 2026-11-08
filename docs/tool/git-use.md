@@ -1,5 +1,7 @@
 # Git常见使用技巧
 
+<div align="right"><small>初版写于：2021-08-07</small></div>
+
 推荐git相关的书籍：
 
 [Pro Git](http://git-scm.com/book/zh/v2)：官方书籍，有中文版，有基础有提高；

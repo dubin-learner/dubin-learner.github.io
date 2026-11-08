@@ -1,4 +1,7 @@
 # MATLAB基础教程
+
+<div align="right"><small>初版写于：2025-09-21</small></div>
+
 Coursera上的[MathWorks计算机视觉工程师](https://www.coursera.org/professional-certificates/mathworks-computer-vision-engineer#courses)项目中，
 提供了MathWorks公司官方面向新手的[免费教程](https://www.mathworks.com/learn/tutorials/matlab-onramp.html)。
 在读研的时候我的MATLAB用的还算熟练，毕业之后因为一直不用已经基本荒废了。这次借着学习这个项目，也重新捡起来。

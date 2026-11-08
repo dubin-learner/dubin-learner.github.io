@@ -1,5 +1,7 @@
 # 拓扑排序
 
+<div align="right"><small>初版写于：2021-05-12</small></div>
+
 > 翻译自GeeksforGeeks的文章[Topological Sorting](https://www.geeksforgeeks.org/topological-sorting/)
 
 拓扑排序是有向无环图（DAG）的一种访问方式，参照图中边的走向将所有节点线性排列。例如对于一条u到v的有向边，那么线性排列中u一定排列在v的前面。如果不是有向无环图，那么拓扑排序是无法完成的。
