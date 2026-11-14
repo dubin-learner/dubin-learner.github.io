@@ -4,6 +4,7 @@
 
 ---
 
+- [2026-11-12：尝试OpenCode](/works/try_opencode_at_work)
 - [2025-12-12：优化GDB调试打印STL数据结果](/tool/stl-view-gdb)
 - [2025-07-02：Perf安装与火焰图](/tool/install_perf)
 - [2024-11-15：工作环境配置](/works/work_environment)
