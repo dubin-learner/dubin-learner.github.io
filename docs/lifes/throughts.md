@@ -5,4 +5,4 @@
 ---
 
 - [2026-07-02：“EDA战争：一个硅谷丛林的故事”读后感](/lifes/throughts/eda_war)
-- [2021-05-02：一点无用的想法](/lifes/throughts/useless-thinks)
+- [2021-05-02：一点无用的想法](/lifes/throughts/useless-thinks/page)

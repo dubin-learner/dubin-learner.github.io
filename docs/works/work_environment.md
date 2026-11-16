@@ -156,7 +156,7 @@ highlight CursorLine cterm=NONE ctermbg=240
 其中，`svimdiff`是自定义的字符串，只要在下面的路径配置正确即可，代表自定义了某个路径下的工具作为diff工具。
 参考的这篇文章：[使用.gitconfig配置diff工具](https://dev59.com/yGw15IYBdhLWcg3wxuch)
 
-?> 更多的配置细节说明，见我的另一片文章：[Vim常见使用技巧#其他](blog/vim-use?id=其他)
+?> 更多的配置细节说明，见我的另一片文章：[Vim常见使用技巧#其他](/tool/vim-use/page?id=其他)
 
 ## tmux离线安装
 tmux是一个终端复用器，适合ssh时启动多个终端进行管理。

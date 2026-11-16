@@ -32,7 +32,14 @@
   <script src="//unpkg.com/prismjs@1/components/prism-c.js"></script>
   <script src="//unpkg.com/prismjs@1/components/prism-clike.js"></script>
   <script src="//unpkg.com/prismjs@1/components/prism-cpp.js"></script>
+  <script src="//unpkg.com/prismjs@1/components/prism-json.js"></script>
+  <script src="//unpkg.com/prismjs@1/components/prism-powershell.js"></script>
+  <script src="//unpkg.com/prismjs@1/components/prism-shell-session.js"></script>
   <script src="//unpkg.com/prismjs@1/components/prism-verilog.js"></script>
+  <script>
+    // Prism 没有 csh 语法，借用 bash 语法做基础高亮
+    if (window.Prism) Prism.languages.csh = Prism.languages.bash;
+  </script>
   <!-- docsify with MathJax -->
   <script src="//cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-latex@0"></script>

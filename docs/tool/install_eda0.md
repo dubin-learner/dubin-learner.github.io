@@ -40,7 +40,7 @@
 
 可以通过OrbStack和xQuartz用X11转发实现GUI显示，并且已经借助该功能成功启动Synopsys EDA Tools的GUI安装界面。
 
-借助deepseek的回答实现，这部分内容可参见[PrimeTime2016安装](/tool/install_eda2)。
+借助deepseek的回答实现，这部分内容可参见[PrimeTime2016安装](/tool/install_eda2/page)。
 
 !> NoMachine还是不要碰了。
 
