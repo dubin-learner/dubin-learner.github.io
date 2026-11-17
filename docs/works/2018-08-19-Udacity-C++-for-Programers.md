@@ -1,9 +1,4 @@
----
-title: Udacity课程 C++ For Programmers (0)
-date: 2018-08-19T17:37:30+08:00
-tags:
-  - 学习
----
+# Udacity课程 C++ For Programmers (0)
 
 ## 前言
 

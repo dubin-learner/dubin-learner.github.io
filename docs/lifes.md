@@ -6,4 +6,5 @@
 - [想法](/lifes/throughts)
 - [苹果设备日常使用](/lifes/my-apple-devices)
 - [时光机](/lifes/old-days)
+- [2018-02-26：【转载】与非网硅谷科技游](/lifes/2018-02-26-eeboard-trip)
 - [2017-06-04：天津之旅](/lifes/2017-06-04-trip-to-Tianjin/page)

@@ -1,9 +1,4 @@
----
-title: Logic Synthesis
-date: 2018-08-19T01:17:30+08:00
-tags:
-  - 学习
----
+# Logic Synthesis
 
 ## 还是要开始新的学习计划才行
 

@@ -1,11 +1,6 @@
----
-title: IOPlanning部分源代码阅读
-date: 2017-11-13T10:00:00+08:00
-tags:
-  - EDA Project
----
+# IOPlanning部分源代码阅读
 
-### I/O Planning 数据模型基类
+## I/O Planning 数据模型基类
 
 `IOPModel : QAbstractItemModel` 关于数据来源关系的分析（主要提取核心的成员变量）：
 
@@ -59,7 +54,7 @@ IOPModel // 基础结构
 
 ---
 
-### I/O Planning 的代理模型类 proxy model
+## I/O Planning 的代理模型类 proxy model
 
 几种代理模型类继承关系如下：
 
@@ -86,7 +81,7 @@ class PackageLayoutModel : public IOPPackagePinModel {...}
 
 ---
 
-### I/O Planning的视图类 view
+## I/O Planning的视图类 view
 
 在I/O Planning命名空间中：
 
@@ -109,7 +104,7 @@ namespace ioplanning {
 
 ---
 
-### I/O Planning的模型-视图对应关系 model-view
+## I/O Planning的模型-视图对应关系 model-view
 
 通过以上的分析已经很清楚了：（模型 <—> 视图）
 
