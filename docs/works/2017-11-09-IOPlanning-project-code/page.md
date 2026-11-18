@@ -111,3 +111,9 @@ namespace ioplanning {
 - `IOPIOPortModel` <—> `IOPPortView`
 - `IOPPackagePinModel` <—> `IOPPackagePinView`
 - `PackageLayoutModel` <—> `PackageView(PackageLayoutWidget成员)`
+
+---
+
+代码示意图
+
+![](./多个View同步选择.PNG)
