@@ -8,3 +8,4 @@
 - [时光机](/lifes/old-days)
 - [2018-02-26：【转载】与非网硅谷科技游](/lifes/2018-02-26-eeboard-trip)
 - [2017-06-04：天津之旅](/lifes/2017-06-04-trip-to-Tianjin/page)
+- [2015-07-09：考研这一路](/lifes/2015-07-09-kaoyan/page)
