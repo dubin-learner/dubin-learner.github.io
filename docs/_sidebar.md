@@ -9,5 +9,3 @@
 * [📑 学习](/notes)
 
 * [🎮 生活](/lifes)
-  * [书单](/lifes/book-list/page)
-  * [想法](/lifes/throughts)

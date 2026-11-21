@@ -14,6 +14,7 @@
 - [2021-05-07：C++基础知识记忆小技巧](/works/2021-05-07-cpp-basic-tricks)
 - [2021-04-28：Linux Shell基础](/tool/linux-shell)
 - [2021-04-16：正则表达式](/tool/regex)
+- [2021-03-12：从C++到Qt](/works/2021-03-12-from-cpp-to-qt/page)
 - [2018-10-26：工作周记：Week 44](/works/2018-10-26-noteWW44/page)
 - [2018-10-22：Logic Synthesis](/works/2018-10-22-Logic-Synthesis)
 - [2018-08-19：Udacity C++ for Programers](/works/2018-08-19-Udacity-C++-for-Programers)

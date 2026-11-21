@@ -64,11 +64,6 @@
 ### 📖 Effective C++ 读书笔记
 - [effective C++](/notes/effective-cpp/effective_cpp)
 
-## Qt
-
-### 📖 Qt学习笔记
-- [从C++到Qt](/notes/qt/00_from_cpp_to_qt/page)
-
 ## 算法
 
 ### 📖 算法基础
